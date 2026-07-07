@@ -16,8 +16,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/weddings")({
   head: () => ({
     ...pageSeo({
-      title: "Wedding Car Rental | Rudra Tours and Travels",
-      description: "Arrive in style with decorated wedding cars, luxury sedans, SUVs and guest transport planned across India.",
+      title: "Wedding Car Rental | Decorated Cars & Guest Transport",
+      description:
+        "Arrive in style with decorated wedding cars, luxury sedans, SUVs and guest transport planned across India.",
       path: "/weddings",
       image: heroLuxuryCar,
     }),
@@ -27,23 +28,26 @@ export const Route = createFileRoute("/weddings")({
 });
 
 // Exactly six featured wedding vehicles for the desktop row.
-const WEDDING_SLUGS = [
-  "city", "verna", "scorpio", "fortuner", "audi-a6", "mercedes-benz",
-] as const;
+const WEDDING_SLUGS = ["city", "verna", "scorpio", "fortuner", "audi-a6", "mercedes-benz"] as const;
 
 const fmt = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 function WeddingsPage() {
-  const weddingFleet: Vehicle[] = WEDDING_SLUGS
-    .map((s) => VEHICLES.find((v) => v.slug === s))
-    .filter((v): v is Vehicle => Boolean(v));
+  const weddingFleet: Vehicle[] = WEDDING_SLUGS.map((s) =>
+    VEHICLES.find((v) => v.slug === s),
+  ).filter((v): v is Vehicle => Boolean(v));
 
   return (
     <PageLayout>
       <Breadcrumbs items={[{ label: "Wedding Cars", to: "/weddings" }]} />
       <PageHero
         eyebrow="Wedding Cars"
-        title={<>Arrive in Style. <span className="shine-text italic">Celebrate Tension-Free.</span></>}
+        title={
+          <>
+            Wedding car rental for a <span className="shine-text italic">tension-free</span>{" "}
+            arrival.
+          </>
+        }
         subtitle="From the bride's grand entry to the last guest's drop-off — beautifully decorated cars with friendly drivers, planned for once-in-a-lifetime moments."
         image={heroLuxuryCar}
       />
@@ -52,7 +56,9 @@ function WeddingsPage() {
       <section className="px-6 pb-10 md:pb-16">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 md:mb-10">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">Featured Cars</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+              Featured Cars
+            </div>
             <h2 className="font-display text-3xl md:text-4xl">Handpicked for your big day.</h2>
           </div>
 
@@ -67,10 +73,15 @@ function WeddingsPage() {
                 whileHover={{ y: -6 }}
                 className="group relative rounded-2xl glass-strong p-5 overflow-hidden flex flex-col"
               >
-                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: "var(--gradient-radial-gold)" }} />
+                <div
+                  className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{ background: "var(--gradient-radial-gold)" }}
+                />
 
                 <div className="relative flex flex-col h-full">
-                  <div className="text-[9px] uppercase tracking-[0.28em] text-gold mb-3">{CATEGORY_BY_ID[v.category].name}</div>
+                  <div className="text-[9px] uppercase tracking-[0.28em] text-gold mb-3">
+                    {CATEGORY_BY_ID[v.category].name}
+                  </div>
 
                   <div className="relative aspect-[16/10] rounded-xl bg-gradient-to-b from-white/5 to-transparent border border-white/5 overflow-hidden mb-4">
                     <div className="absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent" />
@@ -97,7 +108,12 @@ function WeddingsPage() {
 
                   <Link
                     to="/inquiry"
-                    search={{ type: "Wedding Inquiry", vehicle: v.name, category: CATEGORY_BY_ID[v.category].name, rental: "local" }}
+                    search={{
+                      type: "Wedding Inquiry",
+                      vehicle: v.name,
+                      category: CATEGORY_BY_ID[v.category].name,
+                      rental: "local",
+                    }}
                     className="mt-auto inline-flex items-center justify-center gap-2 py-2.5 rounded-full glass border border-[var(--gold)]/30 text-[10px] uppercase tracking-[0.22em] text-gold hover:bg-[var(--gold)]/10 transition-colors"
                   >
                     Reserve Car <ArrowRight className="w-3 h-3" />
@@ -117,20 +133,37 @@ function WeddingsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            onSubmit={(e) => { e.preventDefault(); alert("Thank you! Our wedding team will reach out within 1 business hour."); }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Thank you! Our wedding team will reach out within 1 business hour.");
+            }}
             className="glass-strong rounded-3xl p-7 md:p-10"
           >
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Wedding Inquiry</div>
-            <h3 className="font-display text-3xl md:text-4xl mb-6">Let's begin your big day.</h3>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
+              Wedding Inquiry
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl mb-6">Let's begin your big day.</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="Bride / Groom name" />
               <Field label="Wedding city" />
               <Field label="Approx. dates" />
               <Field label="Guest count" />
-              <div className="sm:col-span-2"><Field label="Phone / Email" /></div>
-              <textarea placeholder="Tell us your plan — venues, guests, must-haves…" rows={4} className="sm:col-span-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
+              <div className="sm:col-span-2">
+                <Field label="Phone / Email" />
+              </div>
+              <label className="sm:col-span-2 block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Tell us your plan
+                <textarea
+                  name="notes"
+                  placeholder="Tell us your plan — venues, guests, must-haves…"
+                  rows={4}
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
             </div>
-            <button className="btn-gold w-full mt-5 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium">Get Wedding Quote</button>
+            <button className="btn-gold w-full mt-5 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium">
+              Get Wedding Quote
+            </button>
           </motion.form>
         </div>
       </section>
@@ -139,13 +172,18 @@ function WeddingsPage() {
       <section className="px-6 pb-16 md:pb-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 md:mb-10 text-center">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">Decorated Wedding Cars</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+              Decorated Wedding Cars
+            </div>
             <h2 className="font-display text-3xl md:text-5xl">Every flower, placed with love.</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { src: decoratedSedan, alt: "Luxury white sedan with white rose and marigold garland" },
+              {
+                src: decoratedSedan,
+                alt: "Luxury white sedan with white rose and marigold garland",
+              },
               { src: brideArrival, alt: "Bride and groom arriving in a decorated luxury car" },
               { src: decoratedSuv, alt: "Premium black SUV with floral wedding decoration" },
             ].map((g, i) => (
@@ -202,8 +240,20 @@ function WeddingsPage() {
 }
 
 function ContentBlock({
-  image, alt, eyebrow, title, body, cta,
-}: { image: string; alt: string; eyebrow: string; title: string; body: string; cta?: boolean }) {
+  image,
+  alt,
+  eyebrow,
+  title,
+  body,
+  cta,
+}: {
+  image: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+  cta?: boolean;
+}) {
   return (
     <section className="px-6 pb-16 md:pb-24">
       <div className="mx-auto max-w-7xl">
@@ -252,9 +302,13 @@ function ContentBlock({
 
 function Field({ label }: { label: string }) {
   return (
-    <input
-      placeholder={label}
-      className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
-    />
+    <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+      {label}
+      <input
+        name={label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+        placeholder={label}
+        className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+      />
+    </label>
   );
 }

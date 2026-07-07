@@ -10,7 +10,11 @@ export function Fleet() {
     <section id="vehicles" className="relative py-5 md:py-6 lg:py-8 px-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--deep-2)]/50 to-transparent pointer-events-none" />
       <div className="mx-auto max-w-7xl relative">
-        <SectionHeader eyebrow="Our Fleet" title="Comfortable rides for every trip." subtitle="Every car is checked, cleaned and paired with a friendly driver who knows the roads." />
+        <SectionHeader
+          eyebrow="Our Fleet"
+          title="Comfortable rides for every trip."
+          subtitle="Every car is checked, cleaned and paired with a friendly driver who knows the roads."
+        />
 
         <div className="mt-8 md:mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {fleet.map((v) => {
@@ -25,10 +29,15 @@ export function Fleet() {
                 whileHover={{ y: -6 }}
                 className="group relative rounded-2xl glass-strong p-7 overflow-hidden"
               >
-                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: "var(--gradient-radial-gold)" }} />
+                <div
+                  className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{ background: "var(--gradient-radial-gold)" }}
+                />
 
                 <div className="relative">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">{CATEGORY_BY_ID[v.category].name}</div>
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
+                    {CATEGORY_BY_ID[v.category].name}
+                  </div>
                   <h3 className="font-display text-2xl mb-6">{v.name}</h3>
 
                   {/* Illuminated platform with vehicle image */}
@@ -51,18 +60,31 @@ export function Fleet() {
 
                   <div className="mt-3 space-y-0.5">
                     {isLuxury ? (
-                      <div className="text-gold font-display text-lg leading-tight">Rental: ₹{v.local[0].toLocaleString("en-IN")} – ₹{v.local[1].toLocaleString("en-IN")}</div>
+                      <div className="text-gold font-display text-lg leading-tight">
+                        Rental: ₹{v.local[0].toLocaleString("en-IN")} – ₹
+                        {v.local[1].toLocaleString("en-IN")}
+                      </div>
                     ) : (
                       <>
-                        <div className="text-gold font-display text-lg leading-tight">Local: ₹{v.local[0].toLocaleString("en-IN")} – ₹{v.local[1].toLocaleString("en-IN")}</div>
-                        <div className="text-xs text-luxury-gray">Outstation: ₹{v.outstation[0]} – ₹{v.outstation[1]}/km</div>
+                        <div className="text-gold font-display text-lg leading-tight">
+                          Local: ₹{v.local[0].toLocaleString("en-IN")} – ₹
+                          {v.local[1].toLocaleString("en-IN")}
+                        </div>
+                        <div className="text-xs text-luxury-gray">
+                          Outstation: ₹{v.outstation[0]} – ₹{v.outstation[1]}/km
+                        </div>
                       </>
                     )}
                   </div>
 
                   <Link
                     to="/inquiry"
-                    search={{ type: "Vehicle Inquiry", vehicle: v.name, category: CATEGORY_BY_ID[v.category].name, rental: "local" }}
+                    search={{
+                      type: "Vehicle Inquiry",
+                      vehicle: v.name,
+                      category: CATEGORY_BY_ID[v.category].name,
+                      rental: "local",
+                    }}
                     className="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold hover:gap-3 transition-all"
                   >
                     Check Vehicle <ArrowRight className="w-3.5 h-3.5" />

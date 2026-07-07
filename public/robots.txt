@@ -5,4 +5,4 @@ Disallow: /__l5e/
 Disallow: /_output/
 Disallow: /_build/
 
-Sitemap: https://toursbyrudra.com/sitemap.xml
+Sitemap: https://www.toursbyrudra.com/sitemap.xml

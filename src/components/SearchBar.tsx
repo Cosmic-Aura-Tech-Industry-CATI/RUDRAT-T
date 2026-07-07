@@ -25,9 +25,23 @@ const DEST_INDEX: DestEntry[] = (() => {
 })();
 
 const PLACEHOLDER_ROTATION = [
-  "Ayodhya", "Varanasi", "Prayagraj", "Lucknow", "Agra", "Mathura", "Vrindavan",
-  "Nainital", "Mussoorie", "Haridwar", "Rishikesh", "Delhi", "Jaipur",
-  "Shimla", "Manali", "Kedarnath", "Badrinath",
+  "Ayodhya",
+  "Varanasi",
+  "Prayagraj",
+  "Lucknow",
+  "Agra",
+  "Mathura",
+  "Vrindavan",
+  "Nainital",
+  "Mussoorie",
+  "Haridwar",
+  "Rishikesh",
+  "Delhi",
+  "Jaipur",
+  "Shimla",
+  "Manali",
+  "Kedarnath",
+  "Badrinath",
 ];
 
 function resolveSlug(query: string): string | null {
@@ -119,7 +133,7 @@ export function SearchBar() {
     const q = destQuery.trim();
     if (q) search.q = q;
     if (slug) {
-      navigate({ to: "/tours", search, hash: slug });
+      navigate({ to: "/tours/$slug", params: { slug }, search });
     } else {
       navigate({ to: "/tours", search });
     }
@@ -162,7 +176,9 @@ export function SearchBar() {
           <div className="relative group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/[0.04] transition-colors">
             <MapPin className="w-4 h-4 text-gold shrink-0" />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">Destination</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">
+                Destination
+              </div>
               <input
                 ref={destInputRef}
                 value={destQuery}
@@ -178,6 +194,7 @@ export function SearchBar() {
                 className="w-full bg-transparent outline-none text-sm text-premium-white placeholder:text-luxury-gray/60 mt-0.5"
                 placeholder={PLACEHOLDER_ROTATION[placeholderIdx]}
                 autoComplete="off"
+                aria-label="Search destination"
               />
             </div>
             {destOpen && suggestions.length > 0 && (
@@ -195,7 +212,9 @@ export function SearchBar() {
                     }}
                     className={cn(
                       "w-full text-left px-4 py-2.5 text-sm flex items-center gap-3 transition-colors",
-                      i === highlight ? "bg-white/[0.06] text-premium-white" : "text-luxury-gray hover:text-premium-white",
+                      i === highlight
+                        ? "bg-white/[0.06] text-premium-white"
+                        : "text-luxury-gray hover:text-premium-white",
                     )}
                   >
                     <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
@@ -217,10 +236,13 @@ export function SearchBar() {
               <button
                 type="button"
                 className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/[0.04] transition-colors text-left"
+                aria-label="Select travel dates"
               >
                 <CalendarIcon className="w-4 h-4 text-gold shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">Travel Date</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">
+                    Travel Date
+                  </div>
                   <div
                     className={cn(
                       "w-full bg-transparent text-sm mt-0.5 truncate",
@@ -272,7 +294,9 @@ export function SearchBar() {
           <div className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/[0.04] transition-colors">
             <Clock className="w-4 h-4 text-gold shrink-0" />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">Duration</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">
+                Duration
+              </div>
               <div
                 className={cn(
                   "w-full bg-transparent text-sm mt-0.5 truncate",
@@ -290,10 +314,13 @@ export function SearchBar() {
               <button
                 type="button"
                 className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/[0.04] transition-colors text-left"
+                aria-label="Select travellers"
               >
                 <Users className="w-4 h-4 text-gold shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">Travellers</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">
+                    Travellers
+                  </div>
                   <div className="w-full bg-transparent text-sm text-premium-white mt-0.5 truncate">
                     {travLabel}
                   </div>
@@ -323,7 +350,9 @@ export function SearchBar() {
           </Popover>
 
           <button
+            type="button"
             onClick={handleSearch}
+            aria-label="Search tours"
             className="btn-gold px-6 py-4 rounded-xl flex items-center justify-center gap-2 text-sm uppercase tracking-[0.2em] font-medium"
           >
             <Search className="w-4 h-4" />

@@ -3,10 +3,12 @@ import { BRAND } from "@/lib/brand";
 
 export const SITE = {
   name: "Rudra Tours and Travels",
-  url: "https://toursbyrudra.com",
-  description: "Rudra Tours and Travels offers handpicked tour packages, comfortable car rentals and wedding travel across India.",
+  url: "https://www.toursbyrudra.com",
+  description:
+    "Rudra Tours and Travels offers handpicked India tour packages, car rentals and wedding travel from Kanpur.",
   titleSuffix: "Rudra Tours and Travels",
   logo: logoAsset,
+  locale: "en_IN",
 };
 
 type SeoOptions = {
@@ -53,7 +55,9 @@ export function pageSeo({ title, description, path, image, noindex = false }: Se
       { title },
       { name: "description", content: description },
       { name: "robots", content: robots },
+      { name: "theme-color", content: "#0f1620" },
       { property: "og:site_name", content: SITE.name },
+      { property: "og:locale", content: SITE.locale },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:url", content: canonical },
@@ -113,6 +117,7 @@ export function organizationLdJson() {
           logo: absoluteUrl(SITE.logo),
           email: BRAND.email,
           telephone: BRAND.phone,
+          sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
           address: {
             "@type": "PostalAddress",
             streetAddress: "Mall Road, Civil Lines",
@@ -152,6 +157,7 @@ export function organizationLdJson() {
           logo: absoluteUrl(SITE.logo),
           telephone: BRAND.phone,
           email: BRAND.email,
+          sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
           priceRange: "₹₹",
           address: {
             "@type": "PostalAddress",
@@ -162,7 +168,7 @@ export function organizationLdJson() {
             addressCountry: "IN",
           },
           areaServed: "India",
-          hasMap: "https://share.google/OwmWsM4T3GhEmwVN4",
+          hasMap: BRAND.mapsUrl,
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -180,6 +186,7 @@ export function organizationLdJson() {
           logo: absoluteUrl(SITE.logo),
           telephone: BRAND.phone,
           email: BRAND.email,
+          sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
           address: {
             "@type": "PostalAddress",
             streetAddress: "Mall Road, Civil Lines",
@@ -189,6 +196,7 @@ export function organizationLdJson() {
             addressCountry: "IN",
           },
           areaServed: ["India", "Kanpur", "Lucknow"],
+          serviceType: "Local travel, tour packages and wedding travel",
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -197,6 +205,33 @@ export function organizationLdJson() {
               closes: "20:00",
             },
           ],
+        },
+        {
+          "@type": "Service",
+          "@id": `${SITE.url}/#service-tour-packages`,
+          name: "India Tour Packages",
+          serviceType: "Tour packages",
+          provider: { "@id": `${SITE.url}/#travel-agency` },
+          areaServed: "India",
+          url: `${SITE.url}/tours`,
+        },
+        {
+          "@type": "Service",
+          "@id": `${SITE.url}/#service-vehicle-rentals`,
+          name: "Car Rental and Taxi Service",
+          serviceType: "Vehicle rentals",
+          provider: { "@id": `${SITE.url}/#local-business` },
+          areaServed: "India",
+          url: `${SITE.url}/vehicles`,
+        },
+        {
+          "@type": "Service",
+          "@id": `${SITE.url}/#service-wedding-travel`,
+          name: "Wedding Car Rental",
+          serviceType: "Wedding travel",
+          provider: { "@id": `${SITE.url}/#travel-agency` },
+          areaServed: "India",
+          url: `${SITE.url}/weddings`,
         },
       ],
     },

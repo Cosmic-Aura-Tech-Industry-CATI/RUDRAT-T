@@ -11,8 +11,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     ...pageSeo({
-      title: "Guest Reviews | Rudra Tours and Travels",
-      description: "Read real traveller reviews from Kashmir to Kerala, Ladakh to Goa, shared by guests of Rudra Tours and Travels.",
+      title: "Guest Reviews | Real Traveller Feedback",
+      description:
+        "Read real traveller reviews from Kashmir to Kerala, Ladakh to Goa, shared by guests of Rudra Tours and Travels.",
       path: "/reviews",
       image: hero,
     }),
@@ -27,7 +28,11 @@ function ReviewsPage() {
       <Breadcrumbs items={[{ label: "Reviews", to: "/reviews" }]} />
       <PageHero
         eyebrow="Guest Stories"
-        title={<>Words from <span className="shine-text italic">the road</span>.</>}
+        title={
+          <>
+            Traveller reviews from <span className="shine-text italic">the road</span>.
+          </>
+        }
         subtitle="Every review below is from a real guest who travelled with us — unedited, unpaid, unfiltered."
         image={hero}
       />

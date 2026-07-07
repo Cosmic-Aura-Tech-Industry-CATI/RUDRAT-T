@@ -15,14 +15,13 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   head: () => ({
     ...pageSeo({
-      title: "About Rudra Tours and Travels | Trusted Travel Brand",
-      description: "Read the story of Rudra Tours and Travels, founded in Kanpur and built on trust, honesty and 1 lakh+ happy travellers.",
+      title: "About Rudra Tours & Travels | Trusted Kanpur Travel Brand",
+      description:
+        "Read the story of Rudra Tours and Travels, founded in Kanpur and built on trust, honesty and 1 lakh+ happy travellers.",
       path: "/about",
       image: hero,
     }),
-    ...breadcrumbLdJson([
-      { name: "About", path: "/about" },
-    ]),
+    ...breadcrumbLdJson([{ name: "About", path: "/about" }]),
   }),
   component: AboutPage,
 });
@@ -63,8 +62,18 @@ const storySections = [
 ];
 
 const founderPhotos = [
-  { src: founderAsset.url, alt: "Mr. Abhay Nigam, Founder of Rudra Tours & Travels", caption: "Mr. Abhay Nigam", role: "Founder" },
-  { src: founderSonAsset.url, alt: "Rudra Nigam, son of founder Mr. Abhay Nigam, after whom the company is named", caption: "Rudra Nigam", role: "The name behind the brand" },
+  {
+    src: founderAsset.url,
+    alt: "Mr. Abhay Nigam, Founder of Rudra Tours & Travels",
+    caption: "Mr. Abhay Nigam",
+    role: "Founder",
+  },
+  {
+    src: founderSonAsset.url,
+    alt: "Rudra Nigam, son of founder Mr. Abhay Nigam, after whom the company is named",
+    caption: "Rudra Nigam",
+    role: "The name behind the brand",
+  },
 ];
 
 function AboutPage() {
@@ -73,7 +82,12 @@ function AboutPage() {
       <Breadcrumbs items={[{ label: "About", to: "/about" }]} />
       <PageHero
         eyebrow="Our Story"
-        title={<>14+ years of <span className="shine-text italic">yaadgaar</span> journeys.</>}
+        title={
+          <>
+            About Rudra Tours & Travels — <span className="shine-text italic">14+ years</span> on
+            the road.
+          </>
+        }
         subtitle="Born in Kanpur, raised on every road of India. Rudra Tours & Travels is here for travellers who measure a trip by its memories, not its kilometres."
         image={hero}
       />
@@ -97,7 +111,10 @@ function AboutPage() {
                 whileHover={{ y: -6 }}
                 className="group relative rounded-3xl glass-strong overflow-hidden hover:border-[var(--gold)]/40 transition-all duration-500"
               >
-                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: "var(--gradient-radial-gold)" }} />
+                <div
+                  className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                  style={{ background: "var(--gradient-radial-gold)" }}
+                />
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <img
                     src={p.src}
@@ -109,7 +126,9 @@ function AboutPage() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
                 </div>
                 <figcaption className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-1">{p.role}</div>
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-1">
+                    {p.role}
+                  </div>
                   <div className="font-display text-xl md:text-2xl">{p.caption}</div>
                 </figcaption>
               </motion.figure>
@@ -126,8 +145,12 @@ function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-8">
               {storySections.map((section, i) => (
                 <div key={i} className="space-y-4">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold">{section.eyebrow}</div>
-                  <h4 className="font-display text-xl md:text-2xl leading-tight">{section.title}</h4>
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold">
+                    {section.eyebrow}
+                  </div>
+                  <h4 className="font-display text-xl md:text-2xl leading-tight">
+                    {section.title}
+                  </h4>
                   <div className="space-y-4 text-luxury-gray leading-[1.75] text-[15px] md:text-base">
                     {section.paragraphs.map((para, j) => (
                       <p key={j}>{para}</p>

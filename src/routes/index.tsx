@@ -19,8 +19,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: () => ({
     ...pageSeo({
-      title: "Rudra Tours and Travels | India Tour Packages",
-      description: "Plan India tour packages, domestic holidays, vehicle rentals and wedding travel with Rudra Tours and Travels in Kanpur.",
+      title: "India Tour Packages, Car Rentals & Wedding Travel",
+      description:
+        "Plan India tour packages, domestic holidays, vehicle rentals and wedding travel with Rudra Tours and Travels in Kanpur.",
       path: "/",
       image: heroSuv,
     }),

@@ -15,11 +15,30 @@ export function PageHero({ eyebrow, title, subtitle, image, imageAlt, children }
     <section className="relative pt-28 pb-8 md:pt-32 md:pb-10 px-6 overflow-hidden">
       {image && (
         <div className="absolute inset-0">
-          <img src={image} alt={imageAlt ?? `${eyebrow} hero image for Rudra Tours and Travels`} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover opacity-50" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--deep) 0%, oklch(0.13 0.02 260 / 0.6) 50%, var(--deep) 100%)" }} />
+          <img
+            src={image}
+            alt={imageAlt ?? `${eyebrow} hero image for Rudra Tours and Travels`}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            className="w-full h-full object-cover opacity-50"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, var(--deep) 0%, oklch(0.13 0.02 260 / 0.6) 50%, var(--deep) 100%)",
+            }}
+          />
         </div>
       )}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 70% 20%, oklch(0.78 0.13 85 / 0.18), transparent 60%)" }} />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 70% 20%, oklch(0.78 0.13 85 / 0.18), transparent 60%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-7xl">
         <motion.div

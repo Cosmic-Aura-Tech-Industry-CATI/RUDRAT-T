@@ -9,8 +9,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     ...pageSeo({
-      title: "Travel Gallery | Rudra Tours and Travels",
-      description: "Browse real trip photos from Rudra Tours and Travels across destinations, cars and celebrations in India.",
+      title: "Travel Gallery | Real Trip Photos by Rudra Tours",
+      description:
+        "Browse real trip photos from Rudra Tours and Travels across destinations, cars and celebrations in India.",
       path: "/gallery",
       image: galleryImages[0].src,
     }),
@@ -25,7 +26,11 @@ function GalleryPage() {
       <Breadcrumbs items={[{ label: "Gallery", to: "/gallery" }]} />
       <PageHero
         eyebrow="Gallery"
-        title={<>Moments from <span className="shine-text italic">every road</span>.</>}
+        title={
+          <>
+            Travel gallery moments from <span className="shine-text italic">every road</span>.
+          </>
+        }
         subtitle="Every photo is from a real trip — no stock images, no fake filters. Bilkul asli."
         image={galleryImages[0].src}
       />

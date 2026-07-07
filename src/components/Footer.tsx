@@ -1,0 +1,101 @@
+import { Link } from "@tanstack/react-router";
+import { Phone, Mail, MapPin, Instagram, Youtube } from "lucide-react";
+import { BRAND } from "@/lib/brand";
+import logoAsset from "@/assets/rudra-logo.png";
+import dimisiLogo from "@/assets/dimisi-logo.png";
+
+const cols = [
+  {
+    title: "Explore",
+    links: [
+      { label: "Tour Packages", to: "/tours", ariaLabel: "View Tour Packages" },
+      { label: "Car Rentals", to: "/vehicles", ariaLabel: "View Car Rentals" },
+      { label: "Wedding Travel", to: "/weddings", ariaLabel: "View Wedding Travel" },
+      { label: "Destinations", to: "/destinations", ariaLabel: "View Destinations" },
+    ],
+  },
+  {
+    title: "Travel Services",
+    links: [
+      { label: "Airport Pickup", to: "/vehicles", ariaLabel: "View Airport Pickup Services" },
+      { label: "Local Taxi", to: "/vehicles", ariaLabel: "View Local Taxi Services" },
+      { label: "Outstation Cabs", to: "/vehicles", ariaLabel: "View Outstation Cab Services" },
+      { label: "Tempo Traveller", to: "/vehicles#tempo-traveller", ariaLabel: "View Tempo Traveller" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Rudra", to: "/about", ariaLabel: "View About Rudra" },
+    ],
+  },
+];
+
+export function Footer() {
+  return (
+    <footer className="relative pt-16 pb-8 px-6 border-t border-white/10">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/10">
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <img src={logoAsset} alt="Rudra Tours & Travels" className="w-10 h-10 rounded-full border border-[var(--gold)]/40 object-contain" />
+              <div>
+                <div className="text-[11px] tracking-[0.3em] text-luxury-gray">RUDRA</div>
+                <div className="font-display tracking-wide">Tours & Travels</div>
+              </div>
+            </div>
+            <p className="text-luxury-gray text-sm leading-relaxed max-w-sm">
+              India's friendly travel partner. Handpicked trips, comfortable cars and yaadgaar journeys — planned with warmth.
+            </p>
+            <div className="mt-6 space-y-2 text-sm text-luxury-gray">
+              <a href={BRAND.phoneHref} className="flex items-center gap-3 hover:text-premium-white transition-colors"><Phone className="w-4 h-4 text-gold" /> {BRAND.phone}</a>
+              <a href={BRAND.emailHref} className="flex items-center gap-3 hover:text-premium-white transition-colors"><Mail className="w-4 h-4 text-gold" /> {BRAND.email}</a>
+              <div className="flex items-center gap-3"><MapPin className="w-4 h-4 text-gold" /> Kanpur - Uttar Pradesh</div>
+            </div>
+          </div>
+
+          {cols.map((c) => (
+            <div key={c.title}>
+              <div className="text-[11px] tracking-[0.3em] uppercase text-gold mb-5">{c.title}</div>
+              <ul className="space-y-3 text-sm text-luxury-gray">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      to={l.to}
+                      aria-label={l.ariaLabel}
+                      className="hover:text-premium-white transition-colors relative inline-block group"
+                    >
+                      {l.label}
+                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-500" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 pt-8 text-xs text-luxury-gray">
+          {/* Left — Copyright */}
+          <div className="text-center md:text-left order-3 md:order-1">
+            <span>© 2026 Rudra Tours & Travels. Luxury Journeys Begin Here.</span>
+          </div>
+
+          {/* Center — Socials */}
+          <div className="flex items-center gap-6 justify-center order-2 md:order-2">
+            <a href="[YOUTUBE_URL]" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube" className="hover:text-gold transition-colors"><Youtube className="w-4 h-4" /></a>
+            <a href="[INSTAGRAM_URL]" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram" className="hover:text-gold transition-colors"><Instagram className="w-4 h-4" /></a>
+          </div>
+
+          {/* Right — DIMISI */}
+          <div className="flex items-center gap-2 justify-center md:justify-end order-1 md:order-3">
+            <span>Designed and developed by</span>
+            <a href="https://dimisi.tech/" target="_blank" rel="noopener noreferrer" aria-label="Visit DIMISI Website" className="inline-flex items-center">
+              <img src={dimisiLogo} alt="DIMISI" loading="lazy" decoding="async" className="h-8 md:h-10 w-auto object-contain" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

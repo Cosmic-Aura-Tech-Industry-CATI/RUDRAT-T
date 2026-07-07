@@ -1,0 +1,97 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { PageLayout } from "@/components/PageLayout";
+import { PageHero } from "@/components/PageHero";
+import { BRAND } from "@/lib/brand";
+import cta from "@/assets/cta-india.jpg";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — Rudra Tours & Travels" },
+      { name: "description", content: "Talk to our Kanpur team — phone, WhatsApp, email or drop a quick message. We reply within one business hour." },
+      { property: "og:title", content: "Contact — Rudra Tours & Travels" },
+      { property: "og:description", content: "Reach our friendly Kanpur team any time." },
+      { property: "og:image", content: cta },
+    ],
+  }),
+  component: ContactPage,
+});
+
+function ContactPage() {
+  const items = [
+    { icon: Phone, label: "Phone", value: BRAND.phone, href: BRAND.phoneHref },
+    { icon: MessageCircle, label: "WhatsApp", value: BRAND.whatsapp, href: BRAND.whatsappHref },
+    { icon: Mail, label: "Email", value: BRAND.email, href: BRAND.emailHref },
+    { icon: MapPin, label: "Head Office", value: BRAND.address },
+    { icon: Clock, label: "Business Hours", value: BRAND.hours },
+  ];
+
+  return (
+    <PageLayout>
+      <PageHero
+        eyebrow="Get in touch"
+        title={<>Let's <span className="shine-text italic">plan</span> your trip.</>}
+        subtitle="Our Kanpur team is ready to help — bilkul tension free. Talk to a real travel expert within one business hour."
+        image={cta}
+      />
+
+      <section className="px-6 pb-10 md:pb-12">
+        <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-8 lg:gap-10">
+          <div className="space-y-4">
+            {items.map((it, i) => {
+              const Inner = (
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.06 }}
+                  className="glass-strong rounded-2xl p-5 flex items-center gap-5 group hover:border-[var(--gold)]/40 border border-white/5 transition-all"
+                >
+                  <span className="grid place-items-center w-14 h-14 rounded-full" style={{ background: "var(--gradient-gold)" }}>
+                    <it.icon className="w-5 h-5 text-[var(--primary-foreground)]" />
+                  </span>
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-1">{it.label}</div>
+                    <div className="text-premium-white text-sm md:text-base">{it.value}</div>
+                  </div>
+                </motion.div>
+              );
+              return it.href ? (
+                <a key={it.label} href={it.href} target={it.label === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer">{Inner}</a>
+              ) : (
+                <div key={it.label}>{Inner}</div>
+              );
+            })}
+          </div>
+
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            onSubmit={(e) => { e.preventDefault(); alert("Thank you! Our team will get in touch with you shortly."); }}
+            className="glass-strong rounded-3xl p-7"
+          >
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Quick Message</div>
+            <h3 className="font-display text-3xl mb-6">Drop us a line.</h3>
+            <div className="space-y-4">
+              <input placeholder="Full name" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
+              <input placeholder="Email" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
+              <input placeholder="Phone" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
+              <select className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white outline-none focus:border-[var(--gold)]/50">
+                <option className="bg-[var(--deep-2)]">Tour Inquiry</option>
+                <option className="bg-[var(--deep-2)]">Vehicle Inquiry</option>
+                <option className="bg-[var(--deep-2)]">Wedding Inquiry</option>
+                <option className="bg-[var(--deep-2)]">General Inquiry</option>
+              </select>
+              <textarea placeholder="Tell us about your trip…" rows={5} className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
+              <button className="btn-gold w-full py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium">Send Message</button>
+            </div>
+          </motion.form>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}

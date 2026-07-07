@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Users, ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { VEHICLES, CATEGORY_BY_ID, type Vehicle } from "@/data/vehicles";
 import heroLuxuryCar from "@/assets/wedding/hero-luxury-car.jpg";
 import decoratedSedan from "@/assets/wedding/decorated-sedan.jpg";
@@ -10,18 +11,17 @@ import brideArrival from "@/assets/wedding/bride-arrival.jpg";
 import decoratedSuv from "@/assets/wedding/decorated-suv.jpg";
 import guestTransport from "@/assets/wedding/guest-transport.jpg";
 import chauffeurService from "@/assets/wedding/chauffeur-service.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/weddings")({
   head: () => ({
-    meta: [
-      { title: "Wedding Cars & Guest Transport — Rudra Tours & Travels" },
-      { name: "description", content: "Beautifully decorated wedding cars, luxury sedans and SUVs with drivers, plus smooth guest pickups and drops for Indian weddings across the country." },
-      { property: "og:title", content: "Wedding Cars & Guest Transport — Rudra Tours & Travels" },
-      { property: "og:description", content: "Arrive in style. Celebrate tension-free. Full wedding travel handled end to end." },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: heroLuxuryCar },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+    ...pageSeo({
+      title: "Wedding Car Rental | Rudra Tours and Travels",
+      description: "Arrive in style with decorated wedding cars, luxury sedans, SUVs and guest transport planned across India.",
+      path: "/weddings",
+      image: heroLuxuryCar,
+    }),
+    ...breadcrumbLdJson([{ name: "Wedding Cars", path: "/weddings" }]),
   }),
   component: WeddingsPage,
 });
@@ -40,6 +40,7 @@ function WeddingsPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Wedding Cars", to: "/weddings" }]} />
       <PageHero
         eyebrow="Wedding Cars"
         title={<>Arrive in Style. <span className="shine-text italic">Celebrate Tension-Free.</span></>}

@@ -6,19 +6,23 @@ import { PageHero } from "@/components/PageHero";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { SectionHeader } from "@/components/Destinations";
 import { reviews } from "@/data/reviews";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import hero from "@/assets/hero-suv.jpg";
 import founderAsset from "@/assets/about/founder.png.asset.json";
 import founderSonAsset from "@/assets/about/founder-son.png.asset.json";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About — Rudra Tours & Travels" },
-      { name: "description", content: "The story of founder Mr. Abhay Nigam and how Rudra Tours & Travels grew from a small dream in 2014 into a trusted name for over 1 lakh happy travellers." },
-      { property: "og:title", content: "About — Rudra Tours & Travels" },
-      { property: "og:description", content: "Meet the founder behind Rudra Tours & Travels — a story built on trust, honesty and family values." },
-      { property: "og:image", content: hero },
-    ],
+    ...pageSeo({
+      title: "About Rudra Tours and Travels | Trusted Travel Brand",
+      description: "Read the story of Rudra Tours and Travels, founded in Kanpur and built on trust, honesty and 1 lakh+ happy travellers.",
+      path: "/about",
+      image: hero,
+    }),
+    ...breadcrumbLdJson([
+      { name: "About", path: "/about" },
+    ]),
   }),
   component: AboutPage,
 });
@@ -66,6 +70,7 @@ const founderPhotos = [
 function AboutPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "About", to: "/about" }]} />
       <PageHero
         eyebrow="Our Story"
         title={<>14+ years of <span className="shine-text italic">yaadgaar</span> journeys.</>}

@@ -3,18 +3,20 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BRAND } from "@/lib/brand";
 import cta from "@/assets/cta-india.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
-    meta: [
-      { title: "Contact — Rudra Tours & Travels" },
-      { name: "description", content: "Talk to our Kanpur team — phone, WhatsApp, email or drop a quick message. We reply within one business hour." },
-      { property: "og:title", content: "Contact — Rudra Tours & Travels" },
-      { property: "og:description", content: "Reach our friendly Kanpur team any time." },
-      { property: "og:image", content: cta },
-    ],
+    ...pageSeo({
+      title: "Contact Rudra Tours and Travels | Kanpur Travel Team",
+      description: "Contact Rudra Tours and Travels by phone, WhatsApp or email for tours, vehicles and wedding travel from Kanpur.",
+      path: "/contact",
+      image: cta,
+    }),
+    ...breadcrumbLdJson([{ name: "Contact", path: "/contact" }]),
   }),
   component: ContactPage,
 });
@@ -30,6 +32,7 @@ function ContactPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Contact", to: "/contact" }]} />
       <PageHero
         eyebrow="Get in touch"
         title={<>Let's <span className="shine-text italic">plan</span> your trip.</>}

@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import cta from "@/assets/cta-india.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 type InquirySearch = {
   type?: string;
@@ -26,13 +28,13 @@ export const Route = createFileRoute("/inquiry")({
     rental: typeof s.rental === "string" ? s.rental : undefined,
   }),
   head: () => ({
-    meta: [
-      { title: "Plan My Trip — Rudra Tours & Travels" },
-      { name: "description", content: "Submit and track your travel request — tours, cars, wedding travel and more. Bilkul easy, tension-free." },
-      { property: "og:title", content: "Plan My Trip — Rudra Tours & Travels" },
-      { property: "og:description", content: "Send a request and track it — the easy way." },
-      { property: "og:image", content: cta },
-    ],
+    ...pageSeo({
+      title: "Plan My Trip | Rudra Tours and Travels",
+      description: "Submit and track travel requests for tours, cars and wedding travel with Rudra Tours and Travels.",
+      path: "/inquiry",
+      image: cta,
+    }),
+    ...breadcrumbLdJson([{ name: "Inquiry", path: "/inquiry" }]),
   }),
   component: InquiryPage,
 });
@@ -193,6 +195,7 @@ function InquiryPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Inquiry", to: "/inquiry" }]} />
       <PageHero
         eyebrow="Plan My Trip"
         title={<>Submit. Track. <span className="shine-text italic">Travel.</span></>}

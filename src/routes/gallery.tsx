@@ -2,17 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { galleryImages } from "@/data/gallery";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
-    meta: [
-      { title: "Gallery — Rudra Tours & Travels" },
-      { name: "description", content: "Real photos from real trips — destinations, cars and celebrations captured across India by Rudra Tours & Travels." },
-      { property: "og:title", content: "Gallery — Rudra Tours & Travels" },
-      { property: "og:description", content: "A visual safar across India with Rudra Tours & Travels." },
-      { property: "og:image", content: galleryImages[0].src },
-    ],
+    ...pageSeo({
+      title: "Travel Gallery | Rudra Tours and Travels",
+      description: "Browse real trip photos from Rudra Tours and Travels across destinations, cars and celebrations in India.",
+      path: "/gallery",
+      image: galleryImages[0].src,
+    }),
+    ...breadcrumbLdJson([{ name: "Gallery", path: "/gallery" }]),
   }),
   component: GalleryPage,
 });
@@ -20,6 +22,7 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Gallery", to: "/gallery" }]} />
       <PageHero
         eyebrow="Gallery"
         title={<>Moments from <span className="shine-text italic">every road</span>.</>}

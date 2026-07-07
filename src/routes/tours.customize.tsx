@@ -4,17 +4,22 @@ import { useState } from "react";
 import { z } from "zod";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import cta from "@/assets/cta-india.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours/customize")({
   head: () => ({
-    meta: [
-      { title: "Customised Package — Rudra Tours & Travels" },
-      { name: "description", content: "Design a trip made just for you. Share your travel preferences and our team will build a personalised package that fits your budget, dates and style." },
-      { property: "og:title", content: "Plan Your Perfect Trip — Rudra Tours" },
-      { property: "og:description", content: "Personalised travel packages planned by our friendly Kanpur team." },
-      { property: "og:image", content: cta },
-    ],
+    ...pageSeo({
+      title: "Custom Tour Package | Rudra Tours and Travels",
+      description: "Design a trip made for you with a personalised package from Rudra Tours and Travels that fits your dates, budget and style.",
+      path: "/tours/customize",
+      image: cta,
+    }),
+    ...breadcrumbLdJson([
+      { name: "Tour Packages", path: "/tours" },
+      { name: "Custom Package", path: "/tours/customize" },
+    ]),
   }),
   component: CustomizePage,
 });
@@ -82,6 +87,7 @@ function CustomizePage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Tour Packages", to: "/tours" }, { label: "Custom Package", to: "/tours/customize" }]} />
       <PageHero
         eyebrow="Customised Package"
         title={<>Plan Your <span className="shine-text italic">Perfect Trip</span>.</>}

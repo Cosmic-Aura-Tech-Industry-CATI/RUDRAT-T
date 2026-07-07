@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import kashmir from "@/assets/dest-kashmir.jpg";
 import himachal from "@/assets/dest-himachal.jpg";
 import uttarakhand from "@/assets/dest-uttarakhand.jpg";
@@ -9,16 +10,17 @@ import rajasthan from "@/assets/dest-rajasthan.jpg";
 import goa from "@/assets/dest-goa.jpg";
 import kerala from "@/assets/dest-kerala.jpg";
 import ladakh from "@/assets/dest-ladakh.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/destinations")({
   head: () => ({
-    meta: [
-      { title: "Destinations — Rudra Tours & Travels" },
-      { name: "description", content: "Explore India's most loved places — from snowy Himalayan passes to sunny beach sunsets. Curated by Rudra Tours & Travels." },
-      { property: "og:title", content: "Destinations — Rudra Tours & Travels" },
-      { property: "og:description", content: "India's most loved places, curated by Rudra." },
-      { property: "og:image", content: ladakh },
-    ],
+    ...pageSeo({
+      title: "India Tour Destinations | Rudra Tours and Travels",
+      description: "Discover Kashmir, Ladakh, Goa, Kerala, Rajasthan, Himachal and Uttarakhand with Rudra Tours and Travels.",
+      path: "/destinations",
+      image: ladakh,
+    }),
+    ...breadcrumbLdJson([{ name: "Destinations", path: "/destinations" }]),
   }),
   component: DestinationsPage,
 });
@@ -36,6 +38,7 @@ const places = [
 function DestinationsPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Destinations", to: "/destinations" }]} />
       <PageHero
         eyebrow="Destinations"
         title={<>Places you'll <span className="shine-text italic">love</span> to visit.</>}

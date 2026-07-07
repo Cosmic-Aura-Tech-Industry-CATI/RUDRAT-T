@@ -6,15 +6,16 @@ interface Props {
   title: ReactNode;
   subtitle?: string;
   image?: string;
+  imageAlt?: string;
   children?: ReactNode;
 }
 
-export function PageHero({ eyebrow, title, subtitle, image, children }: Props) {
+export function PageHero({ eyebrow, title, subtitle, image, imageAlt, children }: Props) {
   return (
     <section className="relative pt-28 pb-8 md:pt-32 md:pb-10 px-6 overflow-hidden">
       {image && (
         <div className="absolute inset-0">
-          <img src={image} alt="" className="w-full h-full object-cover opacity-50" />
+          <img src={image} alt={imageAlt ?? `${eyebrow} hero image for Rudra Tours and Travels`} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--deep) 0%, oklch(0.13 0.02 260 / 0.6) 50%, var(--deep) 100%)" }} />
         </div>
       )}

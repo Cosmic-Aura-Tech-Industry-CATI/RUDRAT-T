@@ -4,23 +4,25 @@ import { useEffect, useMemo, useState } from "react";
 import { Phone, MessageCircle, Sparkles, Search as SearchIcon } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PackageSlider } from "@/components/PackageSlider";
 import { packages, priceLines, regionLabel, type Region } from "@/data/packages";
 import { BRAND } from "@/lib/brand";
 import kashmir from "@/assets/dest-kashmir.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours")({
   validateSearch: (search: Record<string, unknown>) => ({
     q: typeof search.q === "string" ? search.q : undefined,
   }),
   head: () => ({
-    meta: [
-      { title: "Tour Packages — Rudra Tours & Travels" },
-      { name: "description", content: "25+ handpicked tour packages across India — pilgrimage, heritage, hill stations and beaches. Easy booking, honest pricing, dispatched from our Kanpur office." },
-      { property: "og:title", content: "Tour Packages — Rudra Tours & Travels" },
-      { property: "og:description", content: "Handpicked travel packages across India's most loved destinations." },
-      { property: "og:image", content: kashmir },
-    ],
+    ...pageSeo({
+      title: "India Tour Packages | Rudra Tours and Travels",
+      description: "Explore 25+ India tour packages for pilgrimage, heritage, hills and beaches from Rudra Tours and Travels in Kanpur.",
+      path: "/tours",
+      image: kashmir,
+    }),
+    ...breadcrumbLdJson([{ name: "Tour Packages", path: "/tours" }]),
   }),
   component: ToursPage,
 });
@@ -82,6 +84,7 @@ function ToursPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Tour Packages", to: "/tours" }]} />
       <PageHero
         eyebrow="Travel Packages"
         title={<>Tour packages, <span className="shine-text italic">made easy</span> for you.</>}

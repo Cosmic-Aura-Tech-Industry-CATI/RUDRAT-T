@@ -8,22 +8,24 @@ import {
 } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BRAND } from "@/lib/brand";
 import hero from "@/assets/hero-suv.jpg";
 import {
   CATEGORIES, VEHICLES, CATEGORY_BY_ID,
   priceFor, type Vehicle, type CategoryId, type RentalType,
 } from "@/data/vehicles";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/vehicles")({
   head: () => ({
-    meta: [
-      { title: "Car & Vehicle Rental — Local, Outstation, Self Drive & With Driver | Rudra Tours" },
-      { name: "description", content: "Book hatchbacks, sedans, SUVs, MPVs, luxury cars, tempo travellers, Force Urbania and buses — local, outstation, self drive or with driver, all across India." },
-      { property: "og:title", content: "Car & Vehicle Rental — Rudra Tours & Travels" },
-      { property: "og:description", content: "Pan-India fleet with driver-driven and self-drive options — bilkul easy booking." },
-      { property: "og:image", content: hero },
-    ],
+    ...pageSeo({
+      title: "Car Rental & Taxi Service | Rudra Tours and Travels",
+      description: "Book hatchbacks, sedans, SUVs, tempo travellers, luxury cars and buses with driver or self drive across India.",
+      path: "/vehicles",
+      image: hero,
+    }),
+    ...breadcrumbLdJson([{ name: "Vehicle Rentals", path: "/vehicles" }]),
   }),
   component: VehiclesPage,
 });
@@ -76,6 +78,7 @@ function VehiclesPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Vehicle Rentals", to: "/vehicles" }]} />
       <PageHero
         eyebrow="Car & Vehicle Rentals"
         title={<>Local. Outstation. <span className="shine-text italic">Anywhere.</span></>}

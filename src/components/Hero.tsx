@@ -23,7 +23,11 @@ export function Hero() {
   const markerGlow = useTransform(scrollYProgress, [0, 0.6], [0.35, 1]);
 
   return (
-    <section id="home" ref={ref} className="relative min-h-screen w-full overflow-hidden pt-28 md:pt-32 pb-16">
+    <section
+      id="home"
+      ref={ref}
+      className="relative min-h-screen w-full overflow-hidden pt-28 md:pt-32 pb-16"
+    >
       {/* Cinematic background video — full-bleed, unobstructed */}
       <motion.div style={{ y: yBg, scale }} className="absolute inset-0">
         <video
@@ -96,9 +100,9 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] max-w-5xl"
         >
-          Your Next Journey
+          India Tour Packages
           <br />
-          <span className="shine-text italic">Starts Here.</span>
+          <span className="shine-text italic">Car Rentals & Wedding Travel.</span>
         </motion.h1>
 
         <motion.p
@@ -107,8 +111,9 @@ export function Hero() {
           transition={{ delay: 0.8, duration: 1 }}
           className="mt-8 max-w-2xl text-base md:text-lg text-luxury-gray leading-relaxed"
         >
-          Handpicked tours, premium cars, and dreamy destination weddings —
-          planned with love, dispatched from Kanpur, delivered all across India. Chaliye, let's make your safar truly yaadgaar.
+          Handpicked tours, premium cars, and dreamy destination weddings — planned with love,
+          dispatched from Kanpur, delivered all across India. Chaliye, let's make your safar truly
+          yaadgaar.
         </motion.p>
 
         <motion.div
@@ -143,7 +148,6 @@ export function Hero() {
           </Link>
         </motion.div>
       </motion.div>
-
     </section>
   );
 }

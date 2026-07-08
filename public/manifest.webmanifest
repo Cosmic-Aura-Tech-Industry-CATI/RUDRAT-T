@@ -1,0 +1,19 @@
+{
+  "name": "Rudra Tours and Travels",
+  "short_name": "Rudra Tours",
+  "description": "Handpicked tour packages, comfortable car rentals and wedding travel across India.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f1620",
+  "theme_color": "#0f1620",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

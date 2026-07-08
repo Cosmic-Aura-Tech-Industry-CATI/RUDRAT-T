@@ -25,7 +25,10 @@ function botReply(input: string): string {
 export function FloatingActions() {
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "bot", text: "Namaste 🙏 I'm Rudra Assistant. Chaliye, let's plan your next trip — how can I help?" },
+    {
+      role: "bot",
+      text: "Namaste 🙏 I'm Rudra Assistant. Chaliye, let's plan your next trip — how can I help?",
+    },
   ]);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -110,7 +113,10 @@ export function FloatingActions() {
 
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
               {messages.map((m, i) => (
-                <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div
+                  key={i}
+                  className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
+                >
                   <div
                     className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                       m.role === "user"

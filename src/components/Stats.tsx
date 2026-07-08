@@ -45,7 +45,9 @@ export function Stats() {
             <div className="font-display text-5xl md:text-7xl text-gradient-gold font-light">
               <Counter to={s.value} suffix={s.suffix} />
             </div>
-            <div className="mt-3 text-[11px] uppercase tracking-[0.3em] text-luxury-gray">{s.label}</div>
+            <div className="mt-3 text-[11px] uppercase tracking-[0.3em] text-luxury-gray">
+              {s.label}
+            </div>
           </motion.div>
         ))}
       </div>

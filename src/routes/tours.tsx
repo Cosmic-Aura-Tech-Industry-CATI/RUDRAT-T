@@ -4,23 +4,48 @@ import { useEffect, useMemo, useState } from "react";
 import { Phone, MessageCircle, Sparkles, Search as SearchIcon } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PackageSlider } from "@/components/PackageSlider";
 import { packages, priceLines, regionLabel, type Region } from "@/data/packages";
 import { BRAND } from "@/lib/brand";
 import kashmir from "@/assets/dest-kashmir.jpg";
+import { pageSeo, breadcrumbLdJson, faqLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours")({
   validateSearch: (search: Record<string, unknown>) => ({
     q: typeof search.q === "string" ? search.q : undefined,
   }),
   head: () => ({
-    meta: [
-      { title: "Tour Packages — Rudra Tours & Travels" },
-      { name: "description", content: "25+ handpicked tour packages across India — pilgrimage, heritage, hill stations and beaches. Easy booking, honest pricing, dispatched from our Kanpur office." },
-      { property: "og:title", content: "Tour Packages — Rudra Tours & Travels" },
-      { property: "og:description", content: "Handpicked travel packages across India's most loved destinations." },
-      { property: "og:image", content: kashmir },
-    ],
+    ...pageSeo({
+      title: "India Tour Packages | Pilgrimage, Hills & Beaches",
+      description:
+        "Explore 25+ India tour packages for pilgrimage, heritage, hills and beaches from Rudra Tours and Travels in Kanpur.",
+      path: "/tours",
+      image: kashmir,
+    }),
+    ...breadcrumbLdJson([{ name: "Tour Packages", path: "/tours" }]),
+    ...faqLdJson([
+      {
+        question: "Do you offer custom India tour packages?",
+        answer:
+          "Yes. We build custom packages around your dates, budget, city of departure and preferred vehicle.",
+      },
+      {
+        question: "Can I book pilgrimage and family tours from Kanpur?",
+        answer:
+          "Yes. We regularly arrange pilgrimage, family and leisure trips from Kanpur and nearby cities such as Lucknow.",
+      },
+      {
+        question: "Are prices shown per vehicle or per person?",
+        answer:
+          "The listed prices are package or vehicle pricing, so you can compare the trip cost clearly before you enquire.",
+      },
+      {
+        question: "Do you also arrange transport for group tours?",
+        answer:
+          "Yes. We provide sedans, SUVs, tempo travellers, Urbania and buses for groups of many sizes.",
+      },
+    ]),
   }),
   component: ToursPage,
 });
@@ -82,9 +107,14 @@ function ToursPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Tour Packages", to: "/tours" }]} />
       <PageHero
         eyebrow="Travel Packages"
-        title={<>Tour packages, <span className="shine-text italic">made easy</span> for you.</>}
+        title={
+          <>
+            India tour packages, <span className="shine-text italic">made easy</span> for you.
+          </>
+        }
         subtitle="Twenty-five ready-to-go itineraries across pilgrimage, heritage, hills and beaches — handpicked by our friendly Kanpur team. Bilkul easy booking."
         image={kashmir}
       />
@@ -97,7 +127,10 @@ function ToursPage() {
               <span>
                 Showing results for <span className="text-premium-white">"{q}"</span>
               </span>
-              <Link to="/tours" className="text-gold hover:underline uppercase tracking-[0.2em] text-[10px]">
+              <Link
+                to="/tours"
+                className="text-gold hover:underline uppercase tracking-[0.2em] text-[10px]"
+              >
                 Clear search
               </Link>
             </div>
@@ -152,24 +185,77 @@ function ToursPage() {
                   <div className="p-5 border-t border-white/5 flex flex-col gap-4">
                     <div className="space-y-1">
                       {priceLines(t.pricing).map((line) => (
-                        <div key={line.label} className="flex items-baseline justify-between gap-2 text-[11px]">
-                          <span className="text-luxury-gray uppercase tracking-[0.15em]">{line.label}</span>
+                        <div
+                          key={line.label}
+                          className="flex items-baseline justify-between gap-2 text-[11px]"
+                        >
+                          <span className="text-luxury-gray uppercase tracking-[0.15em]">
+                            {line.label}
+                          </span>
                           <span className="text-gold font-medium">{line.value}</span>
                         </div>
                       ))}
                     </div>
 
-                    <Link
-                      to="/inquiry"
-                      className="w-full btn-gold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium text-center inline-flex items-center justify-center"
-                    >
-                      Plan My Trip
-                    </Link>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Link
+                        to="/tours/$slug"
+                        params={{ slug: t.slug }}
+                        className="btn-ghost-luxe px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium text-center inline-flex items-center justify-center"
+                      >
+                        View Details
+                      </Link>
+                      <Link
+                        to="/inquiry"
+                        search={{ type: "Tour Inquiry", package: t.name }}
+                        className="w-full btn-gold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium text-center inline-flex items-center justify-center"
+                      >
+                        Plan My Trip
+                      </Link>
+                    </div>
                   </div>
                 </motion.article>
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="px-6 pb-14 md:pb-16">
+        <div className="mx-auto max-w-5xl glass-strong rounded-3xl p-7 md:p-10">
+          <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+            Frequently Asked Questions
+          </div>
+          <h2 className="font-display text-3xl md:text-4xl mb-6">
+            Tour planning questions, answered.
+          </h2>
+          <div className="grid gap-4">
+            {[
+              [
+                "Do you offer custom India tour packages?",
+                "Yes. We build custom packages around your dates, budget, city of departure and preferred vehicle.",
+              ],
+              [
+                "Can I book pilgrimage and family tours from Kanpur?",
+                "Yes. We regularly arrange pilgrimage, family and leisure trips from Kanpur and nearby cities such as Lucknow.",
+              ],
+              [
+                "Are prices shown per vehicle or per person?",
+                "The listed prices are package or vehicle pricing, so you can compare the trip cost clearly before you enquire.",
+              ],
+            ].map(([q, a]) => (
+              <details
+                key={q}
+                className="group rounded-2xl border border-white/5 bg-white/[0.03] p-5"
+              >
+                <summary className="cursor-pointer list-none font-medium text-premium-white flex items-center justify-between gap-4">
+                  <span>{q}</span>
+                  <span className="text-gold text-lg">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-luxury-gray">{a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
     </PageLayout>
@@ -193,12 +279,17 @@ function NoResults({ query }: { query: string }) {
 
       <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">No Results Found</div>
       <h2 className="font-display text-3xl md:text-4xl mb-3">
-        {query ? <>Sorry! We couldn't find packages for <span className="italic">"{query}"</span>.</> : "Oops! No travel packages found."}
+        {query ? (
+          <>
+            Sorry! We couldn't find packages for <span className="italic">"{query}"</span>.
+          </>
+        ) : (
+          "Oops! No travel packages found."
+        )}
       </h2>
       <p className="text-luxury-gray max-w-xl mx-auto mb-8">
-        We couldn't find any packages matching your search — but don't worry.
-        Our travel experts can create a completely personalised trip just for you,
-        based on your budget, dates and style.
+        We couldn't find any packages matching your search — but don't worry. Our travel experts can
+        create a completely personalised trip just for you, based on your budget, dates and style.
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
@@ -217,13 +308,15 @@ function NoResults({ query }: { query: string }) {
       </div>
 
       <div className="mb-8">
-        <div className="text-[10px] uppercase tracking-[0.25em] text-luxury-gray mb-4">Popular Destinations</div>
+        <div className="text-[10px] uppercase tracking-[0.25em] text-luxury-gray mb-4">
+          Popular Destinations
+        </div>
         <div className="flex flex-wrap items-center justify-center gap-2.5">
           {POPULAR.map((p) => (
             <Link
               key={p.slug}
-              to="/tours"
-              hash={p.slug}
+              to="/tours/$slug"
+              params={{ slug: p.slug }}
               className="glass px-4 py-2 rounded-full text-xs text-premium-white hover:text-gold hover:border-[var(--gold)]/40 border border-transparent transition-all"
             >
               {p.label}
@@ -233,7 +326,9 @@ function NoResults({ query }: { query: string }) {
       </div>
 
       <div className="mb-8">
-        <div className="text-[10px] uppercase tracking-[0.25em] text-luxury-gray mb-3">Try Searching For</div>
+        <div className="text-[10px] uppercase tracking-[0.25em] text-luxury-gray mb-3">
+          Try Searching For
+        </div>
         <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] text-luxury-gray">
           {SEARCH_HINTS.map((s, i) => (
             <span key={s} className="flex items-center gap-2">

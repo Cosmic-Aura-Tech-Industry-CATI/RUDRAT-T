@@ -3,18 +3,21 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BRAND } from "@/lib/brand";
 import cta from "@/assets/cta-india.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
-    meta: [
-      { title: "Contact — Rudra Tours & Travels" },
-      { name: "description", content: "Talk to our Kanpur team — phone, WhatsApp, email or drop a quick message. We reply within one business hour." },
-      { property: "og:title", content: "Contact — Rudra Tours & Travels" },
-      { property: "og:description", content: "Reach our friendly Kanpur team any time." },
-      { property: "og:image", content: cta },
-    ],
+    ...pageSeo({
+      title: "Contact Rudra Tours & Travels | Kanpur Travel Team",
+      description:
+        "Contact Rudra Tours and Travels by phone, WhatsApp or email for tours, vehicles and wedding travel from Kanpur.",
+      path: "/contact",
+      image: cta,
+    }),
+    ...breadcrumbLdJson([{ name: "Contact", path: "/contact" }]),
   }),
   component: ContactPage,
 });
@@ -30,9 +33,14 @@ function ContactPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Contact", to: "/contact" }]} />
       <PageHero
         eyebrow="Get in touch"
-        title={<>Let's <span className="shine-text italic">plan</span> your trip.</>}
+        title={
+          <>
+            Contact our Kanpur team to <span className="shine-text italic">plan</span> your trip.
+          </>
+        }
         subtitle="Our Kanpur team is ready to help — bilkul tension free. Talk to a real travel expert within one business hour."
         image={cta}
       />
@@ -49,17 +57,29 @@ function ContactPage() {
                   transition={{ duration: 0.6, delay: i * 0.06 }}
                   className="glass-strong rounded-2xl p-5 flex items-center gap-5 group hover:border-[var(--gold)]/40 border border-white/5 transition-all"
                 >
-                  <span className="grid place-items-center w-14 h-14 rounded-full" style={{ background: "var(--gradient-gold)" }}>
+                  <span
+                    className="grid place-items-center w-14 h-14 rounded-full"
+                    style={{ background: "var(--gradient-gold)" }}
+                  >
                     <it.icon className="w-5 h-5 text-[var(--primary-foreground)]" />
                   </span>
                   <div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-1">{it.label}</div>
+                    <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-1">
+                      {it.label}
+                    </div>
                     <div className="text-premium-white text-sm md:text-base">{it.value}</div>
                   </div>
                 </motion.div>
               );
               return it.href ? (
-                <a key={it.label} href={it.href} target={it.label === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer">{Inner}</a>
+                <a
+                  key={it.label}
+                  href={it.href}
+                  target={it.label === "WhatsApp" ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                >
+                  {Inner}
+                </a>
               ) : (
                 <div key={it.label}>{Inner}</div>
               );
@@ -71,23 +91,69 @@ function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            onSubmit={(e) => { e.preventDefault(); alert("Thank you! Our team will get in touch with you shortly."); }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Thank you! Our team will get in touch with you shortly.");
+            }}
             className="glass-strong rounded-3xl p-7"
           >
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Quick Message</div>
-            <h3 className="font-display text-3xl mb-6">Drop us a line.</h3>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
+              Quick Message
+            </div>
+            <h2 className="font-display text-3xl mb-6">Drop us a line.</h2>
             <div className="space-y-4">
-              <input placeholder="Full name" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <input placeholder="Email" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <input placeholder="Phone" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <select className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white outline-none focus:border-[var(--gold)]/50">
-                <option className="bg-[var(--deep-2)]">Tour Inquiry</option>
-                <option className="bg-[var(--deep-2)]">Vehicle Inquiry</option>
-                <option className="bg-[var(--deep-2)]">Wedding Inquiry</option>
-                <option className="bg-[var(--deep-2)]">General Inquiry</option>
-              </select>
-              <textarea placeholder="Tell us about your trip…" rows={5} className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <button className="btn-gold w-full py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium">Send Message</button>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Full name
+                <input
+                  name="name"
+                  autoComplete="name"
+                  placeholder="Full name"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Email
+                <input
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="Email"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Phone
+                <input
+                  name="phone"
+                  autoComplete="tel"
+                  placeholder="Phone"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Inquiry type
+                <select
+                  name="type"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white outline-none focus:border-[var(--gold)]/50"
+                >
+                  <option className="bg-[var(--deep-2)]">Tour Inquiry</option>
+                  <option className="bg-[var(--deep-2)]">Vehicle Inquiry</option>
+                  <option className="bg-[var(--deep-2)]">Wedding Inquiry</option>
+                  <option className="bg-[var(--deep-2)]">General Inquiry</option>
+                </select>
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Tell us about your trip
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your trip…"
+                  rows={5}
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <button className="btn-gold w-full py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium">
+                Send Message
+              </button>
             </div>
           </motion.form>
         </div>

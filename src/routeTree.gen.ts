@@ -21,6 +21,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToursCustomizeRouteImport } from './routes/tours.customize'
 import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
+import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 
 const WeddingsRoute = WeddingsRouteImport.update({
   id: '/weddings',
@@ -82,18 +83,24 @@ const ToursSlugRoute = ToursSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ToursRoute,
 } as any)
+const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DestinationsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRoute
+  '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/reviews': typeof ReviewsRoute
   '/tours': typeof ToursRouteWithChildren
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
 }
@@ -101,13 +108,14 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRoute
+  '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/reviews': typeof ReviewsRoute
   '/tours': typeof ToursRouteWithChildren
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
 }
@@ -116,13 +124,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRoute
+  '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/reviews': typeof ReviewsRoute
   '/tours': typeof ToursRouteWithChildren
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/tours'
     | '/vehicles'
     | '/weddings'
+    | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/tours'
     | '/vehicles'
     | '/weddings'
+    | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/tours'
     | '/vehicles'
     | '/weddings'
+    | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
   fileRoutesById: FileRoutesById
@@ -175,7 +187,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  DestinationsRoute: typeof DestinationsRoute
+  DestinationsRoute: typeof DestinationsRouteWithChildren
   GalleryRoute: typeof GalleryRoute
   InquiryRoute: typeof InquiryRoute
   ReviewsRoute: typeof ReviewsRoute
@@ -270,8 +282,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToursSlugRouteImport
       parentRoute: typeof ToursRoute
     }
+    '/destinations/$slug': {
+      id: '/destinations/$slug'
+      path: '/$slug'
+      fullPath: '/destinations/$slug'
+      preLoaderRoute: typeof DestinationsSlugRouteImport
+      parentRoute: typeof DestinationsRoute
+    }
   }
 }
+
+interface DestinationsRouteChildren {
+  DestinationsSlugRoute: typeof DestinationsSlugRoute
+}
+
+const DestinationsRouteChildren: DestinationsRouteChildren = {
+  DestinationsSlugRoute: DestinationsSlugRoute,
+}
+
+const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
+  DestinationsRouteChildren,
+)
 
 interface ToursRouteChildren {
   ToursSlugRoute: typeof ToursSlugRoute
@@ -289,7 +320,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  DestinationsRoute: DestinationsRoute,
+  DestinationsRoute: DestinationsRouteWithChildren,
   GalleryRoute: GalleryRoute,
   InquiryRoute: InquiryRoute,
   ReviewsRoute: ReviewsRoute,

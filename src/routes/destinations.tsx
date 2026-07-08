@@ -3,13 +3,7 @@ import { motion } from "framer-motion";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import kashmir from "@/assets/dest-kashmir.jpg";
-import himachal from "@/assets/dest-himachal.jpg";
-import uttarakhand from "@/assets/dest-uttarakhand.jpg";
-import rajasthan from "@/assets/dest-rajasthan.jpg";
-import goa from "@/assets/dest-goa.jpg";
-import kerala from "@/assets/dest-kerala.jpg";
-import ladakh from "@/assets/dest-ladakh.jpg";
+import { DESTINATIONS } from "@/data/destinations";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/destinations")({
@@ -19,57 +13,14 @@ export const Route = createFileRoute("/destinations")({
       description:
         "Discover Kashmir, Ladakh, Goa, Kerala, Rajasthan, Himachal and Uttarakhand with Rudra Tours and Travels.",
       path: "/destinations",
-      image: ladakh,
+      image: places[1].image,
     }),
     ...breadcrumbLdJson([{ name: "Destinations", path: "/destinations" }]),
   }),
   component: DestinationsPage,
 });
 
-const places = [
-  {
-    name: "Kashmir",
-    img: kashmir,
-    blurb: "Shikara mornings on Dal Lake, snow-cloaked Gulmarg, the green meadows of Sonmarg.",
-    highlights: ["Dal Lake", "Gulmarg Gondola", "Pahalgam", "Sonmarg"],
-  },
-  {
-    name: "Ladakh",
-    img: ladakh,
-    blurb: "Moonscapes, monasteries and the highest motorable roads on earth.",
-    highlights: ["Pangong Lake", "Nubra Valley", "Khardung La", "Thiksey"],
-  },
-  {
-    name: "Himachal Pradesh",
-    img: himachal,
-    blurb: "Manali's apple orchards, colonial Shimla and the lunar Spiti circuit.",
-    highlights: ["Manali", "Shimla", "Spiti", "Dharamshala"],
-  },
-  {
-    name: "Uttarakhand",
-    img: uttarakhand,
-    blurb: "Yoga ashrams, river rafting, and the four sacred shrines of Char Dham.",
-    highlights: ["Rishikesh", "Mussoorie", "Char Dham", "Auli"],
-  },
-  {
-    name: "Rajasthan",
-    img: rajasthan,
-    blurb: "Palaces, dunes, lakes and the most romantic sunsets in India.",
-    highlights: ["Udaipur", "Jaisalmer", "Jodhpur", "Jaipur"],
-  },
-  {
-    name: "Goa",
-    img: goa,
-    blurb: "Beach clubs, Portuguese quarters, sunset cruises and seafood feasts.",
-    highlights: ["Anjuna", "Old Goa", "Palolem", "Dudhsagar"],
-  },
-  {
-    name: "Kerala",
-    img: kerala,
-    blurb: "Backwater houseboats, Munnar's tea hills and the spice trails of Thekkady.",
-    highlights: ["Munnar", "Alleppey", "Thekkady", "Kovalam"],
-  },
-];
+const places = DESTINATIONS;
 
 function DestinationsPage() {
   return (
@@ -83,7 +34,7 @@ function DestinationsPage() {
           </>
         }
         subtitle="A friendly guide to the destinations we know inside out — every trip refined over a decade on the road."
-        image={ladakh}
+        image={places[1].image}
       />
 
       <section className="px-6 pb-10 md:pb-12">
@@ -112,7 +63,7 @@ function DestinationsPage() {
                 <h2 className="font-display text-5xl md:text-6xl font-light leading-tight mb-4">
                   {p.name}
                 </h2>
-                <p className="text-luxury-gray text-lg leading-relaxed mb-6">{p.blurb}</p>
+                <p className="text-luxury-gray text-lg leading-relaxed mb-6">{p.overview}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {p.highlights.map((h) => (
                     <span
@@ -123,12 +74,21 @@ function DestinationsPage() {
                     </span>
                   ))}
                 </div>
-                <Link
-                  to="/tours"
-                  className="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium"
-                >
-                  Explore Packages
-                </Link>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to="/destinations/$slug"
+                    params={{ slug: p.slug }}
+                    className="btn-ghost-luxe px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium"
+                  >
+                    Destination Guide
+                  </Link>
+                  <Link
+                    to="/tours"
+                    className="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium"
+                  >
+                    Explore Packages
+                  </Link>
+                </div>
               </div>
             </motion.article>
           ))}

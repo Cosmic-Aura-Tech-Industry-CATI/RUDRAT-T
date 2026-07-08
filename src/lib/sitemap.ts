@@ -5,6 +5,16 @@ export type SitemapEntry = {
   lastmod?: string;
 };
 
+const DESTINATION_SLUGS = [
+  "kashmir",
+  "ladakh",
+  "himachal-pradesh",
+  "uttarakhand",
+  "rajasthan",
+  "goa",
+  "kerala",
+];
+
 const STATIC_PAGES: SitemapEntry[] = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/about", changefreq: "monthly", priority: "0.8" },
@@ -51,6 +61,12 @@ const PACKAGE_SLUGS = [
 export function getSitemapEntries(lastmod: string): SitemapEntry[] {
   return [
     ...STATIC_PAGES.map((entry) => ({ ...entry, lastmod })),
+    ...DESTINATION_SLUGS.map((slug) => ({
+      loc: `/destinations/${slug}`,
+      changefreq: "monthly" as const,
+      priority: "0.7",
+      lastmod,
+    })),
     ...PACKAGE_SLUGS.map((slug) => ({
       loc: `/tours/${slug}`,
       changefreq: "monthly" as const,

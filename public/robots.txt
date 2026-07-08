@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /__l5e/
+Disallow: /_output/
+Disallow: /_build/
+
+Sitemap: https://www.toursbyrudra.com/sitemap.xml

@@ -3,18 +3,21 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { reviews } from "@/data/reviews";
 import hero from "@/assets/hero-suv.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({
-    meta: [
-      { title: "Guest Reviews — Rudra Tours & Travels" },
-      { name: "description", content: "Real stories from real travellers who explored India with Rudra — Kashmir to Kerala, Ladakh to Goa. Bilkul unfiltered." },
-      { property: "og:title", content: "Guest Reviews — Rudra Tours & Travels" },
-      { property: "og:description", content: "Words from the road — reviews from our guests across India." },
-      { property: "og:image", content: hero },
-    ],
+    ...pageSeo({
+      title: "Guest Reviews | Real Traveller Feedback",
+      description:
+        "Read real traveller reviews from Kashmir to Kerala, Ladakh to Goa, shared by guests of Rudra Tours and Travels.",
+      path: "/reviews",
+      image: hero,
+    }),
+    ...breadcrumbLdJson([{ name: "Reviews", path: "/reviews" }]),
   }),
   component: ReviewsPage,
 });
@@ -22,9 +25,14 @@ export const Route = createFileRoute("/reviews")({
 function ReviewsPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Reviews", to: "/reviews" }]} />
       <PageHero
         eyebrow="Guest Stories"
-        title={<>Words from <span className="shine-text italic">the road</span>.</>}
+        title={
+          <>
+            Traveller reviews from <span className="shine-text italic">the road</span>.
+          </>
+        }
         subtitle="Every review below is from a real guest who travelled with us — unedited, unpaid, unfiltered."
         image={hero}
       />

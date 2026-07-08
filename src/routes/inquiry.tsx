@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import cta from "@/assets/cta-india.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 type InquirySearch = {
   type?: string;
@@ -14,8 +16,12 @@ type InquirySearch = {
 };
 
 const RENTAL_LABELS: Record<string, string> = {
-  local: "Local Rental", outstation: "Outstation", selfDrive: "Self Drive",
-  withDriver: "With Driver", weekly: "Weekly Rental", monthly: "Monthly Rental",
+  local: "Local Rental",
+  outstation: "Outstation",
+  selfDrive: "Self Drive",
+  withDriver: "With Driver",
+  weekly: "Weekly Rental",
+  monthly: "Monthly Rental",
 };
 
 export const Route = createFileRoute("/inquiry")({
@@ -26,13 +32,14 @@ export const Route = createFileRoute("/inquiry")({
     rental: typeof s.rental === "string" ? s.rental : undefined,
   }),
   head: () => ({
-    meta: [
-      { title: "Plan My Trip — Rudra Tours & Travels" },
-      { name: "description", content: "Submit and track your travel request — tours, cars, wedding travel and more. Bilkul easy, tension-free." },
-      { property: "og:title", content: "Plan My Trip — Rudra Tours & Travels" },
-      { property: "og:description", content: "Send a request and track it — the easy way." },
-      { property: "og:image", content: cta },
-    ],
+    ...pageSeo({
+      title: "Plan My Trip | Travel Quote & Inquiry",
+      description:
+        "Submit and track travel requests for tours, cars and wedding travel with Rudra Tours and Travels.",
+      path: "/inquiry",
+      image: cta,
+    }),
+    ...breadcrumbLdJson([{ name: "Inquiry", path: "/inquiry" }]),
   }),
   component: InquiryPage,
 });
@@ -51,11 +58,11 @@ type Inquiry = {
 const sample: Inquiry[] = [];
 
 const statusColors: Record<Status, string> = {
-  "New": "bg-blue-500/20 text-blue-300 border-blue-400/30",
+  New: "bg-blue-500/20 text-blue-300 border-blue-400/30",
   "In Progress": "bg-amber-500/20 text-amber-300 border-amber-400/30",
   "Quotation Sent": "bg-[var(--gold)]/20 text-gold border-[var(--gold)]/40",
-  "Booked": "bg-emerald-500/20 text-emerald-300 border-emerald-400/30",
-  "Closed": "bg-white/10 text-luxury-gray border-white/20",
+  Booked: "bg-emerald-500/20 text-emerald-300 border-emerald-400/30",
+  Closed: "bg-white/10 text-luxury-gray border-white/20",
 };
 
 function timeAgo(iso: string): string {
@@ -80,17 +87,29 @@ function InquiryPage() {
   useEffect(() => {
     try {
       const stored = JSON.parse(localStorage.getItem("rudra_inquiries") || "[]") as Array<{
-        id: string; type: string; name: string; phone?: string; detail: string; status: Status; created: string;
+        id: string;
+        type: string;
+        name: string;
+        phone?: string;
+        detail: string;
+        status: Status;
+        created: string;
       }>;
       if (stored.length) {
         const mapped: Inquiry[] = stored.map((s) => ({
-          id: s.id, type: s.type, name: s.name, phone: s.phone ?? "", detail: s.detail,
+          id: s.id,
+          type: s.type,
+          name: s.name,
+          phone: s.phone ?? "",
+          detail: s.detail,
           status: (s.status || "New") as Status,
           created: s.created,
         }));
         setInquiries([...mapped, ...sample]);
       }
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   // Hydrate form from query string (e.g. ?type=Vehicle+Inquiry&vehicle=Innova+Crysta&category=MUVs&rental=outstation)
@@ -133,11 +152,21 @@ function InquiryPage() {
       localStorage.setItem(
         "rudra_inquiries",
         JSON.stringify([
-          { id, type: form.type, name: form.name, phone: form.phone, detail: form.detail, status: "New", created: createdIso },
+          {
+            id,
+            type: form.type,
+            name: form.name,
+            phone: form.phone,
+            detail: form.detail,
+            status: "New",
+            created: createdIso,
+          },
           ...stored,
-        ])
+        ]),
       );
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
 
     setForm({ type: "Tour Inquiry", name: "", phone: "", detail: "" });
 
@@ -158,7 +187,7 @@ function InquiryPage() {
             phone: form.phone,
             detail: form.detail,
           },
-          publicKey
+          publicKey,
         );
       }
     } catch (err) {
@@ -193,9 +222,14 @@ function InquiryPage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Inquiry", to: "/inquiry" }]} />
       <PageHero
         eyebrow="Plan My Trip"
-        title={<>Submit. Track. <span className="shine-text italic">Travel.</span></>}
+        title={
+          <>
+            Request a travel quote. <span className="shine-text italic">Track. Travel.</span>
+          </>
+        }
         subtitle="Send us a new request or check the status of an existing one. Our team replies within one business hour — bilkul promise."
         image={cta}
       />
@@ -211,26 +245,73 @@ function InquiryPage() {
             className="glass-strong rounded-3xl p-7 lg:sticky lg:top-32 h-fit"
           >
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">New Request</div>
-            <h3 className="font-display text-3xl mb-6">Tell us your plan.</h3>
+            <h2 className="font-display text-3xl mb-6">Tell us your plan.</h2>
             <div className="space-y-4">
-              <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white outline-none focus:border-[var(--gold)]/50">
-                <option className="bg-[var(--deep-2)]">Tour Inquiry</option>
-                <option className="bg-[var(--deep-2)]">Vehicle Inquiry</option>
-                <option className="bg-[var(--deep-2)]">Wedding Inquiry</option>
-                <option className="bg-[var(--deep-2)]">General Inquiry</option>
-              </select>
-              <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Phone / Email" className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <textarea value={form.detail} onChange={(e) => setForm({ ...form, detail: e.target.value })} placeholder="Destination, dates, guests…" rows={5} className="w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50" />
-              <button disabled={sending} className="btn-gold w-full py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium disabled:opacity-60">{sending ? "Sending…" : "Send My Request"}</button>
-              <p className="text-[11px] text-luxury-gray/70 text-center">Saved in this session for now — full tracking coming soon.</p>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Inquiry type
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={(e) => setForm({ ...form, type: e.target.value })}
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white outline-none focus:border-[var(--gold)]/50"
+                >
+                  <option className="bg-[var(--deep-2)]">Tour Inquiry</option>
+                  <option className="bg-[var(--deep-2)]">Vehicle Inquiry</option>
+                  <option className="bg-[var(--deep-2)]">Wedding Inquiry</option>
+                  <option className="bg-[var(--deep-2)]">General Inquiry</option>
+                </select>
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Your name
+                <input
+                  name="name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Your name"
+                  autoComplete="name"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Phone / Email
+                <input
+                  name="contact"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="Phone / Email"
+                  autoComplete="tel"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Trip details
+                <textarea
+                  name="detail"
+                  value={form.detail}
+                  onChange={(e) => setForm({ ...form, detail: e.target.value })}
+                  placeholder="Destination, dates, guests…"
+                  rows={5}
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <button
+                disabled={sending}
+                className="btn-gold w-full py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium disabled:opacity-60"
+              >
+                {sending ? "Sending…" : "Send My Request"}
+              </button>
+              <p className="text-[11px] text-luxury-gray/70 text-center">
+                Saved in this session for now — full tracking coming soon.
+              </p>
             </div>
           </motion.form>
 
           <div>
             <div className="flex items-end justify-between mb-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Live Tracker</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
+                  Live Tracker
+                </div>
                 <h3 className="font-display text-3xl">Your requests</h3>
               </div>
               <div className="text-xs text-luxury-gray">{inquiries.length} total</div>
@@ -244,9 +325,13 @@ function InquiryPage() {
                   transition={{ duration: 0.5 }}
                   className="glass-strong rounded-2xl p-10 text-center border border-white/5"
                 >
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">Nothing here yet</div>
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+                    Nothing here yet
+                  </div>
                   <div className="font-display text-xl mb-2">Your tracker is empty.</div>
-                  <div className="text-sm text-luxury-gray">Send your first request on the left — it will show up here instantly.</div>
+                  <div className="text-sm text-luxury-gray">
+                    Send your first request on the left — it will show up here instantly.
+                  </div>
                 </motion.div>
               ) : (
                 inquiries.map((q, i) => (
@@ -260,17 +345,25 @@ function InquiryPage() {
                     <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="text-[10px] uppercase tracking-[0.3em] text-gold">{q.id}</span>
-                          <span className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">{q.type}</span>
+                          <span className="text-[10px] uppercase tracking-[0.3em] text-gold">
+                            {q.id}
+                          </span>
+                          <span className="text-[10px] uppercase tracking-[0.2em] text-luxury-gray">
+                            {q.type}
+                          </span>
                         </div>
                         <div className="font-display text-xl mb-1">{q.name}</div>
                         <div className="text-sm text-luxury-gray">{q.detail}</div>
                       </div>
                       <div className="text-right">
-                        <span className={`inline-block px-3 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] border ${statusColors[q.status]}`}>
+                        <span
+                          className={`inline-block px-3 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] border ${statusColors[q.status]}`}
+                        >
                           {q.status}
                         </span>
-                        <div className="text-[11px] text-luxury-gray mt-2">{timeAgo(q.created)}</div>
+                        <div className="text-[11px] text-luxury-gray mt-2">
+                          {timeAgo(q.created)}
+                        </div>
                       </div>
                     </div>
                   </motion.div>

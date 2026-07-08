@@ -31,7 +31,10 @@ export function Gallery() {
               key={i}
               className="group relative h-64 md:h-72 shrink-0 rounded-2xl glass-strong overflow-hidden hover:border-[var(--gold)]/40 transition-all duration-500"
             >
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: "var(--gradient-radial-gold)" }} />
+              <div
+                className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                style={{ background: "var(--gradient-radial-gold)" }}
+              />
               <img
                 src={img.src}
                 alt={img.alt}

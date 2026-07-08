@@ -57,7 +57,9 @@ export function Nav() {
       className={`fixed left-0 right-0 z-50 transition-all duration-500 md:top-9 top-0 ${scrolled ? "py-1" : "py-2"}`}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-3">
-        <div className={`rounded-2xl px-5 md:px-6 py-3 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "glass-strong shadow-[0_10px_40px_rgba(0,0,0,0.35)] border border-[var(--gold)]/10" : "bg-transparent border border-transparent"}`}>
+        <div
+          className={`rounded-2xl px-5 md:px-6 py-3 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "glass-strong shadow-[0_10px_40px_rgba(0,0,0,0.35)] border border-[var(--gold)]/10" : "bg-transparent border border-transparent"}`}
+        >
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
             <img
               src={logoAsset}
@@ -84,7 +86,9 @@ export function Nav() {
                     className="flex items-center gap-1 hover:text-premium-white transition-colors relative group"
                   >
                     {l.label}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openDropdown === l.label ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform ${openDropdown === l.label ? "rotate-180" : ""}`}
+                    />
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
                   </button>
                   <AnimatePresence>
@@ -137,7 +141,7 @@ export function Nav() {
                   {l.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
                 </Link>
-              )
+              ),
             )}
           </nav>
 
@@ -174,7 +178,9 @@ export function Nav() {
                       className="px-3 py-2.5 rounded-lg text-sm text-luxury-gray hover:text-premium-white hover:bg-white/5 transition-colors flex items-center justify-between"
                     >
                       {l.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${mobileOpenSub === l.label ? "rotate-180" : ""}`} />
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${mobileOpenSub === l.label ? "rotate-180" : ""}`}
+                      />
                     </button>
                     <AnimatePresence>
                       {mobileOpenSub === l.label && (
@@ -212,7 +218,7 @@ export function Nav() {
                   >
                     {l.label}
                   </Link>
-                )
+                ),
               )}
               <Link
                 to="/inquiry"

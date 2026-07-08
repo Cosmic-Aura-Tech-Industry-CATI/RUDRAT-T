@@ -4,17 +4,23 @@ import { useState } from "react";
 import { z } from "zod";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import cta from "@/assets/cta-india.jpg";
+import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours/customize")({
   head: () => ({
-    meta: [
-      { title: "Customised Package — Rudra Tours & Travels" },
-      { name: "description", content: "Design a trip made just for you. Share your travel preferences and our team will build a personalised package that fits your budget, dates and style." },
-      { property: "og:title", content: "Plan Your Perfect Trip — Rudra Tours" },
-      { property: "og:description", content: "Personalised travel packages planned by our friendly Kanpur team." },
-      { property: "og:image", content: cta },
-    ],
+    ...pageSeo({
+      title: "Custom Tour Package | Design Your Perfect Trip",
+      description:
+        "Design a trip made for you with a personalised package from Rudra Tours and Travels that fits your dates, budget and style.",
+      path: "/tours/customize",
+      image: cta,
+    }),
+    ...breadcrumbLdJson([
+      { name: "Tour Packages", path: "/tours" },
+      { name: "Custom Package", path: "/tours/customize" },
+    ]),
   }),
   component: CustomizePage,
 });
@@ -34,8 +40,17 @@ const schema = z.object({
 });
 
 const initial = {
-  name: "", phone: "", email: "", departure: "", destination: "", dates: "",
-  travelers: "2", budget: "", hotel: "", vehicle: "", notes: "",
+  name: "",
+  phone: "",
+  email: "",
+  departure: "",
+  destination: "",
+  dates: "",
+  travelers: "2",
+  budget: "",
+  hotel: "",
+  vehicle: "",
+  notes: "",
 };
 
 function CustomizePage() {
@@ -43,8 +58,10 @@ function CustomizePage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const set = (k: keyof typeof initial) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-    setForm({ ...form, [k]: e.target.value });
+  const set =
+    (k: keyof typeof initial) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setForm({ ...form, [k]: e.target.value });
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +91,9 @@ function CustomizePage() {
         created: new Date().toISOString(),
       };
       localStorage.setItem("rudra_inquiries", JSON.stringify([record, ...existing]));
-    } catch { /* ignore storage issues */ }
+    } catch {
+      /* ignore storage issues */
+    }
 
     setSubmitted(true);
     setForm(initial);
@@ -82,9 +101,19 @@ function CustomizePage() {
 
   return (
     <PageLayout>
+      <Breadcrumbs
+        items={[
+          { label: "Tour Packages", to: "/tours" },
+          { label: "Custom Package", to: "/tours/customize" },
+        ]}
+      />
       <PageHero
         eyebrow="Customised Package"
-        title={<>Plan Your <span className="shine-text italic">Perfect Trip</span>.</>}
+        title={
+          <>
+            Design your <span className="shine-text italic">perfect trip</span>.
+          </>
+        }
         subtitle="Bas share your travel preferences and our team will build a trip made just for you — matching your budget, dates and style."
         image={cta}
       />
@@ -98,16 +127,25 @@ function CustomizePage() {
               transition={{ duration: 0.5 }}
               className="glass-strong rounded-3xl p-8 md:p-10 text-center border border-[var(--gold)]/30"
             >
-              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">Request Received</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+                Request Received
+              </div>
               <h3 className="font-display text-3xl md:text-4xl mb-4">Thank you!</h3>
               <p className="text-luxury-gray max-w-xl mx-auto mb-8">
-                We've received your custom trip request. A travel expert will reach out within one business hour to build your itinerary — bilkul tension free.
+                We've received your custom trip request. A travel expert will reach out within one
+                business hour to build your itinerary — bilkul tension free.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <button onClick={() => setSubmitted(false)} className="glass px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] text-premium-white hover:text-gold transition-colors">
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="glass px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] text-premium-white hover:text-gold transition-colors"
+                >
                   Send Another
                 </button>
-                <Link to="/inquiry" className="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium">
+                <Link
+                  to="/inquiry"
+                  className="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium"
+                >
                   Track My Requests
                 </Link>
               </div>
@@ -122,29 +160,68 @@ function CustomizePage() {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Full Name" error={errors.name}>
-                  <input value={form.name} onChange={set("name")} className={inputCls} placeholder="Your full name" />
+                  <input
+                    value={form.name}
+                    onChange={set("name")}
+                    className={inputCls}
+                    placeholder="Your full name"
+                  />
                 </Field>
                 <Field label="Mobile Number" error={errors.phone}>
-                  <input value={form.phone} onChange={set("phone")} className={inputCls} placeholder="+91 ..." />
+                  <input
+                    value={form.phone}
+                    onChange={set("phone")}
+                    className={inputCls}
+                    placeholder="+91 ..."
+                  />
                 </Field>
                 <Field label="Email Address" error={errors.email}>
-                  <input type="email" value={form.email} onChange={set("email")} className={inputCls} placeholder="you@email.com" />
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={set("email")}
+                    className={inputCls}
+                    placeholder="you@email.com"
+                  />
                 </Field>
                 <Field label="Departure City" error={errors.departure}>
-                  <input value={form.departure} onChange={set("departure")} className={inputCls} placeholder="e.g. Kanpur" />
+                  <input
+                    value={form.departure}
+                    onChange={set("departure")}
+                    className={inputCls}
+                    placeholder="e.g. Kanpur"
+                  />
                 </Field>
                 <Field label="Preferred Destination" error={errors.destination}>
-                  <input value={form.destination} onChange={set("destination")} className={inputCls} placeholder="e.g. Kashmir, Kerala" />
+                  <input
+                    value={form.destination}
+                    onChange={set("destination")}
+                    className={inputCls}
+                    placeholder="e.g. Kashmir, Kerala"
+                  />
                 </Field>
                 <Field label="Travel Dates" error={errors.dates}>
-                  <input value={form.dates} onChange={set("dates")} className={inputCls} placeholder="e.g. 12 – 18 Oct 2026" />
+                  <input
+                    value={form.dates}
+                    onChange={set("dates")}
+                    className={inputCls}
+                    placeholder="e.g. 12 – 18 Oct 2026"
+                  />
                 </Field>
                 <Field label="Number of Travelers" error={errors.travelers}>
-                  <input type="number" min={1} value={form.travelers} onChange={set("travelers")} className={inputCls} />
+                  <input
+                    type="number"
+                    min={1}
+                    value={form.travelers}
+                    onChange={set("travelers")}
+                    className={inputCls}
+                  />
                 </Field>
                 <Field label="Budget Range" error={errors.budget}>
                   <select value={form.budget} onChange={set("budget")} className={inputCls}>
-                    <option value="" className="bg-[var(--deep-2)]">Select budget</option>
+                    <option value="" className="bg-[var(--deep-2)]">
+                      Select budget
+                    </option>
                     <option className="bg-[var(--deep-2)]">Under ₹25,000 / person</option>
                     <option className="bg-[var(--deep-2)]">₹25,000 – ₹50,000 / person</option>
                     <option className="bg-[var(--deep-2)]">₹50,000 – ₹1,00,000 / person</option>
@@ -153,7 +230,9 @@ function CustomizePage() {
                 </Field>
                 <Field label="Hotel Category" error={errors.hotel}>
                   <select value={form.hotel} onChange={set("hotel")} className={inputCls}>
-                    <option value="" className="bg-[var(--deep-2)]">Select category</option>
+                    <option value="" className="bg-[var(--deep-2)]">
+                      Select category
+                    </option>
                     <option className="bg-[var(--deep-2)]">3 Star</option>
                     <option className="bg-[var(--deep-2)]">4 Star</option>
                     <option className="bg-[var(--deep-2)]">5 Star</option>
@@ -162,7 +241,9 @@ function CustomizePage() {
                 </Field>
                 <Field label="Vehicle Preference" error={errors.vehicle}>
                   <select value={form.vehicle} onChange={set("vehicle")} className={inputCls}>
-                    <option value="" className="bg-[var(--deep-2)]">Select vehicle</option>
+                    <option value="" className="bg-[var(--deep-2)]">
+                      Select vehicle
+                    </option>
                     <option className="bg-[var(--deep-2)]">Sedan</option>
                     <option className="bg-[var(--deep-2)]">SUV</option>
                     <option className="bg-[var(--deep-2)]">Premium SUV</option>
@@ -172,16 +253,26 @@ function CustomizePage() {
                 </Field>
                 <div className="md:col-span-2">
                   <Field label="Anything Special?" error={errors.notes}>
-                    <textarea value={form.notes} onChange={set("notes")} rows={4} className={inputCls} placeholder="Food preferences, accessibility, celebrations, must-see places…" />
+                    <textarea
+                      value={form.notes}
+                      onChange={set("notes")}
+                      rows={4}
+                      className={inputCls}
+                      placeholder="Food preferences, accessibility, celebrations, must-see places…"
+                    />
                   </Field>
                 </div>
               </div>
 
-              <button type="submit" className="btn-gold w-full md:w-auto md:px-10 mt-6 py-4 rounded-full text-xs uppercase tracking-[0.25em] font-medium">
+              <button
+                type="submit"
+                className="btn-gold w-full md:w-auto md:px-10 mt-6 py-4 rounded-full text-xs uppercase tracking-[0.25em] font-medium"
+              >
                 Get My Custom Package
               </button>
               <p className="text-[11px] text-luxury-gray/70 mt-4">
-                Your request is tagged <span className="text-gold">Custom Package Inquiry</span> and saved in your tracker.
+                Your request is tagged <span className="text-gold">Custom Package Inquiry</span> and
+                saved in your tracker.
               </p>
             </motion.form>
           )}
@@ -191,9 +282,18 @@ function CustomizePage() {
   );
 }
 
-const inputCls = "w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50";
+const inputCls =
+  "w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50";
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
       <div className="text-[10px] uppercase tracking-[0.25em] text-luxury-gray mb-2">{label}</div>

@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import logoAsset from "@/assets/rudra-logo.png";
 import dimisiLogo from "@/assets/dimisi-logo.png";
+import { LANDING_PAGES } from "@/data/seo-landings";
 
 const cols = [
   {
@@ -16,16 +17,23 @@ const cols = [
   },
   {
     title: "Travel Services",
-    links: [
-      { label: "Airport Pickup", to: "/vehicles", ariaLabel: "View Airport Pickup Services" },
-      { label: "Local Taxi", to: "/vehicles", ariaLabel: "View Local Taxi Services" },
-      { label: "Outstation Cabs", to: "/vehicles", ariaLabel: "View Outstation Cab Services" },
-      {
-        label: "Tempo Traveller",
-        to: "/vehicles#tempo-traveller",
-        ariaLabel: "View Tempo Traveller",
-      },
-    ],
+    links: LANDING_PAGES.filter((page) => page.kind === "service")
+      .slice(0, 4)
+      .map((page) => ({
+        label: page.eyebrow,
+        to: `/${page.slug}`,
+        ariaLabel: `Open ${page.title}`,
+      })),
+  },
+  {
+    title: "City Guides",
+    links: LANDING_PAGES.filter((page) => page.kind === "location")
+      .slice(0, 4)
+      .map((page) => ({
+        label: page.eyebrow,
+        to: `/${page.slug}`,
+        ariaLabel: `Open ${page.title}`,
+      })),
   },
   {
     title: "Company",
@@ -37,7 +45,7 @@ export function Footer() {
   return (
     <footer className="relative pt-16 pb-8 px-6 border-t border-white/10">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/10">
           <div>
             <div className="flex items-center gap-3 mb-5">
               <img

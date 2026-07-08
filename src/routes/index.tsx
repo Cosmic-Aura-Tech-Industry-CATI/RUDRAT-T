@@ -4,6 +4,7 @@ import { TopBar } from "@/components/TopBar";
 import { Hero } from "@/components/Hero";
 import { SearchBar } from "@/components/SearchBar";
 import { Destinations } from "@/components/Destinations";
+import { SEOHub } from "@/components/SEOHub";
 import { Fleet } from "@/components/Fleet";
 import { WhyChoose } from "@/components/WhyChoose";
 import { IndiaMap } from "@/components/IndiaMap";
@@ -38,6 +39,7 @@ function Index() {
       <Hero />
       <SearchBar />
       <Destinations />
+      <SEOHub />
       <Fleet />
       <WhyChoose />
       <IndiaMap />

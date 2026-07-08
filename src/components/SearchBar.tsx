@@ -7,19 +7,40 @@ import type { DateRange } from "react-day-picker";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { packages } from "@/data/packages";
+import { LANDING_PAGES } from "@/data/seo-landings";
 import { cn } from "@/lib/utils";
 
-// Build destination index from packages.
-type DestEntry = { label: string; slug: string; pkgName: string };
-const DEST_INDEX: DestEntry[] = (() => {
-  const seen = new Map<string, DestEntry>();
+type SearchEntry = {
+  label: string;
+  slug: string;
+  route: "/tours/$slug" | "/$slug";
+  hint: string;
+};
+
+// Build destination and landing-page indexes for search.
+const DEST_INDEX: SearchEntry[] = (() => {
+  const seen = new Map<string, SearchEntry>();
+  for (const page of LANDING_PAGES) {
+    const eyebrowKey = page.eyebrow.toLowerCase();
+    if (!seen.has(eyebrowKey)) {
+      seen.set(eyebrowKey, { label: page.eyebrow, slug: page.slug, route: "/$slug", hint: page.title });
+    }
+    const slugKey = page.slug.toLowerCase();
+    if (!seen.has(slugKey)) {
+      seen.set(slugKey, { label: page.title, slug: page.slug, route: "/$slug", hint: page.description });
+    }
+  }
   for (const p of packages) {
     for (const d of p.destinations) {
       const key = d.toLowerCase();
-      if (!seen.has(key)) seen.set(key, { label: d, slug: p.slug, pkgName: p.name });
+      if (!seen.has(key)) {
+        seen.set(key, { label: d, slug: p.slug, route: "/tours/$slug", hint: p.name });
+      }
     }
     const nameKey = p.name.toLowerCase();
-    if (!seen.has(nameKey)) seen.set(nameKey, { label: p.name, slug: p.slug, pkgName: p.name });
+    if (!seen.has(nameKey)) {
+      seen.set(nameKey, { label: p.name, slug: p.slug, route: "/tours/$slug", hint: p.name });
+    }
   }
   return Array.from(seen.values()).sort((a, b) => a.label.localeCompare(b.label));
 })();
@@ -52,19 +73,19 @@ function resolveSlug(query: string): string | null {
   const starts = DEST_INDEX.find((d) => d.label.toLowerCase().startsWith(q));
   if (starts) return starts.slug;
   const includes = DEST_INDEX.find(
-    (d) => d.label.toLowerCase().includes(q) || d.pkgName.toLowerCase().includes(q),
+    (d) => d.label.toLowerCase().includes(q) || d.hint.toLowerCase().includes(q),
   );
   return includes?.slug ?? null;
 }
 
-function filterDestinations(query: string): DestEntry[] {
+function filterDestinations(query: string): SearchEntry[] {
   const q = query.trim().toLowerCase();
   if (!q) return DEST_INDEX;
   const starts = DEST_INDEX.filter((d) => d.label.toLowerCase().startsWith(q));
   const includes = DEST_INDEX.filter(
     (d) =>
       !d.label.toLowerCase().startsWith(q) &&
-      (d.label.toLowerCase().includes(q) || d.pkgName.toLowerCase().includes(q)),
+      (d.label.toLowerCase().includes(q) || d.hint.toLowerCase().includes(q)),
   );
   return [...starts, ...includes].slice(0, 12);
 }
@@ -76,7 +97,7 @@ export function SearchBar() {
   const [destQuery, setDestQuery] = useState("");
   const [destOpen, setDestOpen] = useState(false);
   const [highlight, setHighlight] = useState(0);
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [selectedTarget, setSelectedTarget] = useState<SearchEntry | null>(null);
   const destInputRef = useRef<HTMLInputElement>(null);
 
   // Rotating placeholder
@@ -124,7 +145,8 @@ export function SearchBar() {
   }, [adults, children]);
 
   const handleSearch = () => {
-    const slug = selectedSlug ?? resolveSlug(destQuery);
+    const slug = selectedTarget?.slug ?? resolveSlug(destQuery);
+    const target = selectedTarget ?? DEST_INDEX.find((entry) => entry.slug === slug) ?? null;
     const search: Record<string, string> = {};
     if (range?.from) search.start = range.from.toISOString().slice(0, 10);
     if (range?.to) search.end = range.to.toISOString().slice(0, 10);
@@ -132,8 +154,8 @@ export function SearchBar() {
     search.children = String(children);
     const q = destQuery.trim();
     if (q) search.q = q;
-    if (slug) {
-      navigate({ to: "/tours/$slug", params: { slug }, search });
+    if (target) {
+      navigate({ to: target.route, params: { slug: target.slug }, search });
     } else {
       navigate({ to: "/tours", search });
     }
@@ -152,7 +174,7 @@ export function SearchBar() {
       if (destOpen && suggestions[highlight]) {
         const s = suggestions[highlight];
         setDestQuery(s.label);
-        setSelectedSlug(s.slug);
+        setSelectedTarget(s);
         setDestOpen(false);
       } else {
         handleSearch();
@@ -184,7 +206,7 @@ export function SearchBar() {
                 value={destQuery}
                 onChange={(e) => {
                   setDestQuery(e.target.value);
-                  setSelectedSlug(null);
+                  setSelectedTarget(null);
                   setDestOpen(true);
                   setHighlight(0);
                 }}
@@ -207,7 +229,7 @@ export function SearchBar() {
                     onMouseDown={(e) => {
                       e.preventDefault();
                       setDestQuery(s.label);
-                      setSelectedSlug(s.slug);
+                      setSelectedTarget(s);
                       setDestOpen(false);
                     }}
                     className={cn(
@@ -219,9 +241,9 @@ export function SearchBar() {
                   >
                     <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
                     <span className="flex-1 truncate">{s.label}</span>
-                    {s.label !== s.pkgName && (
+                    {s.label !== s.hint && (
                       <span className="text-[10px] uppercase tracking-[0.15em] text-luxury-gray/70 truncate">
-                        {s.pkgName}
+                        {s.hint}
                       </span>
                     )}
                   </button>

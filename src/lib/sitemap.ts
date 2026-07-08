@@ -1,3 +1,5 @@
+import { LANDING_PAGES } from "../data/seo-landings";
+
 export type SitemapEntry = {
   loc: string;
   changefreq: "daily" | "weekly" | "monthly";
@@ -61,6 +63,12 @@ const PACKAGE_SLUGS = [
 export function getSitemapEntries(lastmod: string): SitemapEntry[] {
   return [
     ...STATIC_PAGES.map((entry) => ({ ...entry, lastmod })),
+    ...LANDING_PAGES.map((page) => ({
+      loc: `/${page.slug}`,
+      changefreq: "monthly" as const,
+      priority: page.kind === "service" ? "0.8" : "0.7",
+      lastmod,
+    })),
     ...DESTINATION_SLUGS.map((slug) => ({
       loc: `/destinations/${slug}`,
       changefreq: "monthly" as const,

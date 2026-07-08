@@ -5,10 +5,13 @@ export const BRAND = {
   phone: "+91 70145 47628",
   phoneHref: "tel:+917014547628",
   whatsapp: "+91 70145 47628",
-  whatsappHref: "https://wa.me/917014547628?text=Hello%20Rudra%20Tours%2C%20I%27d%20like%20to%20plan%20a%20journey.",
+  whatsappHref:
+    "https://wa.me/917014547628?text=Hello%20Rudra%20Tours%2C%20I%27d%20like%20to%20plan%20a%20journey.",
   email: "aabhaynigama@gmail.com",
   emailHref: "mailto:aabhaynigama@gmail.com",
   address: "Mall Road, Civil Lines, Kanpur, Uttar Pradesh 208001",
+  mapsUrl: "https://share.google/OwmWsM4T3GhEmwVN4",
   shortAddress: "Kanpur, Uttar Pradesh",
   hours: "Mon – Sat · 9:00 AM to 8:00 PM",
+  socialLinks: [] as Array<{ label: string; href: string }>,
 };

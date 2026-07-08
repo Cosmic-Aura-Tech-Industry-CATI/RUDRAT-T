@@ -40,20 +40,34 @@ export function Destinations() {
 
                 <div className="space-y-0.5 mb-4">
                   {priceLines(p.pricing).map((line) => (
-                    <div key={line.label} className="flex items-baseline justify-between gap-2 text-[11px]">
-                      <span className="text-luxury-gray uppercase tracking-[0.15em]">{line.label}</span>
+                    <div
+                      key={line.label}
+                      className="flex items-baseline justify-between gap-2 text-[11px]"
+                    >
+                      <span className="text-luxury-gray uppercase tracking-[0.15em]">
+                        {line.label}
+                      </span>
                       <span className="text-gold font-medium">{line.value}</span>
                     </div>
                   ))}
                 </div>
 
-                <Link
-                  to="/inquiry"
-                  search={{ type: "Tour Inquiry", package: p.name }}
-                  className="inline-flex items-center justify-center w-full btn-gold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium"
-                >
-                  Plan My Trip
-                </Link>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/tours/$slug"
+                    params={{ slug: p.slug }}
+                    className="inline-flex items-center justify-center w-full btn-ghost-luxe px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium"
+                  >
+                    View Details
+                  </Link>
+                  <Link
+                    to="/inquiry"
+                    search={{ type: "Tour Inquiry", package: p.name }}
+                    className="inline-flex items-center justify-center w-full btn-gold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium"
+                  >
+                    Plan My Trip
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -72,7 +86,15 @@ export function Destinations() {
   );
 }
 
-export function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
+export function SectionHeader({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -86,7 +108,9 @@ export function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; t
         {eyebrow}
       </div>
       <h2 className="font-display text-4xl md:text-6xl font-light leading-[1.05]">{title}</h2>
-      {subtitle && <p className="mt-4 text-luxury-gray text-base md:text-lg max-w-xl">{subtitle}</p>}
+      {subtitle && (
+        <p className="mt-4 text-luxury-gray text-base md:text-lg max-w-xl">{subtitle}</p>
+      )}
     </motion.div>
   );
 }

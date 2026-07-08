@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import logoAsset from "@/assets/rudra-logo.png";
+import { SITE, organizationLdJson, absoluteUrl } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -77,24 +79,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: SITE.name },
+      { name: "description", content: SITE.description },
+      { name: "author", content: SITE.name },
+      {
+        name: "robots",
+        content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:large",
+      },
+      { name: "theme-color", content: "#0f1620" },
+      { name: "apple-mobile-web-app-title", content: SITE.name },
+      { name: "application-name", content: SITE.name },
+      { name: "msapplication-config", content: "/browserconfig.xml" },
+      { name: "color-scheme", content: "dark" },
+      { property: "og:site_name", content: SITE.name },
+      { property: "og:locale", content: SITE.locale },
+      { property: "og:title", content: SITE.name },
+      { property: "og:description", content: SITE.description },
+      { property: "og:url", content: SITE.url },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:image", content: absoluteUrl(logoAsset) },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SITE.name },
+      { name: "twitter:description", content: SITE.description },
+      { name: "twitter:image", content: absoluteUrl(logoAsset) },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
+      { rel: "dns-prefetch", href: "//fonts.gstatic.com" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.svg" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
     ],
+    "script:ld+json": organizationLdJson()["script:ld+json"],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -104,7 +127,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
       </head>

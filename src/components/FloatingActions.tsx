@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot } from "lucide-react";
+import { X, Send, Bot, Phone } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 
 type Msg = { role: "bot" | "user"; text: string };
@@ -48,6 +48,28 @@ export function FloatingActions() {
     <>
       {/* Right-side floating stack */}
       <div className="fixed right-4 md:right-5 bottom-14 md:bottom-16 z-[70] flex flex-col items-end gap-3">
+        {/* Call Now */}
+        <motion.a
+          href={BRAND.phoneHref}
+          aria-label="Call Us Now"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative group"
+        >
+          <span
+            className="absolute inset-0 rounded-full opacity-50 blur-xl group-hover:opacity-80 transition-opacity"
+            style={{ background: "var(--gradient-radial-gold)" }}
+          />
+          <span className="absolute inset-0 rounded-full bg-[var(--gold)] animate-ping opacity-25" />
+          <span
+            className="relative grid place-items-center w-14 h-14 rounded-full text-[var(--primary-foreground)] shadow-2xl border border-white/20 group-hover:scale-110 transition-transform duration-500"
+            style={{ background: "var(--gradient-gold)" }}
+          >
+            <Phone className="w-6 h-6" />
+          </span>
+        </motion.a>
+
         {/* WhatsApp */}
         <motion.a
           href={BRAND.whatsappHref}

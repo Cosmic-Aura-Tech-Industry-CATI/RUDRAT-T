@@ -36,14 +36,24 @@ const servicePages: LandingPage[] = [
     introHeading: "Why travellers book car rental in Kanpur",
     introBody:
       "This page is built for people searching for car rental Kanpur, taxi service Kanpur and cab booking Kanpur. It gives a clear starting point for local use, outstation routes, corporate movement and family trips without forcing the visitor to jump between unrelated pages.",
-    highlights: ["Local city use", "Airport pickup and drop", "Outstation cab booking", "Wedding and family travel"],
+    highlights: [
+      "Local city use",
+      "Airport pickup and drop",
+      "Outstation cab booking",
+      "Wedding and family travel",
+    ],
     reasons: [
       "Transparent pricing with a direct enquiry path.",
       "Useful for both one-way and round-trip travel.",
       "Connects the service page to the exact vehicle and tour pages people need next.",
     ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
-    relatedPages: ["taxi-service-kanpur", "airport-transfer", "outstation-taxi", "travel-agency-kanpur"],
+    relatedPages: [
+      "taxi-service-kanpur",
+      "airport-transfer",
+      "outstation-taxi",
+      "travel-agency-kanpur",
+    ],
     faqs: [
       {
         question: "Do you provide car rental in Kanpur with driver?",
@@ -104,14 +114,24 @@ const servicePages: LandingPage[] = [
     introHeading: "Why a dedicated cab booking page matters",
     introBody:
       "Searchers often type cab booking Kanpur when they want immediate travel help rather than a broad tourism page. This landing page speaks directly to that intent with a simple enquiry flow, useful service details and links to the right vehicle categories.",
-    highlights: ["Quick booking", "Airport and station transfers", "Business cabs", "Outstation taxi"],
+    highlights: [
+      "Quick booking",
+      "Airport and station transfers",
+      "Business cabs",
+      "Outstation taxi",
+    ],
     reasons: [
       "Targets the exact cab booking keyword cluster.",
       "Explains when to use a cab versus a full package.",
       "Improves internal links to vehicle and local travel pages.",
     ],
     relatedPackages: ["prayagraj-sangam", "ayodhya-darshan", "kashi-vishwanath"],
-    relatedPages: ["taxi-service-kanpur", "car-rental-kanpur", "airport-transfer", "outstation-taxi"],
+    relatedPages: [
+      "taxi-service-kanpur",
+      "car-rental-kanpur",
+      "airport-transfer",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Can I book a cab for a same-day trip?",
@@ -138,7 +158,12 @@ const servicePages: LandingPage[] = [
     introHeading: "Built for group travel from Kanpur",
     introBody:
       "Tempo traveller searches usually mean one thing: a group needs to travel together without splitting into multiple cars. This page explains the seat options, the trip types that fit tempo travellers best and the destinations where group travel saves time and cost.",
-    highlights: ["12, 17 and 26 seater options", "Pilgrimage trips", "Family travel", "Corporate outings"],
+    highlights: [
+      "12, 17 and 26 seater options",
+      "Pilgrimage trips",
+      "Family travel",
+      "Corporate outings",
+    ],
     reasons: [
       "Targets high-intent group travel search terms.",
       "Explains when tempo travellers are better than SUVs or buses.",
@@ -149,8 +174,7 @@ const servicePages: LandingPage[] = [
     faqs: [
       {
         question: "How many passengers can a tempo traveller carry?",
-        answer:
-          "We support 12, 17 and 26 seater options depending on the route and trip size.",
+        answer: "We support 12, 17 and 26 seater options depending on the route and trip size.",
       },
       {
         question: "Is tempo traveller booking good for pilgrimage travel?",
@@ -213,7 +237,12 @@ const servicePages: LandingPage[] = [
       "Links vehicle intent with tours and airport transfer pages.",
     ],
     relatedPackages: ["kashmir-paradise", "kullu-manali", "kashmir-paradise"],
-    relatedPages: ["car-rental-kanpur", "outstation-taxi", "airport-transfer", "travel-agency-kanpur"],
+    relatedPages: [
+      "car-rental-kanpur",
+      "outstation-taxi",
+      "airport-transfer",
+      "travel-agency-kanpur",
+    ],
     faqs: [
       {
         question: "Is Innova Crysta rental good for family tours?",
@@ -247,7 +276,12 @@ const servicePages: LandingPage[] = [
       "Improves trust for users comparing luxury SUVs.",
     ],
     relatedPackages: ["rajasthan-heritage", "kashmir-paradise", "mumbai-tour"],
-    relatedPages: ["luxury-car-rental", "wedding-car-rental", "airport-transfer", "corporate-travel"],
+    relatedPages: [
+      "luxury-car-rental",
+      "wedding-car-rental",
+      "airport-transfer",
+      "corporate-travel",
+    ],
     faqs: [
       {
         question: "Is Fortuner rental useful for weddings?",
@@ -281,7 +315,12 @@ const servicePages: LandingPage[] = [
       "Provides a clear alternative to tempo traveller pages.",
     ],
     relatedPackages: ["char-dham-yatra", "vaishno-devi", "haridwar-rishikesh"],
-    relatedPages: ["tempo-traveller-kanpur", "corporate-travel", "wedding-car-rental", "outstation-taxi"],
+    relatedPages: [
+      "tempo-traveller-kanpur",
+      "corporate-travel",
+      "wedding-car-rental",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Do you provide buses for weddings and events?",
@@ -349,7 +388,12 @@ const servicePages: LandingPage[] = [
       "Adds a strong local search landing page to the site.",
     ],
     relatedPackages: ["kashi-vishwanath", "prayagraj-sangam", "ayodhya-darshan"],
-    relatedPages: ["car-rental-kanpur", "taxi-service-kanpur", "corporate-travel", "outstation-taxi"],
+    relatedPages: [
+      "car-rental-kanpur",
+      "taxi-service-kanpur",
+      "corporate-travel",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Can you arrange airport taxi for Lucknow airport?",
@@ -387,13 +431,11 @@ const servicePages: LandingPage[] = [
     faqs: [
       {
         question: "Can I book one-way outstation taxi from Kanpur?",
-        answer:
-          "Yes. One-way and round-trip outstation bookings are supported from this page.",
+        answer: "Yes. One-way and round-trip outstation bookings are supported from this page.",
       },
       {
         question: "Is outstation taxi useful for family trips?",
-        answer:
-          "Yes. It is one of the best pages for families planning intercity road travel.",
+        answer: "Yes. It is one of the best pages for families planning intercity road travel.",
       },
     ],
   },
@@ -485,7 +527,12 @@ const servicePages: LandingPage[] = [
       "Works as the main hub for holiday and package intent.",
     ],
     relatedPackages: ["kashmir-paradise", "char-dham-yatra", "rajasthan-heritage"],
-    relatedPages: ["holiday-packages", "uttar-pradesh-tour-packages", "travel-agency-kanpur", "outstation-taxi"],
+    relatedPages: [
+      "holiday-packages",
+      "uttar-pradesh-tour-packages",
+      "travel-agency-kanpur",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Do you arrange family and group tour packages?",
@@ -518,7 +565,12 @@ const servicePages: LandingPage[] = [
       "Connects multiple destination guides into one hub.",
       "Supports featured snippets by listing the major cities clearly.",
     ],
-    relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "mathura-vrindavan", "prayagraj-sangam"],
+    relatedPackages: [
+      "ayodhya-darshan",
+      "kashi-vishwanath",
+      "mathura-vrindavan",
+      "prayagraj-sangam",
+    ],
     relatedPages: ["tour-packages", "holiday-packages", "ayodhya", "varanasi"],
     faqs: [
       {
@@ -553,7 +605,12 @@ const servicePages: LandingPage[] = [
       "Connects undecided visitors to specific tour packages.",
     ],
     relatedPackages: ["goa-tour", "kerala-tour", "kullu-manali"],
-    relatedPages: ["tour-packages", "uttar-pradesh-tour-packages", "travel-agency-kanpur", "corporate-travel"],
+    relatedPages: [
+      "tour-packages",
+      "uttar-pradesh-tour-packages",
+      "travel-agency-kanpur",
+      "corporate-travel",
+    ],
     faqs: [
       {
         question: "Do you create custom holiday packages?",
@@ -584,7 +641,11 @@ const locationPages: LandingPage[] = [
     introBody:
       "Kanpur is the home base of Rudra Tours and Travels, so the page combines local travel intent with the bigger tourism routes people search for after leaving the city. It is useful for anyone comparing taxi service Kanpur, car rental Kanpur and tour packages from Kanpur.",
     highlights: ["Local cabs", "Airport transfer", "City business travel", "Trip departures"],
-    reasons: ["Strong local search relevance.", "Useful hub page for internal links.", "Connects city travel with holiday planning."],
+    reasons: [
+      "Strong local search relevance.",
+      "Useful hub page for internal links.",
+      "Connects city travel with holiday planning.",
+    ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
     relatedPages: ["car-rental-kanpur", "taxi-service-kanpur", "airport-transfer", "tour-packages"],
     faqs: [
@@ -614,19 +675,26 @@ const locationPages: LandingPage[] = [
     introBody:
       "Lucknow is a major search city for both travel and business. This page makes it easy to find the right car, cab or package when users are planning a route through or to Lucknow.",
     highlights: ["City transfers", "Business travel", "Airport pickups", "Family movement"],
-    reasons: ["Supports city-specific SEO.", "Useful for nearby intercity bookings.", "Adds a strong travel intent page for Uttar Pradesh."],
+    reasons: [
+      "Supports city-specific SEO.",
+      "Useful for nearby intercity bookings.",
+      "Adds a strong travel intent page for Uttar Pradesh.",
+    ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "mathura-vrindavan"],
-    relatedPages: ["taxi-service-kanpur", "airport-transfer", "car-rental-kanpur", "uttar-pradesh-tour-packages"],
+    relatedPages: [
+      "taxi-service-kanpur",
+      "airport-transfer",
+      "car-rental-kanpur",
+      "uttar-pradesh-tour-packages",
+    ],
     faqs: [
       {
         question: "Can I travel from Kanpur to Lucknow by cab?",
-        answer:
-          "Yes. Lucknow is a common intercity cab and airport transfer route from Kanpur.",
+        answer: "Yes. Lucknow is a common intercity cab and airport transfer route from Kanpur.",
       },
       {
         question: "Is Lucknow useful for business and family bookings?",
-        answer:
-          "Yes. It is a key route for both executive travel and family movement.",
+        answer: "Yes. It is a key route for both executive travel and family movement.",
       },
     ],
   },
@@ -644,7 +712,11 @@ const locationPages: LandingPage[] = [
     introBody:
       "Agra searches often come from people planning a short heritage trip. This page helps them decide the right cab, package or holiday plan and points them toward related North India travel options.",
     highlights: ["Taj Mahal trip", "Weekend travel", "Family sightseeing", "Outstation cab"],
-    reasons: ["Targets an iconic tourism city.", "Useful for heritage and short-trip intent.", "Creates a clear internal path to packages."],
+    reasons: [
+      "Targets an iconic tourism city.",
+      "Useful for heritage and short-trip intent.",
+      "Creates a clear internal path to packages.",
+    ],
     relatedPackages: ["rajasthan-heritage", "jaipur-tour", "kashmir-paradise"],
     relatedPages: ["outstation-taxi", "tour-packages", "holiday-packages", "car-rental-kanpur"],
     faqs: [
@@ -655,8 +727,7 @@ const locationPages: LandingPage[] = [
       },
       {
         question: "Do you arrange holiday packages that include Agra?",
-        answer:
-          "Yes. Agra can be part of a North India holiday package or a short heritage route.",
+        answer: "Yes. Agra can be part of a North India holiday package or a short heritage route.",
       },
     ],
   },
@@ -674,19 +745,26 @@ const locationPages: LandingPage[] = [
     introBody:
       "Prayagraj searches are usually pilgrimage-driven and often connected to family road trips. This page makes the Sangam and city stay route easy to understand while linking to the best matching packages.",
     highlights: ["Sangam visit", "Pilgrimage trip", "Family travel", "City transfer"],
-    reasons: ["Strong pilgrimage search relevance.", "Supports both city and route intent.", "Connects to major Uttar Pradesh travel pages."],
+    reasons: [
+      "Strong pilgrimage search relevance.",
+      "Supports both city and route intent.",
+      "Connects to major Uttar Pradesh travel pages.",
+    ],
     relatedPackages: ["prayagraj-sangam", "ayodhya-darshan", "kashi-vishwanath"],
-    relatedPages: ["outstation-taxi", "tour-packages", "uttar-pradesh-tour-packages", "airport-transfer"],
+    relatedPages: [
+      "outstation-taxi",
+      "tour-packages",
+      "uttar-pradesh-tour-packages",
+      "airport-transfer",
+    ],
     faqs: [
       {
         question: "Is Prayagraj good for pilgrimage road trips?",
-        answer:
-          "Yes. Prayagraj is one of the strongest pilgrimage destinations in the state.",
+        answer: "Yes. Prayagraj is one of the strongest pilgrimage destinations in the state.",
       },
       {
         question: "Can Prayagraj be combined with Varanasi or Ayodhya?",
-        answer:
-          "Yes. These cities are often combined into one Uttar Pradesh travel route.",
+        answer: "Yes. These cities are often combined into one Uttar Pradesh travel route.",
       },
     ],
   },
@@ -704,9 +782,18 @@ const locationPages: LandingPage[] = [
     introBody:
       "Varanasi is one of the strongest pilgrimage and heritage searches in India. This landing page supports that demand with a clear route into taxi service, hotel stays, package trips and airport transfers.",
     highlights: ["Kashi Vishwanath", "Ganga Aarti", "Spiritual travel", "Heritage visit"],
-    reasons: ["Supports one of the biggest pilgrimage keywords.", "Useful for featured snippet style answers.", "Connects to pilgrimage package pages."],
+    reasons: [
+      "Supports one of the biggest pilgrimage keywords.",
+      "Useful for featured snippet style answers.",
+      "Connects to pilgrimage package pages.",
+    ],
     relatedPackages: ["kashi-vishwanath", "prayagraj-sangam", "ayodhya-darshan"],
-    relatedPages: ["tour-packages", "uttar-pradesh-tour-packages", "taxi-service-kanpur", "airport-transfer"],
+    relatedPages: [
+      "tour-packages",
+      "uttar-pradesh-tour-packages",
+      "taxi-service-kanpur",
+      "airport-transfer",
+    ],
     faqs: [
       {
         question: "Is Varanasi a strong search destination for pilgrimage travel?",
@@ -715,8 +802,7 @@ const locationPages: LandingPage[] = [
       },
       {
         question: "Can Varanasi be part of a multi-city Uttar Pradesh itinerary?",
-        answer:
-          "Yes. It is often combined with Prayagraj and Ayodhya in a single trip.",
+        answer: "Yes. It is often combined with Prayagraj and Ayodhya in a single trip.",
       },
     ],
   },
@@ -734,14 +820,22 @@ const locationPages: LandingPage[] = [
     introBody:
       "Ayodhya is a top pilgrimage destination, so visitors need a page that answers where to go, how to travel and which package fits best. This guide does exactly that and keeps the booking flow simple.",
     highlights: ["Ram Mandir", "Pilgrimage travel", "Family trips", "One-day route"],
-    reasons: ["Strong pilgrim and family travel intent.", "Great support for local and outstation bookings.", "Useful for search snippets and AI answers."],
+    reasons: [
+      "Strong pilgrim and family travel intent.",
+      "Great support for local and outstation bookings.",
+      "Useful for search snippets and AI answers.",
+    ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "char-dham-yatra"],
-    relatedPages: ["tour-packages", "uttar-pradesh-tour-packages", "car-rental-kanpur", "outstation-taxi"],
+    relatedPages: [
+      "tour-packages",
+      "uttar-pradesh-tour-packages",
+      "car-rental-kanpur",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Can I book Ayodhya as a one-day trip?",
-        answer:
-          "Yes. One-day and overnight Ayodhya road trips are both common and supported.",
+        answer: "Yes. One-day and overnight Ayodhya road trips are both common and supported.",
       },
       {
         question: "Is Ayodhya suitable for family pilgrimage travel?",
@@ -764,19 +858,26 @@ const locationPages: LandingPage[] = [
     introBody:
       "Mathura search intent often includes Vrindavan and other Braj pilgrimage stops. This page gives that broader context while linking visitors to the right route and package pages.",
     highlights: ["Vrindavan", "Krishna temples", "Family travel", "Pilgrimage route"],
-    reasons: ["Targets a core pilgrimage destination.", "Useful for weekend and religious travel.", "Improves long-tail route discovery."],
+    reasons: [
+      "Targets a core pilgrimage destination.",
+      "Useful for weekend and religious travel.",
+      "Improves long-tail route discovery.",
+    ],
     relatedPackages: ["mathura-vrindavan", "ayodhya-darshan", "kashi-vishwanath"],
-    relatedPages: ["tour-packages", "uttar-pradesh-tour-packages", "taxi-service-kanpur", "outstation-taxi"],
+    relatedPages: [
+      "tour-packages",
+      "uttar-pradesh-tour-packages",
+      "taxi-service-kanpur",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Can Mathura and Vrindavan be booked together?",
-        answer:
-          "Yes. Mathura and Vrindavan are usually planned as one combined pilgrimage route.",
+        answer: "Yes. Mathura and Vrindavan are usually planned as one combined pilgrimage route.",
       },
       {
         question: "Is Mathura a good family travel destination?",
-        answer:
-          "Yes. It is a common family pilgrimage destination and works well in short trips.",
+        answer: "Yes. It is a common family pilgrimage destination and works well in short trips.",
       },
     ],
   },
@@ -794,9 +895,18 @@ const locationPages: LandingPage[] = [
     introBody:
       "Noida searchers often want business taxis, airport transfers or family movement through Delhi NCR. This page serves that need with a clean path to car rental and transfer bookings.",
     highlights: ["Business travel", "Airport transfer", "Delhi NCR movement", "Corporate cab"],
-    reasons: ["Useful for NCR business search intent.", "Supports airport and corporate booking flows.", "Adds authority beyond Kanpur-only search terms."],
+    reasons: [
+      "Useful for NCR business search intent.",
+      "Supports airport and corporate booking flows.",
+      "Adds authority beyond Kanpur-only search terms.",
+    ],
     relatedPackages: ["mumbai-tour", "jaipur-tour", "rajasthan-heritage"],
-    relatedPages: ["corporate-travel", "airport-transfer", "car-rental-kanpur", "luxury-car-rental"],
+    relatedPages: [
+      "corporate-travel",
+      "airport-transfer",
+      "car-rental-kanpur",
+      "luxury-car-rental",
+    ],
     faqs: [
       {
         question: "Is Noida useful for corporate travel searches?",
@@ -805,8 +915,7 @@ const locationPages: LandingPage[] = [
       },
       {
         question: "Can I book airport transfer to or from Noida?",
-        answer:
-          "Yes. Airport transfer and business cab bookings can be arranged for NCR routes.",
+        answer: "Yes. Airport transfer and business cab bookings can be arranged for NCR routes.",
       },
     ],
   },
@@ -824,19 +933,26 @@ const locationPages: LandingPage[] = [
     introBody:
       "Ghaziabad is useful search territory for airport transfer, corporate travel and intercity cab booking. This guide turns that intent into a clear booking path and links to the relevant vehicle pages.",
     highlights: ["NCR transfers", "Airport cabs", "Business travel", "Outstation taxis"],
-    reasons: ["Strengthens Delhi NCR travel relevance.", "Useful for both business and family bookings.", "Creates more city-specific search depth."],
+    reasons: [
+      "Strengthens Delhi NCR travel relevance.",
+      "Useful for both business and family bookings.",
+      "Creates more city-specific search depth.",
+    ],
     relatedPackages: ["kashmir-paradise", "goa-tour", "kerala-tour"],
-    relatedPages: ["corporate-travel", "airport-transfer", "taxi-service-kanpur", "outstation-taxi"],
+    relatedPages: [
+      "corporate-travel",
+      "airport-transfer",
+      "taxi-service-kanpur",
+      "outstation-taxi",
+    ],
     faqs: [
       {
         question: "Is Ghaziabad a good page for airport cab searches?",
-        answer:
-          "Yes. Ghaziabad often overlaps with airport transfer and NCR mobility searches.",
+        answer: "Yes. Ghaziabad often overlaps with airport transfer and NCR mobility searches.",
       },
       {
         question: "Can Ghaziabad bookings be used for corporate travel?",
-        answer:
-          "Yes. Corporate travel and executive cabs are strong matches for this route.",
+        answer: "Yes. Corporate travel and executive cabs are strong matches for this route.",
       },
     ],
   },
@@ -854,7 +970,11 @@ const locationPages: LandingPage[] = [
     introBody:
       "Meerut search intent often includes both local cab booking and holiday planning. This page gives the user enough detail to book transport or move into a destination package without extra searching.",
     highlights: ["Cab booking", "Family travel", "Holiday planning", "Airport drop"],
-    reasons: ["Useful for North UP search coverage.", "Supports family and holiday intent.", "Moves users toward the best-fit travel page."],
+    reasons: [
+      "Useful for North UP search coverage.",
+      "Supports family and holiday intent.",
+      "Moves users toward the best-fit travel page.",
+    ],
     relatedPackages: ["kashmir-paradise", "rajasthan-heritage", "kullu-manali"],
     relatedPages: ["cab-booking-kanpur", "holiday-packages", "tour-packages", "outstation-taxi"],
     faqs: [
@@ -865,8 +985,7 @@ const locationPages: LandingPage[] = [
       },
       {
         question: "Can Meerut routes be booked as outstation taxis?",
-        answer:
-          "Yes. Meerut can be connected to outstation taxi and holiday travel bookings.",
+        answer: "Yes. Meerut can be connected to outstation taxi and holiday travel bookings.",
       },
     ],
   },

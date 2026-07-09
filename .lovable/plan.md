@@ -12,6 +12,7 @@ Only touch `src/components/Footer.tsx` and `src/components/FloatingActions.tsx`.
 `© 2026 Rudra Tours & Travels. Luxury Journeys Begin Here.`
 
 **Social icons** — In the bottom-row icon list, remove `MessageCircle` and `Facebook`; keep only Instagram, and add a YouTube icon (lucide `Youtube`). Both:
+
 - `target="_blank"`, `rel="noopener noreferrer"`
 - Placeholder `href="[YOUTUBE_URL]"` / `href="[INSTAGRAM_URL]"`
 - `aria-label="Visit YouTube"` / `aria-label="Visit Instagram"`
@@ -19,14 +20,17 @@ Only touch `src/components/Footer.tsx` and `src/components/FloatingActions.tsx`.
 - Centered in the bottom row
 
 **Bottom-row layout** — Restructure into three vertically stacked, centered rows on all breakpoints, keeping current padding/border/typography:
+
 ```
 © 2026 Rudra Tours & Travels. Luxury Journeys Begin Here.
         [YouTube]   [Instagram]
 Designed and developed by [DIMISI LOGO]
 ```
+
 Use `flex-col items-center gap-4` on the bottom container (replace the current `md:flex-row justify-between` split).
 
 **DIMISI logo — make it visibly bigger and premium**
+
 - Bump size from `h-4` to `h-8 md:h-10` (roughly 2–2.5× current) so it reads as a real brand mark.
 - Keep transparent background, `object-contain`, no distortion.
 - Add `loading="lazy"` and `decoding="async"` for performance.
@@ -38,6 +42,7 @@ Header/top footer grid (brand block + Explore/Vehicles/Company) stays untouched 
 ### 2. `src/components/FloatingActions.tsx`
 
 Raise the floating stack so it never overlaps the taller footer bottom row.
+
 - Line 48: change `bottom-6` → `bottom-10 md:bottom-12` (≈40–48px), keep `right-4 md:right-5`, `z-[70]`, and the flex/gap classes.
 - Line 112 (chat panel): adjust `bottom-[260px]` → `bottom-[300px]` so the panel still sits above the raised trigger buttons.
 - No animation, z-index, or spacing-between-buttons changes.

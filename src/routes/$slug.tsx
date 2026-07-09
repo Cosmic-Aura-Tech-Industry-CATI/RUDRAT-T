@@ -5,11 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "@/components/PageHero";
 import { PageLayout } from "@/components/PageLayout";
 import { packages } from "@/data/packages";
-import {
-  LANDING_PAGES,
-  getLandingPageBySlug,
-  type LandingPage,
-} from "@/data/seo-landings";
+import { LANDING_PAGES, getLandingPageBySlug, type LandingPage } from "@/data/seo-landings";
 import { breadcrumbLdJson, faqLdJson, pageSeo } from "@/lib/seo";
 
 import heroSuv from "@/assets/hero-suv.jpg";
@@ -92,7 +88,10 @@ function LandingPageRoute() {
         title={
           <>
             {page.heroTitle.split("|")[0]?.trim() ?? page.heroTitle}
-            <span className="shine-text italic">{page.kind === "service" ? " service" : " guide"}</span>.
+            <span className="shine-text italic">
+              {page.kind === "service" ? " service" : " guide"}
+            </span>
+            .
           </>
         }
         subtitle={page.heroSubtitle}
@@ -110,7 +109,9 @@ function LandingPageRoute() {
             className="glass-strong rounded-3xl p-7 md:p-10"
           >
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
-              {page.kind === "service" ? "Why this service page matters" : "Why this city guide matters"}
+              {page.kind === "service"
+                ? "Why this service page matters"
+                : "Why this city guide matters"}
             </div>
             <h2 className="font-display text-3xl md:text-4xl mb-4">{page.introHeading}</h2>
             <p className="text-luxury-gray leading-relaxed mb-6">{page.introBody}</p>
@@ -165,7 +166,10 @@ function LandingPageRoute() {
 
             <Link
               to="/inquiry"
-              search={{ type: page.kind === "service" ? "Service Inquiry" : "Destination Inquiry", package: page.eyebrow }}
+              search={{
+                type: page.kind === "service" ? "Service Inquiry" : "Destination Inquiry",
+                package: page.eyebrow,
+              }}
               className="btn-gold w-full px-5 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2"
             >
               Enquire Now <ArrowRight className="w-4 h-4" />
@@ -181,7 +185,9 @@ function LandingPageRoute() {
               Related Packages
             </div>
             <h2 className="font-display text-3xl md:text-4xl mb-6">
-              {page.kind === "service" ? "Packages that pair with this service." : "Trips that pair with this destination."}
+              {page.kind === "service"
+                ? "Packages that pair with this service."
+                : "Trips that pair with this destination."}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {relatedPackages.map((item) => (
@@ -209,7 +215,9 @@ function LandingPageRoute() {
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
               Internal Links
             </div>
-            <h2 className="font-display text-3xl md:text-4xl mb-6">Explore related travel pages.</h2>
+            <h2 className="font-display text-3xl md:text-4xl mb-6">
+              Explore related travel pages.
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
               {relatedPages.map((item) => (
                 <Link

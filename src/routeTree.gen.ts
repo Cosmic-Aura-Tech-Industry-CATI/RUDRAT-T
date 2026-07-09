@@ -20,6 +20,8 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToursIndexRouteImport } from './routes/tours.index'
+import { Route as DestinationsIndexRouteImport } from './routes/destinations.index'
 import { Route as ToursCustomizeRouteImport } from './routes/tours.customize'
 import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
@@ -79,6 +81,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToursIndexRoute = ToursIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ToursRoute,
+} as any)
+const DestinationsIndexRoute = DestinationsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DestinationsRoute,
+} as any)
 const ToursCustomizeRoute = ToursCustomizeRouteImport.update({
   id: '/customize',
   path: '/customize',
@@ -110,22 +122,24 @@ export interface FileRoutesByFullPath {
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
+  '/destinations/': typeof DestinationsIndexRoute
+  '/tours/': typeof ToursIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/reviews': typeof ReviewsRoute
-  '/tours': typeof ToursRouteWithChildren
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
+  '/destinations': typeof DestinationsIndexRoute
+  '/tours': typeof ToursIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -143,6 +157,8 @@ export interface FileRoutesById {
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
+  '/destinations/': typeof DestinationsIndexRoute
+  '/tours/': typeof ToursIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,22 +177,24 @@ export interface FileRouteTypes {
     | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
+    | '/destinations/'
+    | '/tours/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/$slug'
     | '/about'
     | '/contact'
-    | '/destinations'
     | '/gallery'
     | '/inquiry'
     | '/reviews'
-    | '/tours'
     | '/vehicles'
     | '/weddings'
     | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
+    | '/destinations'
+    | '/tours'
   id:
     | '__root__'
     | '/'
@@ -193,6 +211,8 @@ export interface FileRouteTypes {
     | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
+    | '/destinations/'
+    | '/tours/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -288,6 +308,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tours/': {
+      id: '/tours/'
+      path: '/'
+      fullPath: '/tours/'
+      preLoaderRoute: typeof ToursIndexRouteImport
+      parentRoute: typeof ToursRoute
+    }
+    '/destinations/': {
+      id: '/destinations/'
+      path: '/'
+      fullPath: '/destinations/'
+      preLoaderRoute: typeof DestinationsIndexRouteImport
+      parentRoute: typeof DestinationsRoute
+    }
     '/tours/customize': {
       id: '/tours/customize'
       path: '/customize'
@@ -314,10 +348,12 @@ declare module '@tanstack/react-router' {
 
 interface DestinationsRouteChildren {
   DestinationsSlugRoute: typeof DestinationsSlugRoute
+  DestinationsIndexRoute: typeof DestinationsIndexRoute
 }
 
 const DestinationsRouteChildren: DestinationsRouteChildren = {
   DestinationsSlugRoute: DestinationsSlugRoute,
+  DestinationsIndexRoute: DestinationsIndexRoute,
 }
 
 const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
@@ -327,11 +363,13 @@ const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
 interface ToursRouteChildren {
   ToursSlugRoute: typeof ToursSlugRoute
   ToursCustomizeRoute: typeof ToursCustomizeRoute
+  ToursIndexRoute: typeof ToursIndexRoute
 }
 
 const ToursRouteChildren: ToursRouteChildren = {
   ToursSlugRoute: ToursSlugRoute,
   ToursCustomizeRoute: ToursCustomizeRoute,
+  ToursIndexRoute: ToursIndexRoute,
 }
 
 const ToursRouteWithChildren = ToursRoute._addFileChildren(ToursRouteChildren)

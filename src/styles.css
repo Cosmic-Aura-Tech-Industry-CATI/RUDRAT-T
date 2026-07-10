@@ -42,13 +42,13 @@
   --radius: 0.625rem;
 
   /* Brand palette mapped to semantic tokens */
-  --deep: oklch(0.13 0.02 260);                /* #070B14 */
-  --deep-2: oklch(0.18 0.025 258);             /* #0D1628 */
-  --gold: oklch(0.78 0.13 85);                 /* #D4AF37 */
+  --deep: oklch(0.13 0.02 260); /* #070B14 */
+  --deep-2: oklch(0.18 0.025 258); /* #0D1628 */
+  --gold: oklch(0.78 0.13 85); /* #D4AF37 */
   --gold-soft: oklch(0.88 0.09 88);
-  --premium-white: oklch(0.985 0 0);           /* #F8F8F8 */
-  --luxury-gray: oklch(0.78 0.012 260);        /* #B8C0CC */
-  --accent-blue: oklch(0.32 0.06 250);         /* #1E3A5F */
+  --premium-white: oklch(0.985 0 0); /* #F8F8F8 */
+  --luxury-gray: oklch(0.78 0.012 260); /* #B8C0CC */
+  --accent-blue: oklch(0.32 0.06 250); /* #1E3A5F */
 
   --background: var(--deep);
   --foreground: var(--premium-white);
@@ -71,8 +71,17 @@
   --ring: var(--gold);
 
   --gradient-gold: linear-gradient(135deg, oklch(0.82 0.14 85) 0%, oklch(0.7 0.12 80) 100%);
-  --gradient-hero: linear-gradient(180deg, oklch(0.13 0.02 260 / 0) 0%, oklch(0.13 0.02 260 / 0.6) 60%, oklch(0.13 0.02 260) 100%);
-  --gradient-radial-gold: radial-gradient(circle at center, oklch(0.78 0.13 85 / 0.35), transparent 70%);
+  --gradient-hero: linear-gradient(
+    180deg,
+    oklch(0.13 0.02 260 / 0) 0%,
+    oklch(0.13 0.02 260 / 0.6) 60%,
+    oklch(0.13 0.02 260) 100%
+  );
+  --gradient-radial-gold: radial-gradient(
+    circle at center,
+    oklch(0.78 0.13 85 / 0.35),
+    transparent 70%
+  );
   --shadow-gold: 0 10px 40px -10px oklch(0.78 0.13 85 / 0.45);
   --shadow-luxe: 0 30px 80px -20px oklch(0 0 0 / 0.6);
 }
@@ -99,7 +108,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -128,7 +140,9 @@
   background: var(--gradient-gold);
   color: var(--primary-foreground);
   box-shadow: var(--shadow-gold);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s;
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 20px 50px -10px oklch(0.78 0.13 85 / 0.6);
@@ -158,8 +172,12 @@
 }
 
 @keyframes road-move {
-  from { background-position-y: 0; }
-  to { background-position-y: 96px; }
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: 96px;
+  }
 }
 
 @utility road-animated {
@@ -167,8 +185,13 @@
 }
 
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.78 0.13 85 / 0.5); }
-  50% { box-shadow: 0 0 0 14px oklch(0.78 0.13 85 / 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.78 0.13 85 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px oklch(0.78 0.13 85 / 0);
+  }
 }
 
 @utility pulse-gold {
@@ -176,8 +199,13 @@
 }
 
 @keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @utility float-y {
@@ -185,7 +213,9 @@
 }
 
 @keyframes shine {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
 
 @utility shine-text {
@@ -211,12 +241,18 @@
   font-size: 0.875rem;
   color: var(--premium-white);
   background: transparent;
-  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 .luxury-calendar button[data-day]:hover:not(:disabled) {
   background: oklch(0.78 0.13 85 / 0.14);
   color: var(--premium-white);
-  box-shadow: 0 0 0 1px oklch(0.78 0.13 85 / 0.45), 0 6px 18px -6px oklch(0.78 0.13 85 / 0.35);
+  box-shadow:
+    0 0 0 1px oklch(0.78 0.13 85 / 0.45),
+    0 6px 18px -6px oklch(0.78 0.13 85 / 0.35);
 }
 .luxury-calendar button[data-day]:disabled,
 .luxury-calendar .rdp-day_disabled button[data-day] {
@@ -257,4 +293,3 @@
 .luxury-calendar [data-slot="calendar"] * {
   outline-color: var(--gold);
 }
-

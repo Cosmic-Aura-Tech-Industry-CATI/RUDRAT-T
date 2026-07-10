@@ -12,7 +12,8 @@ dist
 dist-ssr
 .output
 .vinxi
-.tanstack/**
+.tanstack
+
 .nitro
 *.local
 
@@ -30,3 +31,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.loveable

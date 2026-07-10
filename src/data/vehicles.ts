@@ -41,16 +41,16 @@ import bmw5 from "@/assets/vehicles/bmw-5-series.jpg";
 import mercedes from "@/assets/vehicles/mercedes-benz.jpg";
 
 import tt12 from "@/assets/vehicles/force-traveller-12.jpg";
-import tt17 from "@/assets/vehicles/force-traveller-17.jpg";
+import tt17 from "@/assets/vehicles/force-traveller-17-white.png";
 import tt26 from "@/assets/vehicles/force-traveller-26.jpg";
 
 import urb12 from "@/assets/vehicles/urbania-12.jpg";
-import urb17 from "@/assets/vehicles/urbania-17.jpg";
-import urb26 from "@/assets/vehicles/urbania-26.jpg";
+import urb17 from "@/assets/vehicles/urbania-17-white.png";
+import urb26 from "@/assets/vehicles/urbania-26-white.png";
 
-import miniBus from "@/assets/vehicles/mini-bus-30.jpg";
-import deluxeBus from "@/assets/vehicles/deluxe-bus-55.jpg";
-import luxuryCoach from "@/assets/vehicles/luxury-coach-45.jpg";
+import miniBus from "@/assets/vehicles/mini-bus-30-white.png";
+import deluxeBus from "@/assets/vehicles/deluxe-bus-55-white.png";
+import luxuryCoach from "@/assets/vehicles/luxury-coach-45-white.png";
 
 export type RentalType = "local" | "outstation" | "selfDrive" | "withDriver";
 

@@ -170,11 +170,13 @@ function ToursPage() {
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <PackageSlider images={t.images} alt={t.name} interval={4500 + i * 200} />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
-                    <div className="absolute top-5 left-5 px-3 py-1 glass rounded-full text-[10px] uppercase tracking-[0.3em] text-gold z-10">
-                      {regionLabel[t.region]}
-                    </div>
-                    <div className="absolute top-5 right-5 px-3 py-1 glass rounded-full text-[10px] uppercase tracking-[0.2em] text-luxury-gray z-10">
-                      {t.days} Days
+                    <div className="absolute top-4 left-4 right-4 flex justify-between items-center gap-2 z-10">
+                      <div className="px-3 py-1 glass-dark rounded-full text-[10px] uppercase tracking-[0.3em] text-gold font-semibold whitespace-nowrap">
+                        {regionLabel[t.region]}
+                      </div>
+                      <div className="px-3 py-1 glass-dark rounded-full text-[10px] uppercase tracking-[0.2em] text-premium-white font-medium whitespace-nowrap">
+                        {t.days} Days
+                      </div>
                     </div>
                     <div className="absolute bottom-5 left-5 right-5 z-10">
                       <h3 className="font-display text-2xl mb-1 leading-tight">{t.name}</h3>

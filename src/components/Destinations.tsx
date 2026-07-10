@@ -30,7 +30,7 @@ export function Destinations() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none" />
               <div className="absolute inset-0 ring-1 ring-inset ring-transparent group-hover:ring-[var(--gold)]/40 transition-all duration-500 pointer-events-none" />
 
-              <div className="absolute top-5 left-5 px-3 py-1 rounded-full glass text-[10px] tracking-[0.2em] uppercase text-luxury-gray z-10">
+              <div className="absolute top-4 left-4 px-3 py-1 rounded-full glass-dark text-[10px] tracking-[0.2em] uppercase text-premium-white font-medium z-10">
                 {p.days} Days
               </div>
 

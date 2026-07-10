@@ -23,11 +23,21 @@ const DEST_INDEX: SearchEntry[] = (() => {
   for (const page of LANDING_PAGES) {
     const eyebrowKey = page.eyebrow.toLowerCase();
     if (!seen.has(eyebrowKey)) {
-      seen.set(eyebrowKey, { label: page.eyebrow, slug: page.slug, route: "/$slug", hint: page.title });
+      seen.set(eyebrowKey, {
+        label: page.eyebrow,
+        slug: page.slug,
+        route: "/$slug",
+        hint: page.title,
+      });
     }
     const slugKey = page.slug.toLowerCase();
     if (!seen.has(slugKey)) {
-      seen.set(slugKey, { label: page.title, slug: page.slug, route: "/$slug", hint: page.description });
+      seen.set(slugKey, {
+        label: page.title,
+        slug: page.slug,
+        route: "/$slug",
+        hint: page.description,
+      });
     }
   }
   for (const p of packages) {

@@ -46,9 +46,7 @@ export function SEOHub() {
           </div>
 
           <div className="glass-strong rounded-3xl p-6 md:p-8">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
-              City Guides
-            </div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">City Guides</div>
             <div className="grid gap-3 sm:grid-cols-2">
               {locationPages.map((page) => (
                 <Link

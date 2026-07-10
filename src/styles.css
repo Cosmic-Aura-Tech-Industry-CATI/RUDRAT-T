@@ -136,6 +136,13 @@
   border: 1px solid oklch(1 0 0 / 0.1);
 }
 
+@utility glass-dark {
+  background: oklch(0.13 0.02 260 / 0.65); /* Dark brand color with 65% opacity */
+  backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid oklch(0.78 0.13 85 / 0.3); /* Subtle gold/amber border */
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.4);
+}
+
 @utility btn-gold {
   background: var(--gradient-gold);
   color: var(--primary-foreground);

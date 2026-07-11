@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Youtube, Instagram } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import logoAsset from "@/assets/rudra-logo.png";
 import dimisiLogo from "@/assets/dimisi-logo.png";
@@ -62,7 +62,10 @@ export function Footer() {
               India's friendly travel partner. Handpicked trips, comfortable cars and yaadgaar
               journeys — planned with warmth.
             </p>
-            <div className="mt-6 space-y-2 text-sm text-luxury-gray">
+            <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-gold/80 font-medium">
+              Direct contact via phone and WhatsApp
+            </div>
+            <div className="mt-4 space-y-2 text-sm text-luxury-gray">
               <a
                 href={BRAND.phoneHref}
                 className="flex items-center gap-3 hover:text-premium-white transition-colors"
@@ -102,33 +105,36 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 pt-8 text-xs text-luxury-gray">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 pt-8 text-xs text-luxury-gray items-center">
           {/* Left — Copyright */}
-          <div className="text-center md:text-left order-3 md:order-1">
+          <div className="text-center md:text-left">
             <span>© 2026 Rudra Tours & Travels. Luxury Journeys Begin Here.</span>
           </div>
 
           {/* Center — Socials */}
-          <div className="flex items-center gap-4 justify-center order-2 md:order-2 text-xs uppercase tracking-[0.22em] text-luxury-gray">
-            {BRAND.socialLinks.length > 0 ? (
-              BRAND.socialLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))
-            ) : (
-              <span>Direct contact via phone and WhatsApp</span>
-            )}
+          <div className="flex items-center gap-4 justify-center">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-luxury-gray hover:text-gold transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-luxury-gray hover:text-gold transition-colors"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Right — DIMISI */}
-          <div className="flex items-center gap-2 justify-center md:justify-end order-1 md:order-3">
+          <div className="flex items-center gap-2 justify-center md:justify-end">
             <span>Designed and developed by</span>
             <a
               href="https://dimisi.tech/"
@@ -142,7 +148,7 @@ export function Footer() {
                 alt="DIMISI"
                 loading="lazy"
                 decoding="async"
-                className="h-8 md:h-10 w-auto object-contain"
+                className="h-5 md:h-6 w-auto object-contain"
               />
             </a>
           </div>

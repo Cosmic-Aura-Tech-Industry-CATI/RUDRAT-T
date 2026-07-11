@@ -10,7 +10,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   if (!items.length) return null;
 
   return (
-    <nav aria-label="Breadcrumb" className="px-6 pt-4">
+    <nav aria-label="Breadcrumb" className="px-6 pt-24 md:pt-4">
       <div className="mx-auto max-w-7xl">
         <ol className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-luxury-gray">
           <li>

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
@@ -6,6 +7,21 @@ import { galleryImages } from "@/data/gallery";
 
 export function Gallery() {
   const loop = [...galleryImages, ...galleryImages];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [duration, setDuration] = useState(120); // reasonable slow fallback
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const totalWidth = containerRef.current.scrollWidth;
+      const scrollDistance = totalWidth / 2;
+      const targetSpeed = 46.08; // Testimonials speed in px/sec
+      const calculatedDuration = scrollDistance / targetSpeed;
+      if (calculatedDuration > 0) {
+        setDuration(calculatedDuration);
+      }
+    }
+  }, [loop.length]);
+
   return (
     <section id="gallery" className="relative py-5 md:py-6 lg:py-8 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--deep-2)]/40 to-transparent pointer-events-none" />
@@ -21,10 +37,14 @@ export function Gallery() {
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        <motion.div
+        <div
+          ref={containerRef}
           className="flex gap-6 w-max"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 60, ease: "linear", repeat: Infinity }}
+          style={{
+            animation: duration > 0 
+              ? `scroll-infinite ${duration}s linear infinite` 
+              : "none",
+          }}
         >
           {loop.map((img, i) => (
             <div
@@ -44,7 +64,7 @@ export function Gallery() {
               />
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <div className="relative px-6 mx-auto max-w-7xl">

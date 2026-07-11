@@ -31,7 +31,7 @@ function GalleryPage() {
             Travel gallery moments from <span className="shine-text italic">every road</span>.
           </>
         }
-        subtitle="Every photo is from a real trip — no stock images, no fake filters. Bilkul asli."
+        subtitle="Har tasveer ek yaadgar safar ki kahani kehti hai — moments captured straight from our travellers' journeys."
         image={galleryImages[0].src}
       />
       <section className="px-6 pb-12 md:pb-16">

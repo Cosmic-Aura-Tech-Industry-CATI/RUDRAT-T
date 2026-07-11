@@ -28,7 +28,7 @@ export function FloatingBookCTA({ packageName }: Props) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-20 lg:bottom-6 left-4 z-[55]"
+          className="hidden lg:block fixed lg:bottom-6 left-4 z-[55]"
         >
           <Link
             to="/inquiry"

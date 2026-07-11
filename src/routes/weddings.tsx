@@ -78,7 +78,7 @@ function WeddingsPage() {
                   style={{ background: "var(--gradient-radial-gold)" }}
                 />
 
-                <div className="relative flex flex-col h-full">
+                <div className="relative flex flex-col flex-grow">
                   <div className="text-[9px] uppercase tracking-[0.28em] text-gold mb-3">
                     {CATEGORY_BY_ID[v.category].name}
                   </div>

@@ -411,7 +411,7 @@ function VehicleCard({ v, rental, index }: { v: Vehicle; rental: RentalType; ind
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.3) }}
       whileHover={{ y: -6 }}
-      className="glass-strong rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--gold)]/40 transition"
+      className="glass-strong rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--gold)]/40 transition flex flex-col h-full"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
         <img
@@ -428,7 +428,7 @@ function VehicleCard({ v, rental, index }: { v: Vehicle; rental: RentalType; ind
           </div>
         )}
       </div>
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-grow">
         <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-1">{categoryName}</div>
         <div className="flex items-start justify-between gap-3">
           <h4 className="font-display text-xl">{v.name}</h4>
@@ -452,16 +452,18 @@ function VehicleCard({ v, rental, index }: { v: Vehicle; rental: RentalType; ind
             </>
           )}
         </div>
-        {v.notes && v.notes.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {v.notes.map((n) => (
+        <div className="mt-2 flex flex-wrap gap-1.5 min-h-[26px]">
+          {v.notes && v.notes.length > 0 ? (
+            v.notes.map((n) => (
               <span key={n} className="px-2 py-1 rounded-full glass text-[10px] text-luxury-gray">
                 {n}
               </span>
-            ))}
-          </div>
-        )}
-        <div className="mt-5 flex items-center gap-2">
+            ))
+          ) : (
+            <span className="px-2 py-1 text-[10px] select-none opacity-0">&#8203;</span>
+          )}
+        </div>
+        <div className="mt-auto pt-5 flex items-center gap-2">
           <Link
             to="/inquiry"
             search={{ type: "Vehicle Inquiry", vehicle: v.name, category: categoryName, rental }}

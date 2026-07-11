@@ -186,7 +186,7 @@ function TourDetailPage() {
                 destination.
               </p>
 
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-[1fr_0.75fr_1.25fr] sm:grid-cols-3 gap-2.5 sm:gap-4 mb-8">
                 <InfoCard label="Duration" value={`${pkg.days} Days`} />
                 <InfoCard label="Destinations" value={pkg.destinations.length.toString()} />
                 <InfoCard label="Region" value={pkg.region.toUpperCase()} />
@@ -334,7 +334,7 @@ function TourDetailPage() {
               <Link
                 to="/inquiry"
                 search={{ type: "Tour Inquiry", package: pkg.name }}
-                className="btn-gold w-full px-5 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2"
+                className="hidden md:inline-flex btn-gold w-full px-5 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium items-center justify-center gap-2"
               >
                 Plan This Trip <ArrowRight className="w-4 h-4" />
               </Link>
@@ -502,9 +502,13 @@ function TourDetailPage() {
 
 function InfoCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-4 text-center sm:text-left">
-      <div className="text-[9px] uppercase tracking-[0.22em] text-luxury-gray mb-2">{label}</div>
-      <div className="font-display text-xl text-premium-white">{value}</div>
+    <div className="rounded-2xl border border-white/5 bg-white/[0.03] px-2 py-3 sm:p-4 text-center sm:text-left flex flex-col justify-center min-w-0">
+      <div className="text-[8px] sm:text-[9px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-gray mb-1 sm:mb-2 truncate">
+        {label}
+      </div>
+      <div className="font-display text-[10px] sm:text-lg md:text-xl text-premium-white whitespace-nowrap leading-tight font-medium">
+        {value}
+      </div>
     </div>
   );
 }

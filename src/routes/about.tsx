@@ -8,8 +8,8 @@ import { SectionHeader } from "@/components/Destinations";
 import { reviews } from "@/data/reviews";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import hero from "@/assets/hero-suv.jpg";
-import founderAsset from "@/assets/about/founder.png.asset.json";
-import founderSonAsset from "@/assets/about/founder-son.png.asset.json";
+import abhayNigamPhoto from "@/assets/team/abhay-nigam.jpg";
+import rudraFounderPhoto from "@/assets/team/rudra-founder.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -63,13 +63,13 @@ const storySections = [
 
 const founderPhotos = [
   {
-    src: founderAsset.url,
+    src: abhayNigamPhoto,
     alt: "Mr. Abhay Nigam, Founder of Rudra Tours & Travels",
     caption: "Mr. Abhay Nigam",
     role: "Founder",
   },
   {
-    src: founderSonAsset.url,
+    src: rudraFounderPhoto,
     alt: "Rudra Nigam, son of founder Mr. Abhay Nigam, after whom the company is named",
     caption: "Rudra Nigam",
     role: "The name behind the brand",
@@ -168,7 +168,7 @@ function AboutPage() {
           <SectionHeader
             eyebrow="Moments"
             title="Moments from the road."
-            subtitle="Every photo is from a real trip with a real guest."
+            subtitle="Har tasveer ek yaadgar safar ki kahani kehti hai — moments captured straight from our travellers' journeys."
           />
           <div className="mt-8 md:mt-9">
             <GalleryGrid limit={12} />

@@ -27,14 +27,14 @@ export function Fleet() {
                 viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.5, delay: 0, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6 }}
-                className="group relative rounded-2xl glass-strong p-7 overflow-hidden"
+                className="group relative rounded-2xl glass-strong p-7 overflow-hidden flex flex-col"
               >
                 <div
                   className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                   style={{ background: "var(--gradient-radial-gold)" }}
                 />
 
-                <div className="relative">
+                <div className="relative flex flex-col flex-grow">
                   <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
                     {CATEGORY_BY_ID[v.category].name}
                   </div>
@@ -85,7 +85,7 @@ export function Fleet() {
                       category: CATEGORY_BY_ID[v.category].name,
                       rental: "local",
                     }}
-                    className="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold hover:gap-3 transition-all"
+                    className="mt-auto pt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold hover:gap-3 transition-all"
                   >
                     Check Vehicle <ArrowRight className="w-3.5 h-3.5" />
                   </Link>

@@ -56,20 +56,16 @@ export function Nav() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed left-0 right-0 z-50 transition-all duration-500 md:top-9 top-0 ${scrolled ? "py-1" : "py-2"}`}
     >
-      <div className="mx-auto max-w-7xl px-4 md:px-6 py-3">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-2">
         <div
-          className={`rounded-2xl px-5 md:px-6 py-3 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "glass-strong shadow-[0_10px_40px_rgba(0,0,0,0.35)] border border-[var(--gold)]/10" : "bg-transparent border border-transparent"}`}
+          className={`rounded-2xl px-5 md:px-6 py-2 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "glass-strong shadow-[0_10px_40px_rgba(0,0,0,0.35)] border border-[var(--gold)]/10" : "bg-transparent border border-transparent"}`}
         >
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
             <img
               src={logoAsset}
               alt="Rudra Tours & Travels"
-              className="w-9 h-9 rounded-full border border-[var(--gold)]/40 object-contain"
+              className="w-40 h-13 object-contain opacity-95 hover:opacity-100 transition-opacity duration-300"
             />
-            <div className="leading-tight">
-              <div className="text-[10px] tracking-[0.32em] text-luxury-gray">RUDRA</div>
-              <div className="text-sm font-display tracking-wide">Tours & Travels</div>
-            </div>
           </Link>
 
           <nav className="hidden xl:flex items-center gap-6 text-[13px] text-luxury-gray">

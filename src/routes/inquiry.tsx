@@ -90,6 +90,7 @@ function InquiryPage() {
     phone: "",
     email: "",
     packageName: "",
+    vehicleName: "",
     detail: "",
   });
   const [sending, setSending] = useState(false);
@@ -142,6 +143,7 @@ function InquiryPage() {
       ...f,
       type: search.type ?? f.type,
       packageName: search.package ?? f.packageName,
+      vehicleName: search.vehicle ?? f.vehicleName,
       detail: parts.length ? [...derivedDetails, ...parts].join(" · ") : f.detail,
     }));
   }, [search.type, search.package, search.vehicle, search.category, search.rental]);
@@ -153,6 +155,7 @@ function InquiryPage() {
       phone: "",
       email: "",
       packageName: search.package ?? current.packageName,
+      vehicleName: search.vehicle ?? current.vehicleName,
       detail: "",
     }));
   };
@@ -165,14 +168,17 @@ function InquiryPage() {
     const trimmedPhone = form.phone.trim();
     const trimmedEmail = form.email.trim();
     const trimmedPackage = form.packageName.trim();
+    const trimmedVehicle = form.vehicleName.trim();
     const trimmedDetail = form.detail.trim();
     const phoneDigits = trimmedPhone.replace(/\D/g, "");
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isVehicleInquiry = form.type.includes("Vehicle");
+    const serviceName = isVehicleInquiry ? trimmedVehicle : trimmedPackage;
 
-    if (!trimmedName || !trimmedPhone || !form.type.trim() || !trimmedPackage || !trimmedDetail) {
+    if (!trimmedName || !trimmedPhone || !form.type.trim() || !serviceName || !trimmedDetail) {
       setFeedback({
         kind: "error",
-        text: "Name, phone, inquiry type, package and trip details are required.",
+        text: `Name, phone, inquiry type, ${isVehicleInquiry ? "vehicle" : "package"} and trip details are required.`,
       });
       return;
     }
@@ -196,7 +202,7 @@ function InquiryPage() {
       name: trimmedName,
       phone: phoneDigits,
       email: trimmedEmail,
-      packageName: trimmedPackage,
+      packageName: serviceName,
       detail: trimmedDetail,
       status: "New",
       created: createdIso,
@@ -217,7 +223,7 @@ function InquiryPage() {
             name: trimmedName,
             phone: phoneDigits,
             email: trimmedEmail,
-            packageName: trimmedPackage,
+            packageName: serviceName,
             detail: trimmedDetail,
             status: "New",
             created: createdIso,
@@ -241,7 +247,7 @@ function InquiryPage() {
           name: trimmedName,
           phone: phoneDigits,
           email: trimmedEmail,
-          package: trimmedPackage,
+          package: serviceName,
           detail: trimmedDetail,
         }),
       });

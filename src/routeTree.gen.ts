@@ -25,6 +25,7 @@ import { Route as DestinationsIndexRouteImport } from './routes/destinations.ind
 import { Route as ToursCustomizeRouteImport } from './routes/tours.customize'
 import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
+import { Route as ApiInquiryRouteImport } from './routes/api/inquiry'
 
 const WeddingsRoute = WeddingsRouteImport.update({
   id: '/weddings',
@@ -106,6 +107,11 @@ const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => DestinationsRoute,
 } as any)
+const ApiInquiryRoute = ApiInquiryRouteImport.update({
+  id: '/api/inquiry',
+  path: '/api/inquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/tours': typeof ToursRouteWithChildren
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
+  '/api/inquiry': typeof ApiInquiryRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByTo {
   '/reviews': typeof ReviewsRoute
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
+  '/api/inquiry': typeof ApiInquiryRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
@@ -154,6 +162,7 @@ export interface FileRoutesById {
   '/tours': typeof ToursRouteWithChildren
   '/vehicles': typeof VehiclesRoute
   '/weddings': typeof WeddingsRoute
+  '/api/inquiry': typeof ApiInquiryRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
   '/tours/customize': typeof ToursCustomizeRoute
@@ -174,6 +183,7 @@ export interface FileRouteTypes {
     | '/tours'
     | '/vehicles'
     | '/weddings'
+    | '/api/inquiry'
     | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
@@ -190,6 +200,7 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/vehicles'
     | '/weddings'
+    | '/api/inquiry'
     | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
@@ -208,6 +219,7 @@ export interface FileRouteTypes {
     | '/tours'
     | '/vehicles'
     | '/weddings'
+    | '/api/inquiry'
     | '/destinations/$slug'
     | '/tours/$slug'
     | '/tours/customize'
@@ -227,6 +239,7 @@ export interface RootRouteChildren {
   ToursRoute: typeof ToursRouteWithChildren
   VehiclesRoute: typeof VehiclesRoute
   WeddingsRoute: typeof WeddingsRoute
+  ApiInquiryRoute: typeof ApiInquiryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -343,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DestinationsSlugRouteImport
       parentRoute: typeof DestinationsRoute
     }
+    '/api/inquiry': {
+      id: '/api/inquiry'
+      path: '/api/inquiry'
+      fullPath: '/api/inquiry'
+      preLoaderRoute: typeof ApiInquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -386,6 +406,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToursRoute: ToursRouteWithChildren,
   VehiclesRoute: VehiclesRoute,
   WeddingsRoute: WeddingsRoute,
+  ApiInquiryRoute: ApiInquiryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

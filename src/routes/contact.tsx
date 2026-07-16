@@ -158,6 +158,7 @@ function ContactPage() {
           </motion.form>
         </div>
       </section>
+
     </PageLayout>
   );
 }

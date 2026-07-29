@@ -46,17 +46,28 @@ export const Route = createFileRoute("/api/inquiry")({
           );
         }
 
-        await sendInquiryEmail({
-          type,
-          name,
-          phone: sanitizePhone(phone),
-          email,
-          contact: email || phone,
-          packageName,
-          detail,
-        });
+        try {
+          await sendInquiryEmail({
+            type,
+            name,
+            phone: sanitizePhone(phone),
+            email,
+            contact: email || phone,
+            packageName,
+            detail,
+          });
 
-        return Response.json({ success: true });
+          return Response.json({ success: true });
+        } catch (error) {
+          console.error("Inquiry email send failed", error);
+          return Response.json(
+            {
+              success: false,
+              message: "We could not send your inquiry right now. Please contact us by phone or WhatsApp.",
+            },
+            { status: 503 },
+          );
+        }
       },
     },
   },

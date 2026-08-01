@@ -47,16 +47,12 @@ export function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/10">
           <div>
-            <div className="flex items-center gap-3 mb-5">
+            <div className="mb-5">
               <img
                 src={logoAsset}
                 alt="Rudra Tours & Travels"
-                className="w-10 h-10 rounded-full border border-[var(--gold)]/40 object-contain"
+                className="w-40 h-20 object-contain opacity-95 hover:opacity-100 transition-opacity duration-300"
               />
-              <div>
-                <div className="text-[11px] tracking-[0.3em] text-luxury-gray">RUDRA</div>
-                <div className="font-display tracking-wide">Tours & Travels</div>
-              </div>
             </div>
             <p className="text-luxury-gray text-sm leading-relaxed max-w-sm">
               India's friendly travel partner. Handpicked trips, comfortable cars and yaadgaar

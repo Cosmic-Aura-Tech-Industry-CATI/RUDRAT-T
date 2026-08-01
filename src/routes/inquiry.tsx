@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -10,6 +9,7 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 type InquirySearch = {
   type?: string;
+  package?: string;
   vehicle?: string;
   category?: string;
   rental?: string;
@@ -27,6 +27,7 @@ const RENTAL_LABELS: Record<string, string> = {
 export const Route = createFileRoute("/inquiry")({
   validateSearch: (s: Record<string, unknown>): InquirySearch => ({
     type: typeof s.type === "string" ? s.type : undefined,
+    package: typeof s.package === "string" ? s.package : undefined,
     vehicle: typeof s.vehicle === "string" ? s.vehicle : undefined,
     category: typeof s.category === "string" ? s.category : undefined,
     rental: typeof s.rental === "string" ? s.rental : undefined,
@@ -50,6 +51,8 @@ type Inquiry = {
   type: string;
   name: string;
   phone: string;
+  email: string;
+  packageName: string;
   detail: string;
   status: Status;
   created: string;
@@ -81,8 +84,19 @@ function timeAgo(iso: string): string {
 function InquiryPage() {
   const search = Route.useSearch();
   const [inquiries, setInquiries] = useState<Inquiry[]>(sample);
-  const [form, setForm] = useState({ type: "Tour Inquiry", name: "", phone: "", detail: "" });
+  const [form, setForm] = useState({
+    type: "Tour Inquiry",
+    name: "",
+    phone: "",
+    email: "",
+    packageName: "",
+    vehicleName: "",
+    detail: "",
+  });
   const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState<{ kind: "success" | "error"; text: string } | null>(
+    null,
+  );
 
   useEffect(() => {
     try {
@@ -91,6 +105,8 @@ function InquiryPage() {
         type: string;
         name: string;
         phone?: string;
+        email?: string;
+        packageName?: string;
         detail: string;
         status: Status;
         created: string;
@@ -101,6 +117,8 @@ function InquiryPage() {
           type: s.type,
           name: s.name,
           phone: s.phone ?? "",
+          email: s.email ?? "",
+          packageName: s.packageName ?? "",
           detail: s.detail,
           status: (s.status || "New") as Status,
           created: s.created,
@@ -114,21 +132,66 @@ function InquiryPage() {
 
   // Hydrate form from query string (e.g. ?type=Vehicle+Inquiry&vehicle=Innova+Crysta&category=MUVs&rental=outstation)
   useEffect(() => {
-    if (!search.type && !search.vehicle) return;
+    const derivedDetails: string[] = [];
+    if (!search.type && !search.vehicle && !search.package) return;
     const parts: string[] = [];
     if (search.vehicle) parts.push(`Vehicle: ${search.vehicle}`);
     if (search.category) parts.push(`Category: ${search.category}`);
     if (search.rental) parts.push(`Rental: ${RENTAL_LABELS[search.rental] ?? search.rental}`);
+    if (search.package) derivedDetails.push(`Package: ${search.package}`);
     setForm((f) => ({
       ...f,
       type: search.type ?? f.type,
-      detail: parts.length ? parts.join(" · ") : f.detail,
+      packageName: search.package ?? f.packageName,
+      vehicleName: search.vehicle ?? f.vehicleName,
+      detail: parts.length ? [...derivedDetails, ...parts].join(" · ") : f.detail,
     }));
-  }, [search.type, search.vehicle, search.category, search.rental]);
+  }, [search.type, search.package, search.vehicle, search.category, search.rental]);
+
+  const resetForm = () => {
+    setForm((current) => ({
+      type: search.type ?? current.type,
+      name: "",
+      phone: "",
+      email: "",
+      packageName: search.package ?? current.packageName,
+      vehicleName: search.vehicle ?? current.vehicleName,
+      detail: "",
+    }));
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.detail) return;
+    setFeedback(null);
+
+    const trimmedName = form.name.trim();
+    const trimmedPhone = form.phone.trim();
+    const trimmedEmail = form.email.trim();
+    const trimmedPackage = form.packageName.trim();
+    const trimmedVehicle = form.vehicleName.trim();
+    const trimmedDetail = form.detail.trim();
+    const phoneDigits = trimmedPhone.replace(/\D/g, "");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isVehicleInquiry = form.type.includes("Vehicle");
+    const serviceName = isVehicleInquiry ? trimmedVehicle : trimmedPackage;
+
+    if (!trimmedName || !trimmedPhone || !form.type.trim() || !serviceName || !trimmedDetail) {
+      setFeedback({
+        kind: "error",
+        text: `Name, phone, inquiry type, ${isVehicleInquiry ? "vehicle" : "package"} and trip details are required.`,
+      });
+      return;
+    }
+
+    if (phoneDigits.length !== 10) {
+      setFeedback({ kind: "error", text: "Phone must contain 10 digits." });
+      return;
+    }
+
+    if (trimmedEmail && !emailPattern.test(trimmedEmail)) {
+      setFeedback({ kind: "error", text: "Email must be valid if provided." });
+      return;
+    }
 
     const id = `RT-${2402 + inquiries.length}`;
     const createdIso = new Date().toISOString();
@@ -136,9 +199,11 @@ function InquiryPage() {
     const next: Inquiry = {
       id,
       type: form.type.replace(" Inquiry", ""),
-      name: form.name,
-      phone: form.phone,
-      detail: form.detail,
+      name: trimmedName,
+      phone: phoneDigits,
+      email: trimmedEmail,
+      packageName: serviceName,
+      detail: trimmedDetail,
       status: "New",
       created: createdIso,
     };
@@ -155,9 +220,11 @@ function InquiryPage() {
           {
             id,
             type: form.type,
-            name: form.name,
-            phone: form.phone,
-            detail: form.detail,
+            name: trimmedName,
+            phone: phoneDigits,
+            email: trimmedEmail,
+            packageName: serviceName,
+            detail: trimmedDetail,
             status: "New",
             created: createdIso,
           },
@@ -168,30 +235,38 @@ function InquiryPage() {
       /* ignore */
     }
 
-    setForm({ type: "Tour Inquiry", name: "", phone: "", detail: "" });
-
     setSending(true);
     try {
-      // Email the client via EmailJS
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type: form.type,
+          name: trimmedName,
+          phone: phoneDigits,
+          email: trimmedEmail,
+          package: serviceName,
+          detail: trimmedDetail,
+        }),
+      });
 
-      if (serviceId && templateId && publicKey) {
-        await emailjs.send(
-          serviceId,
-          templateId,
-          {
-            type: form.type,
-            name: form.name,
-            phone: form.phone,
-            detail: form.detail,
-          },
-          publicKey,
-        );
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as
+          | { message?: string }
+          | null;
+        throw new Error(payload?.message ?? `Inquiry email request failed with status ${response.status}`);
       }
+
+      setFeedback({
+        kind: "success",
+        text: "Inquiry Submitted Successfully. Our team will contact you shortly.",
+      });
+      resetForm();
     } catch (err) {
-      console.error("Email send failed:", err);
+      setFeedback({ kind: "error", text: "Something went wrong. Please try again." });
+      console.error("Inquiry send failed:", err);
     }
 
     try {
@@ -246,6 +321,20 @@ function InquiryPage() {
           >
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">New Request</div>
             <h2 className="font-display text-3xl mb-6">Tell us your plan.</h2>
+            {feedback ? (
+              <div
+                className={`mb-5 rounded-2xl border px-4 py-3 text-sm ${
+                  feedback.kind === "success"
+                    ? "border-emerald-400/30 bg-emerald-500/10 text-emerald-200"
+                    : "border-red-400/30 bg-red-500/10 text-red-200"
+                }`}
+              >
+                <div className="font-medium mb-1">
+                  {feedback.kind === "success" ? "✅ Inquiry Submitted Successfully." : "Something went wrong."}
+                </div>
+                <div>{feedback.text}</div>
+              </div>
+            ) : null}
             <div className="space-y-4">
               <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
                 Inquiry type
@@ -262,6 +351,16 @@ function InquiryPage() {
                 </select>
               </label>
               <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Package
+                <input
+                  name="package"
+                  value={form.packageName}
+                  onChange={(e) => setForm({ ...form, packageName: e.target.value })}
+                  placeholder="Mathura-Vrindavan"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
                 Your name
                 <input
                   name="name"
@@ -273,13 +372,25 @@ function InquiryPage() {
                 />
               </label>
               <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
-                Phone / Email
+                Phone
                 <input
-                  name="contact"
+                  name="phone"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  placeholder="Phone / Email"
+                  placeholder="10-digit phone number"
                   autoComplete="tel"
+                  className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
+                />
+              </label>
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-luxury-gray">
+                Email
+                <input
+                  name="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="rahul@gmail.com"
+                  autoComplete="email"
+                  type="email"
                   className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm text-premium-white placeholder:text-luxury-gray/70 outline-none focus:border-[var(--gold)]/50"
                 />
               </label>
@@ -298,10 +409,10 @@ function InquiryPage() {
                 disabled={sending}
                 className="btn-gold w-full py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium disabled:opacity-60"
               >
-                {sending ? "Sending…" : "Send My Request"}
+                {sending ? "Sending..." : "Send My Request"}
               </button>
               <p className="text-[11px] text-luxury-gray/70 text-center">
-                Saved in this session for now — full tracking coming soon.
+                Package, phone and trip details are required. Email is optional for auto-reply.
               </p>
             </div>
           </motion.form>
@@ -353,6 +464,7 @@ function InquiryPage() {
                           </span>
                         </div>
                         <div className="font-display text-xl mb-1">{q.name}</div>
+                        <div className="text-sm text-gold/90 mb-1">{q.packageName}</div>
                         <div className="text-sm text-luxury-gray">{q.detail}</div>
                       </div>
                       <div className="text-right">

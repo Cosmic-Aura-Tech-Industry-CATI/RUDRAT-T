@@ -10,7 +10,7 @@ export const BRAND = {
   email: "aabhaynigama@gmail.com",
   emailHref: "mailto:aabhaynigama@gmail.com",
   address: "3/46 LIG Swarn Jayanti Vihar, Koyala Nagar, Kanpur, Uttar Pradesh",
-  mapsUrl: "https://www.google.com/maps/search/3%2F46+LIG+Swarn+Jayanti+Vihar+Koyala+Nagar+Kanpur+Uttar+Pradesh",
+  mapsUrl: "https://maps.app.goo.gl/NHcB28bSgL3jEoZW8",
   shortAddress: "Kanpur, Uttar Pradesh",
   hours: "Mon – Sat · 9:00 AM to 8:00 PM",
   socialLinks: [] as Array<{ label: string; href: string }>,

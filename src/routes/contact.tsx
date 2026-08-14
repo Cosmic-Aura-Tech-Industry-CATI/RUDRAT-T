@@ -27,7 +27,7 @@ function ContactPage() {
     { icon: Phone, label: "Phone", value: BRAND.phone, href: BRAND.phoneHref },
     { icon: MessageCircle, label: "WhatsApp", value: BRAND.whatsapp, href: BRAND.whatsappHref },
     { icon: Mail, label: "Email", value: BRAND.email, href: BRAND.emailHref },
-    { icon: MapPin, label: "Head Office", value: BRAND.address },
+    { icon: MapPin, label: "Head Office", value: BRAND.address, href: BRAND.mapsUrl },
     { icon: Clock, label: "Business Hours", value: BRAND.hours },
   ];
 
@@ -75,7 +75,7 @@ function ContactPage() {
                 <a
                   key={it.label}
                   href={it.href}
-                  target={it.label === "WhatsApp" ? "_blank" : undefined}
+                  target={it.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
                 >
                   {Inner}
@@ -84,6 +84,35 @@ function ContactPage() {
                 <div key={it.label}>{Inner}</div>
               );
             })}
+
+            {/* Google Maps Embed */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="glass-strong rounded-2xl overflow-hidden border border-white/5 relative h-[380px] w-full mt-4 group"
+            >
+              <a
+                href={BRAND.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-3 right-3 z-10 glass-panel px-3.5 py-2 rounded-xl text-[10px] uppercase tracking-wider text-gold hover:text-white flex items-center gap-2 transition-all bg-black/70 backdrop-blur-md border border-white/10 hover:border-gold/50 shadow-lg"
+              >
+                <MapPin className="w-3.5 h-3.5 text-gold" />
+                Open in Google Maps
+              </a>
+              <iframe
+                src="https://www.google.com/maps?q=26.3899338,80.3581066&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Rudra Tour & Travels Location"
+              />
+            </motion.div>
           </div>
 
           <motion.form

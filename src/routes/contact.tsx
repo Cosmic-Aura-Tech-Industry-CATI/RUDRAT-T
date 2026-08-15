@@ -102,16 +102,18 @@ function ContactPage() {
                 <MapPin className="w-3.5 h-3.5 text-gold" />
                 Open in Google Maps
               </a>
-              <iframe
-                src="https://www.google.com/maps?q=26.3899338,80.3581066&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Rudra Tour & Travels Location"
-              />
+              <div className="absolute inset-0 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3567.123!2d80.3581066!3d26.3899338!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4714e9342f85%3A0xecb3997adb46ff71!2sRudra%20Tour%20%26%20Travels!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="130%"
+                  style={{ border: 0, marginTop: "-24%" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Rudra Tour & Travels Location"
+                />
+              </div>
             </motion.div>
           </div>
 

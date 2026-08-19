@@ -131,12 +131,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  const schemaJson = JSON.stringify(organizationSchema());
   return (
     <html lang="en-IN">
       <head>
         <HeadContent />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson }} />
       </head>
       <body>
         {children}

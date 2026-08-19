@@ -136,8 +136,7 @@ function renderTemplate(input: InquiryEmailInput): string {
   const email = input.email?.trim() || "N/A";
   const packageName = input.packageName?.trim() || "N/A";
 
-  return INQUIRY_EMAIL_TEMPLATE
-    .replace(/{{type}}/g, escapeHtml(input.type))
+  return INQUIRY_EMAIL_TEMPLATE.replace(/{{type}}/g, escapeHtml(input.type))
     .replace(/{{name}}/g, escapeHtml(input.name))
     .replace(/{{contact}}/g, escapeHtml(contact))
     .replace(/{{phone}}/g, escapeHtml(phone))
@@ -208,7 +207,9 @@ function renderCustomerConfirmation(input: InquiryEmailInput): string {
   `;
 }
 
-export async function sendInquiryEmail(input: InquiryEmailInput): Promise<InquiryNotificationResult> {
+export async function sendInquiryEmail(
+  input: InquiryEmailInput,
+): Promise<InquiryNotificationResult> {
   if (!resend) {
     throw new Error("RESEND_API_KEY is not configured.");
   }

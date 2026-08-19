@@ -11,9 +11,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     ...pageSeo({
-      title: "Contact Rudra Tours & Travels | Kanpur Travel Team",
+      title: "Contact Us | Rudra Tours & Travels Kanpur — 24x7 Cab & Tour Booking",
       description:
-        "Contact Rudra Tours and Travels by phone, WhatsApp or email for tours, vehicles and wedding travel from Kanpur.",
+        "Contact Rudra Tours & Travels in Kanpur. Call +91 70145 47628 or message on WhatsApp for 24x7 cab booking, car rentals, and tour packages.",
       path: "/contact",
       image: cta,
     }),
@@ -189,7 +189,6 @@ function ContactPage() {
           </motion.form>
         </div>
       </section>
-
     </PageLayout>
   );
 }

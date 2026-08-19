@@ -22,6 +22,7 @@ import ayodhya from "@/assets/destinations/ayodhya.jpg";
 import mathura from "@/assets/destinations/mathura.jpg";
 import prayagraj from "@/assets/destinations/prayagraj.jpg";
 import varanasi from "@/assets/destinations/varanasi.jpg";
+import kainchiDham from "@/assets/destinations/kainchi-dham.jpg";
 
 const PAGE_IMAGE_BY_SLUG: Record<string, string> = {
   "car-rental-kanpur": heroSuv,
@@ -40,6 +41,14 @@ const PAGE_IMAGE_BY_SLUG: Record<string, string> = {
   "tour-packages": ctaIndia,
   "uttar-pradesh-tour-packages": ctaIndia,
   "holiday-packages": ctaIndia,
+  "kanpur-to-lucknow-cab": heroSuv,
+  "kanpur-to-ayodhya-taxi": ayodhya,
+  "kanpur-to-prayagraj-taxi": prayagraj,
+  "kanpur-to-varanasi-cab": varanasi,
+  "kanpur-to-delhi-cab": heroSuv,
+  "kanpur-to-agra-cab": ctaIndia,
+  "kanpur-to-mathura-vrindavan-cab": mathura,
+  "kanpur-to-kainchi-dham-taxi": kainchiDham,
   kanpur: ctaIndia,
   lucknow: ctaIndia,
   agra: ctaIndia,

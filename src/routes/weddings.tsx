@@ -16,9 +16,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/weddings")({
   head: () => ({
     ...pageSeo({
-      title: "Wedding Car Rental | Decorated Cars & Guest Transport",
+      title: "Wedding Car Rental in Kanpur | Luxury Audi, BMW, Mercedes & Groom Cars",
       description:
-        "Arrive in style with decorated wedding cars, luxury sedans, SUVs and guest transport planned across India.",
+        "Hire luxury wedding cars in Kanpur. Decorated cars for groom entry, doli, baraat buses & VIP guest transportation with professional chauffeur.",
       path: "/weddings",
       image: heroLuxuryCar,
     }),

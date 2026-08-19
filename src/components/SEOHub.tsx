@@ -1,8 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { LANDING_PAGES } from "@/data/seo-landings";
 
-const servicePages = LANDING_PAGES.filter((page) => page.kind === "service").slice(0, 8);
-const locationPages = LANDING_PAGES.filter((page) => page.kind === "location").slice(0, 8);
+const cabServices = LANDING_PAGES.filter(
+  (page) => page.kind === "service" && !page.slug.startsWith("kanpur-to-"),
+).slice(0, 6);
+
+const outstationRoutes = LANDING_PAGES.filter((page) => page.slug.startsWith("kanpur-to-")).slice(
+  0,
+  6,
+);
+
+const locationPages = LANDING_PAGES.filter((page) => page.kind === "location").slice(0, 6);
 
 export function SEOHub() {
   return (
@@ -14,40 +22,67 @@ export function SEOHub() {
             Popular Searches
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-light leading-[1.05]">
-            Find the right travel page faster.
+            Find the right cab, route or tour page.
           </h2>
           <p className="mt-4 text-luxury-gray text-base md:text-lg max-w-2xl">
-            These internal links help travellers jump straight into the exact service or city guide
-            they need, which improves both user flow and crawl depth.
+            Quickly book local cabs in Kanpur, outstation taxis across Uttar Pradesh, or explore
+            handpicked holiday and pilgrimage packages.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="glass-strong rounded-3xl p-6 md:p-8">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* Cabs & Rentals */}
+          <div className="glass-strong rounded-3xl p-6 md:p-8 flex flex-col">
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
-              Service Pages
+              Kanpur Cab & Car Rental
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {servicePages.map((page) => (
+            <div className="grid gap-3 flex-1">
+              {cabServices.map((page) => (
                 <Link
                   key={page.slug}
                   to="/$slug"
                   params={{ slug: page.slug }}
                   className="rounded-2xl border border-white/5 bg-white/[0.03] p-4 hover:border-[var(--gold)]/40 transition-colors"
                 >
-                  <div className="text-[10px] uppercase tracking-[0.22em] text-luxury-gray mb-2">
-                    {page.kind === "service" ? "Service" : "Guide"}
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-luxury-gray mb-1">
+                    Service
                   </div>
-                  <div className="font-display text-2xl leading-tight mb-2">{page.eyebrow}</div>
-                  <p className="text-sm text-luxury-gray">{page.title}</p>
+                  <div className="font-display text-xl leading-tight mb-1">{page.eyebrow}</div>
+                  <p className="text-xs text-luxury-gray line-clamp-2">{page.title}</p>
                 </Link>
               ))}
             </div>
           </div>
 
-          <div className="glass-strong rounded-3xl p-6 md:p-8">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">City Guides</div>
-            <div className="grid gap-3 sm:grid-cols-2">
+          {/* Outstation Routes */}
+          <div className="glass-strong rounded-3xl p-6 md:p-8 flex flex-col">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
+              Popular Outstation Routes
+            </div>
+            <div className="grid gap-3 flex-1">
+              {outstationRoutes.map((page) => (
+                <Link
+                  key={page.slug}
+                  to="/$slug"
+                  params={{ slug: page.slug }}
+                  className="rounded-2xl border border-white/5 bg-white/[0.03] p-4 hover:border-[var(--gold)]/40 transition-colors"
+                >
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-luxury-gray mb-1">
+                    Outstation Route
+                  </div>
+                  <div className="font-display text-xl leading-tight mb-1">{page.eyebrow}</div>
+                  <p className="text-xs text-luxury-gray line-clamp-2">{page.title}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* City Guides */}
+          <div className="glass-strong rounded-3xl p-6 md:p-8 flex flex-col">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
+              UP City & Travel Guides
+            </div>
+            <div className="grid gap-3 flex-1">
               {locationPages.map((page) => (
                 <Link
                   key={page.slug}
@@ -55,11 +90,11 @@ export function SEOHub() {
                   params={{ slug: page.slug }}
                   className="rounded-2xl border border-white/5 bg-white/[0.03] p-4 hover:border-[var(--gold)]/40 transition-colors"
                 >
-                  <div className="text-[10px] uppercase tracking-[0.22em] text-luxury-gray mb-2">
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-luxury-gray mb-1">
                     City Guide
                   </div>
-                  <div className="font-display text-2xl leading-tight mb-2">{page.eyebrow}</div>
-                  <p className="text-sm text-luxury-gray">{page.description}</p>
+                  <div className="font-display text-xl leading-tight mb-1">{page.eyebrow}</div>
+                  <p className="text-xs text-luxury-gray line-clamp-2">{page.description}</p>
                 </Link>
               ))}
             </div>

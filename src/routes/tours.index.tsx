@@ -17,9 +17,9 @@ export const Route = createFileRoute("/tours/")({
   }),
   head: () => ({
     ...pageSeo({
-      title: "India Tour Packages | Pilgrimage, Hills & Beaches",
+      title: "India Tour Packages & Pilgrimage Tours from Kanpur | Rudra Tours",
       description:
-        "Explore 25+ India tour packages for pilgrimage, heritage, hills and beaches from Rudra Tours and Travels in Kanpur.",
+        "Explore 25+ curated tour packages from Kanpur: Ayodhya Ram Mandir, Kashi Vishwanath, Mathura-Vrindavan, Char Dham Yatra, Kashmir & holiday packages.",
       path: "/tours",
       image: kashmir,
     }),

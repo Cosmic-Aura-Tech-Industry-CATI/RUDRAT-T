@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { sendInquiryEmail, isValidEmail, isValidPhone, sanitizePhone } from "@/lib/inquiry-email.server";
+import {
+  sendInquiryEmail,
+  isValidEmail,
+  isValidPhone,
+  sanitizePhone,
+} from "@/lib/inquiry-email.server";
 
 type InquiryRequestBody = {
   type?: string;
@@ -27,7 +32,10 @@ export const Route = createFileRoute("/api/inquiry")({
 
         if (!type || !name || !phone || !packageName || !detail) {
           return Response.json(
-            { success: false, message: "Name, phone, inquiry type, package and trip details are required." },
+            {
+              success: false,
+              message: "Name, phone, inquiry type, package and trip details are required.",
+            },
             { status: 400 },
           );
         }
@@ -63,7 +71,8 @@ export const Route = createFileRoute("/api/inquiry")({
           return Response.json(
             {
               success: false,
-              message: "We could not send your inquiry right now. Please contact us by phone or WhatsApp.",
+              message:
+                "We could not send your inquiry right now. Please contact us by phone or WhatsApp.",
             },
             { status: 503 },
           );

@@ -13,31 +13,71 @@ const cols = [
       { label: "Car Rentals", to: "/vehicles", ariaLabel: "View Car Rentals" },
       { label: "Wedding Travel", to: "/weddings", ariaLabel: "View Wedding Travel" },
       { label: "Destinations", to: "/destinations", ariaLabel: "View Destinations" },
+      { label: "Plan Custom Trip", to: "/inquiry", ariaLabel: "Plan Custom Trip" },
     ],
   },
   {
-    title: "Travel Services",
-    links: LANDING_PAGES.filter((page) => page.kind === "service")
-      .slice(0, 4)
-      .map((page) => ({
-        label: page.eyebrow,
-        to: `/${page.slug}`,
-        ariaLabel: `Open ${page.title}`,
-      })),
+    title: "Cab Services",
+    links: [
+      { label: "Car Rental Kanpur", to: "/car-rental-kanpur", ariaLabel: "Car Rental in Kanpur" },
+      {
+        label: "Taxi Service Kanpur",
+        to: "/taxi-service-kanpur",
+        ariaLabel: "Taxi Service in Kanpur",
+      },
+      {
+        label: "Cab Booking Kanpur",
+        to: "/cab-booking-kanpur",
+        ariaLabel: "Cab Booking in Kanpur",
+      },
+      {
+        label: "Tempo Traveller Kanpur",
+        to: "/tempo-traveller-kanpur",
+        ariaLabel: "Tempo Traveller in Kanpur",
+      },
+      { label: "Outstation Taxi", to: "/outstation-taxi", ariaLabel: "Outstation Taxi Service" },
+      { label: "Airport Transfer", to: "/airport-transfer", ariaLabel: "Airport Transfer Cabs" },
+    ],
   },
   {
-    title: "City Guides",
-    links: LANDING_PAGES.filter((page) => page.kind === "location")
-      .slice(0, 4)
-      .map((page) => ({
-        label: page.eyebrow,
-        to: `/${page.slug}`,
-        ariaLabel: `Open ${page.title}`,
-      })),
+    title: "Popular Routes",
+    links: [
+      {
+        label: "Kanpur to Lucknow Cab",
+        to: "/kanpur-to-lucknow-cab",
+        ariaLabel: "Kanpur to Lucknow Cab",
+      },
+      {
+        label: "Kanpur to Ayodhya Taxi",
+        to: "/kanpur-to-ayodhya-taxi",
+        ariaLabel: "Kanpur to Ayodhya Taxi",
+      },
+      {
+        label: "Kanpur to Prayagraj Taxi",
+        to: "/kanpur-to-prayagraj-taxi",
+        ariaLabel: "Kanpur to Prayagraj Taxi",
+      },
+      {
+        label: "Kanpur to Varanasi Cab",
+        to: "/kanpur-to-varanasi-cab",
+        ariaLabel: "Kanpur to Varanasi Cab",
+      },
+      {
+        label: "Kanpur to Delhi Cab",
+        to: "/kanpur-to-delhi-cab",
+        ariaLabel: "Kanpur to Delhi Cab",
+      },
+      { label: "Kanpur to Agra Cab", to: "/kanpur-to-agra-cab", ariaLabel: "Kanpur to Agra Cab" },
+    ],
   },
   {
     title: "Company",
-    links: [{ label: "About Rudra", to: "/about", ariaLabel: "View About Rudra" }],
+    links: [
+      { label: "About Rudra Tours", to: "/about", ariaLabel: "View About Rudra" },
+      { label: "Customer Reviews", to: "/reviews", ariaLabel: "View Customer Reviews" },
+      { label: "Photo Gallery", to: "/gallery", ariaLabel: "View Photo Gallery" },
+      { label: "Contact Us", to: "/contact", ariaLabel: "Contact Rudra Tours" },
+    ],
   },
 ];
 

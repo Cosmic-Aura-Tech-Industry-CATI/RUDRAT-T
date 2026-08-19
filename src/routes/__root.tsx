@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import logoAsset from "@/assets/rudra-logo.png";
-import { SITE, organizationLdJson, absoluteUrl } from "@/lib/seo";
+import { SITE, organizationSchema, absoluteUrl } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -117,7 +117,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
     ],
-    "script:ld+json": organizationLdJson()["script:ld+json"],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationSchema()),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -126,10 +131,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const schemaJson = JSON.stringify(organizationSchema());
   return (
     <html lang="en-IN">
       <head>
         <HeadContent />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson }} />
       </head>
       <body>
         {children}

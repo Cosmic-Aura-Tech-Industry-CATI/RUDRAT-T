@@ -9,16 +9,15 @@ import hero from "@/assets/hero-suv.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/reviews")({
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "Guest Reviews | Real Traveller Feedback",
       description:
         "Read real traveller reviews from Kashmir to Kerala, Ladakh to Goa, shared by guests of Rudra Tours and Travels.",
       path: "/reviews",
       image: hero,
+      breadcrumbs: [{ name: "Reviews", path: "/reviews" }],
     }),
-    ...breadcrumbLdJson([{ name: "Reviews", path: "/reviews" }]),
-  }),
   component: ReviewsPage,
 });
 

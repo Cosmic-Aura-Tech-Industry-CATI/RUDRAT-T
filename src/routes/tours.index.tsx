@@ -9,44 +9,43 @@ import { PackageSlider } from "@/components/PackageSlider";
 import { packages, priceLines, regionLabel, type Region } from "@/data/packages";
 import { BRAND } from "@/lib/brand";
 import kashmir from "@/assets/dest-kashmir.jpg";
-import { pageSeo, breadcrumbLdJson, faqLdJson } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours/")({
   validateSearch: (search: Record<string, unknown>) => ({
     q: typeof search.q === "string" ? search.q : undefined,
   }),
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "India Tour Packages & Pilgrimage Tours from Kanpur | Rudra Tours",
       description:
         "Explore 25+ curated tour packages from Kanpur: Ayodhya Ram Mandir, Kashi Vishwanath, Mathura-Vrindavan, Char Dham Yatra, Kashmir & holiday packages.",
       path: "/tours",
       image: kashmir,
+      breadcrumbs: [{ name: "Tour Packages", path: "/tours" }],
+      faqs: [
+        {
+          question: "Do you offer custom India tour packages?",
+          answer:
+            "Yes. We build custom packages around your dates, budget, city of departure and preferred vehicle.",
+        },
+        {
+          question: "Can I book pilgrimage and family tours from Kanpur?",
+          answer:
+            "Yes. We arrange Ayodhya, Varanasi, Mathura, Prayagraj, Rajasthan and hill station tours starting from Kanpur.",
+        },
+        {
+          question: "Are prices shown per vehicle or per person?",
+          answer:
+            "The listed prices are package or vehicle pricing, so you can compare the trip cost clearly before you enquire.",
+        },
+        {
+          question: "Do you also arrange transport for group tours?",
+          answer:
+            "Yes. We provide sedans, SUVs, tempo travellers, Urbania and buses for groups of many sizes.",
+        },
+      ],
     }),
-    ...breadcrumbLdJson([{ name: "Tour Packages", path: "/tours" }]),
-    ...faqLdJson([
-      {
-        question: "Do you offer custom India tour packages?",
-        answer:
-          "Yes. We build custom packages around your dates, budget, city of departure and preferred vehicle.",
-      },
-      {
-        question: "Can I book pilgrimage and family tours from Kanpur?",
-        answer:
-          "Yes. We regularly arrange pilgrimage, family and leisure trips from Kanpur and nearby cities such as Lucknow.",
-      },
-      {
-        question: "Are prices shown per vehicle or per person?",
-        answer:
-          "The listed prices are package or vehicle pricing, so you can compare the trip cost clearly before you enquire.",
-      },
-      {
-        question: "Do you also arrange transport for group tours?",
-        answer:
-          "Yes. We provide sedans, SUVs, tempo travellers, Urbania and buses for groups of many sizes.",
-      },
-    ]),
-  }),
   component: ToursPage,
 });
 

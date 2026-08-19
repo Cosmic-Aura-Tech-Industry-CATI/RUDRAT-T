@@ -69,16 +69,14 @@ export const Route = createFileRoute("/$slug")({
   },
   head: ({ loaderData }) => {
     const image = PAGE_IMAGE_BY_SLUG[loaderData.page.slug] ?? ctaIndia;
-    return {
-      ...pageSeo({
-        title: loaderData.page.title,
-        description: loaderData.page.description,
-        path: `/${loaderData.page.slug}`,
-        image,
-      }),
-      ...breadcrumbLdJson([{ name: loaderData.page.eyebrow, path: `/${loaderData.page.slug}` }]),
-      ...faqLdJson(loaderData.page.faqs),
-    };
+    return pageSeo({
+      title: loaderData.page.title,
+      description: loaderData.page.description,
+      path: `/${loaderData.page.slug}`,
+      image,
+      breadcrumbs: [{ name: loaderData.page.eyebrow, path: `/${loaderData.page.slug}` }],
+      faqs: loaderData.page.faqs,
+    });
   },
   component: LandingPageRoute,
 });

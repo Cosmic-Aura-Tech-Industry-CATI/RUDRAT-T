@@ -36,40 +36,39 @@ import {
   type CategoryId,
   type RentalType,
 } from "@/data/vehicles";
-import { pageSeo, breadcrumbLdJson, faqLdJson } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/vehicles")({
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "Car Rental in Kanpur | Best Cab Service, Taxi Hire & Tempo Traveller",
       description:
         "Book car rental in Kanpur with driver or self-drive. Hatchbacks, Dzire, Innova Crysta, Fortuner, 12/17/26 seater tempo travellers & luxury wedding cars.",
       path: "/vehicles",
       image: hero,
+      breadcrumbs: [{ name: "Vehicle Rentals", path: "/vehicles" }],
+      faqs: [
+        {
+          question: "Do you offer self drive and chauffeur driven cars?",
+          answer:
+            "Yes. We offer both self drive and chauffeur driven options across select vehicles and categories.",
+        },
+        {
+          question: "Can I book a tempo traveller for group travel?",
+          answer:
+            "Yes. We have 12, 17 and 26 seater tempo traveller options for pilgrimages, family trips and group tours.",
+        },
+        {
+          question: "Do you provide outstation cab service from Kanpur?",
+          answer:
+            "Yes. Our fleet covers local, outstation and long-distance travel from Kanpur and surrounding cities.",
+        },
+        {
+          question: "Are luxury cars available for weddings?",
+          answer: "Yes. We provide premium sedans and SUVs for weddings, events and VIP transfers.",
+        },
+      ],
     }),
-    ...breadcrumbLdJson([{ name: "Vehicle Rentals", path: "/vehicles" }]),
-    ...faqLdJson([
-      {
-        question: "Do you offer self drive and chauffeur driven cars?",
-        answer:
-          "Yes. We offer both self drive and chauffeur driven options across select vehicles and categories.",
-      },
-      {
-        question: "Can I book a tempo traveller for group travel?",
-        answer:
-          "Yes. We have 12, 17 and 26 seater tempo traveller options for pilgrimages, family trips and group tours.",
-      },
-      {
-        question: "Do you provide outstation cab service from Kanpur?",
-        answer:
-          "Yes. Our fleet covers local, outstation and long-distance travel from Kanpur and surrounding cities.",
-      },
-      {
-        question: "Are luxury cars available for weddings?",
-        answer: "Yes. We provide premium sedans and SUVs for weddings, events and VIP transfers.",
-      },
-    ]),
-  }),
   component: VehiclesPage,
 });
 

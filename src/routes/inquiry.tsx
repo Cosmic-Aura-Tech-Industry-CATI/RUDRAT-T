@@ -32,16 +32,15 @@ export const Route = createFileRoute("/inquiry")({
     category: typeof s.category === "string" ? s.category : undefined,
     rental: typeof s.rental === "string" ? s.rental : undefined,
   }),
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "Plan My Trip | Travel Quote & Inquiry",
       description:
         "Submit and track travel requests for tours, cars and wedding travel with Rudra Tours and Travels.",
       path: "/inquiry",
       image: cta,
+      breadcrumbs: [{ name: "Inquiry", path: "/inquiry" }],
     }),
-    ...breadcrumbLdJson([{ name: "Inquiry", path: "/inquiry" }]),
-  }),
   component: InquiryPage,
 });
 

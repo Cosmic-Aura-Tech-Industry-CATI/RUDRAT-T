@@ -13,16 +13,15 @@ import rudraFounderPhoto from "@/assets/team/rudra-founder.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "About Us | Rudra Tours & Travels — Trusted Travel Agency in Kanpur",
       description:
         "Founded in 2014 by Mr. Abhay Nigam in Kanpur, Rudra Tours & Travels has served over 1 Lakh+ happy travellers with reliable cabs and tour packages.",
       path: "/about",
       image: hero,
+      breadcrumbs: [{ name: "About", path: "/about" }],
     }),
-    ...breadcrumbLdJson([{ name: "About", path: "/about" }]),
-  }),
   component: AboutPage,
 });
 

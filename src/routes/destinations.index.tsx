@@ -7,16 +7,15 @@ import { DESTINATIONS } from "@/data/destinations";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/destinations/")({
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "India Tour Destinations | Kashmir, Goa, Kerala & More",
       description:
         "Discover Kashmir, Ladakh, Goa, Kerala, Rajasthan, Himachal and Uttarakhand with Rudra Tours and Travels.",
       path: "/destinations",
       image: places[1].image,
+      breadcrumbs: [{ name: "Destinations", path: "/destinations" }],
     }),
-    ...breadcrumbLdJson([{ name: "Destinations", path: "/destinations" }]),
-  }),
   component: DestinationsPage,
 });
 

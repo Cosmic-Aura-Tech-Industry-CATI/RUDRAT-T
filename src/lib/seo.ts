@@ -293,6 +293,7 @@ export function organizationSchema() {
         "@id": `${SITE.url}/#taxi-service`,
         name: "Rudra Taxi Service & Cab Booking Kanpur",
         url: `${SITE.url}/taxi-service-kanpur`,
+        image: absoluteUrl(SITE.logo),
         provider: { "@id": `${SITE.url}/#organization` },
         serviceType: "Taxi service, Cab Booking, Outstation Cabs & Airport Transfer",
         areaServed: [
@@ -311,7 +312,6 @@ export function organizationSchema() {
         hasMap: BRAND.mapsUrl,
         geo: geoCoordinates,
         address,
-        aggregateRating,
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -334,6 +334,7 @@ export function organizationSchema() {
         "@id": `${SITE.url}/#auto-rental`,
         name: "Rudra Car Rental Kanpur",
         url: `${SITE.url}/vehicles`,
+        image: absoluteUrl(SITE.logo),
         provider: { "@id": `${SITE.url}/#organization` },
         serviceType: "Car Rental, SUV Hire, Innova Crysta & Luxury Wedding Cars",
         areaServed: ["Kanpur", "Uttar Pradesh", "India"],
@@ -342,7 +343,6 @@ export function organizationSchema() {
         hasMap: BRAND.mapsUrl,
         geo: geoCoordinates,
         address,
-        aggregateRating,
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -366,13 +366,13 @@ export function organizationSchema() {
         name: SITE.name,
         url: SITE.url,
         logo: absoluteUrl(SITE.logo),
+        image: absoluteUrl(SITE.logo),
         telephone: BRAND.phone,
         email: BRAND.email,
         sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
         priceRange: "₹₹",
         address,
         geo: geoCoordinates,
-        aggregateRating,
         areaServed: ["India", "Uttar Pradesh", "Kanpur", "Lucknow"],
         hasMap: BRAND.mapsUrl,
         openingHoursSpecification: [

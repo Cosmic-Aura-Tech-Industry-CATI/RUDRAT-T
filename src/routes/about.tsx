@@ -15,9 +15,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   head: () => ({
     ...pageSeo({
-      title: "About Rudra Tours & Travels | Trusted Kanpur Travel Brand",
+      title: "About Us | Rudra Tours & Travels — Trusted Travel Agency in Kanpur",
       description:
-        "Read the story of Rudra Tours and Travels, founded in Kanpur and built on trust, honesty and 1 lakh+ happy travellers.",
+        "Founded in 2014 by Mr. Abhay Nigam in Kanpur, Rudra Tours & Travels has served over 1 Lakh+ happy travellers with reliable cabs and tour packages.",
       path: "/about",
       image: hero,
     }),

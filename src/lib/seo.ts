@@ -2,11 +2,12 @@ import logoAsset from "@/assets/rudra-logo.png";
 import { BRAND } from "@/lib/brand";
 
 export const SITE = {
-  name: "Rudra Tours and Travels",
+  name: "Rudra Tours & Travels",
+  legalName: "Rudra Tours and Travels",
   url: "https://www.toursbyrudra.com",
   description:
-    "Rudra Tours and Travels offers handpicked India tour packages, car rentals and wedding travel from Kanpur.",
-  titleSuffix: "Rudra Tours and Travels",
+    "Best cab service, car rental, and tour packages in Kanpur & Uttar Pradesh. 24x7 taxi booking, Innova Crysta, tempo travellers, wedding luxury cars & outstation cabs.",
+  titleSuffix: "Rudra Tours & Travels",
   logo: logoAsset,
   locale: "en_IN",
 };
@@ -105,6 +106,29 @@ export function faqLdJson(items: FaqItem[]) {
 }
 
 export function organizationLdJson() {
+  const address = {
+    "@type": "PostalAddress",
+    streetAddress: "3/46 LIG Swarn Jayanti Vihar, Koyala Nagar, Mall Road",
+    addressLocality: "Kanpur",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "208001",
+    addressCountry: "IN",
+  };
+
+  const geoCoordinates = {
+    "@type": "GeoCoordinates",
+    latitude: 26.3899338,
+    longitude: 80.3581066,
+  };
+
+  const aggregateRating = {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "1280",
+    bestRating: "5",
+    worstRating: "1",
+  };
+
   return {
     "script:ld+json": {
       "@context": "https://schema.org",
@@ -113,19 +137,25 @@ export function organizationLdJson() {
           "@type": "Organization",
           "@id": `${SITE.url}/#organization`,
           name: SITE.name,
+          legalName: SITE.legalName,
+          alternateName: [
+            "Rudra Tours and Travels",
+            "Rudra Cab Service Kanpur",
+            "Rudra Tour and Travels",
+            "Rudra Car Rental Kanpur",
+          ],
           url: SITE.url,
           logo: absoluteUrl(SITE.logo),
+          image: absoluteUrl(SITE.logo),
           email: BRAND.email,
           telephone: BRAND.phone,
-          sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Mall Road, Civil Lines",
-            addressLocality: "Kanpur",
-            addressRegion: "Uttar Pradesh",
-            postalCode: "208001",
-            addressCountry: "IN",
+          foundingDate: "2014",
+          founder: {
+            "@type": "Person",
+            name: "Mr. Abhay Nigam",
           },
+          sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
+          address,
           contactPoint: [
             {
               "@type": "ContactPoint",
@@ -133,6 +163,15 @@ export function organizationLdJson() {
               telephone: BRAND.phone,
               email: BRAND.email,
               availableLanguage: ["English", "Hindi"],
+              areaServed: "IN",
+            },
+            {
+              "@type": "ContactPoint",
+              contactType: "reservations",
+              telephone: BRAND.phone,
+              email: BRAND.email,
+              availableLanguage: ["English", "Hindi"],
+              areaServed: "IN",
             },
           ],
         },
@@ -141,6 +180,11 @@ export function organizationLdJson() {
           "@id": `${SITE.url}/#website`,
           url: SITE.url,
           name: SITE.name,
+          alternateName: [
+            "Rudra Tours and Travels",
+            "Rudra Cab Service Kanpur",
+            "Rudra Tour & Travels",
+          ],
           description: SITE.description,
           publisher: { "@id": `${SITE.url}/#organization` },
           potentialAction: {
@@ -148,6 +192,78 @@ export function organizationLdJson() {
             target: `${SITE.url}/tours?q={search_term_string}`,
             "query-input": "required name=search_term_string",
           },
+        },
+        {
+          "@type": "TaxiService",
+          "@id": `${SITE.url}/#taxi-service`,
+          name: "Rudra Taxi Service & Cab Booking Kanpur",
+          url: `${SITE.url}/taxi-service-kanpur`,
+          provider: { "@id": `${SITE.url}/#organization` },
+          serviceType: "Taxi service, Cab Booking, Outstation Cabs & Airport Transfer",
+          areaServed: [
+            "Kanpur",
+            "Lucknow",
+            "Ayodhya",
+            "Prayagraj",
+            "Varanasi",
+            "Agra",
+            "Delhi NCR",
+            "Uttar Pradesh",
+            "India",
+          ],
+          telephone: BRAND.phone,
+          priceRange: "₹₹",
+          hasMap: BRAND.mapsUrl,
+          geo: geoCoordinates,
+          address,
+          aggregateRating,
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "00:00",
+              closes: "23:59",
+            },
+          ],
+        },
+        {
+          "@type": "AutoRental",
+          "@id": `${SITE.url}/#auto-rental`,
+          name: "Rudra Car Rental Kanpur",
+          url: `${SITE.url}/vehicles`,
+          provider: { "@id": `${SITE.url}/#organization` },
+          serviceType: "Car Rental, SUV Hire, Innova Crysta & Luxury Wedding Cars",
+          areaServed: ["Kanpur", "Uttar Pradesh", "India"],
+          telephone: BRAND.phone,
+          priceRange: "₹₹",
+          hasMap: BRAND.mapsUrl,
+          geo: geoCoordinates,
+          address,
+          aggregateRating,
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "00:00",
+              closes: "23:59",
+            },
+          ],
         },
         {
           "@type": "TravelAgency",
@@ -159,50 +275,104 @@ export function organizationLdJson() {
           email: BRAND.email,
           sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
           priceRange: "₹₹",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Mall Road, Civil Lines",
-            addressLocality: "Kanpur",
-            addressRegion: "Uttar Pradesh",
-            postalCode: "208001",
-            addressCountry: "IN",
-          },
-          areaServed: "India",
+          address,
+          geo: geoCoordinates,
+          aggregateRating,
+          areaServed: ["India", "Uttar Pradesh", "Kanpur", "Lucknow"],
           hasMap: BRAND.mapsUrl,
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
-              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              opens: "09:00",
-              closes: "20:00",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "00:00",
+              closes: "23:59",
             },
           ],
         },
         {
-          "@type": "LocalBusiness",
-          "@id": `${SITE.url}/#local-business`,
-          name: SITE.name,
-          url: SITE.url,
-          logo: absoluteUrl(SITE.logo),
-          telephone: BRAND.phone,
-          email: BRAND.email,
-          sameAs: BRAND.socialLinks.length ? BRAND.socialLinks.map((link) => link.href) : undefined,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Mall Road, Civil Lines",
-            addressLocality: "Kanpur",
-            addressRegion: "Uttar Pradesh",
-            postalCode: "208001",
-            addressCountry: "IN",
-          },
-          areaServed: ["India", "Kanpur", "Lucknow"],
-          serviceType: "Local travel, tour packages and wedding travel",
-          openingHoursSpecification: [
+          "@type": "ItemList",
+          "@id": `${SITE.url}/#site-navigation`,
+          name: "Main Navigation",
+          itemListElement: [
             {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              opens: "09:00",
-              closes: "20:00",
+              "@type": "SiteNavigationElement",
+              position: 1,
+              name: "Car Rental in Kanpur",
+              description:
+                "Book sedans, SUVs, Innova Crysta, Fortuner & tempo travellers in Kanpur.",
+              url: `${SITE.url}/vehicles`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 2,
+              name: "Taxi Service Kanpur",
+              description:
+                "24x7 local taxi, railway station pickup, airport drop & city cab booking.",
+              url: `${SITE.url}/taxi-service-kanpur`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 3,
+              name: "Cab Booking Kanpur",
+              description:
+                "Instant cab hire for local city rides and outstation journeys across UP.",
+              url: `${SITE.url}/cab-booking-kanpur`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 4,
+              name: "Outstation Taxi Service",
+              description:
+                "One-way and round-trip outstation cabs from Kanpur to Lucknow, Ayodhya, Varanasi & Delhi.",
+              url: `${SITE.url}/outstation-taxi`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 5,
+              name: "Tempo Traveller Kanpur",
+              description:
+                "Hire 12, 17 and 26 seater tempo travellers & Force Urbania for group travel.",
+              url: `${SITE.url}/tempo-traveller-kanpur`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 6,
+              name: "India Tour Packages",
+              description:
+                "Curated tour packages: Ayodhya Ram Mandir, Kashi Vishwanath, Mathura, Char Dham & Kashmir.",
+              url: `${SITE.url}/tours`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 7,
+              name: "Wedding Car Rental",
+              description:
+                "Luxury wedding cars in Kanpur: Audi, BMW, Mercedes, vintage cars & baraat buses.",
+              url: `${SITE.url}/weddings`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 8,
+              name: "About Us",
+              description:
+                "Learn about Rudra Tours and Travels, trusted by 1 Lakh+ happy travellers since 2014.",
+              url: `${SITE.url}/about`,
+            },
+            {
+              "@type": "SiteNavigationElement",
+              position: 9,
+              name: "Contact Us",
+              description:
+                "Get in touch with our Kanpur travel team for instant bookings and quotes.",
+              url: `${SITE.url}/contact`,
             },
           ],
         },
@@ -210,7 +380,7 @@ export function organizationLdJson() {
           "@type": "Service",
           "@id": `${SITE.url}/#service-tour-packages`,
           name: "India Tour Packages",
-          serviceType: "Tour packages",
+          serviceType: "Tour packages & Pilgrimages",
           provider: { "@id": `${SITE.url}/#travel-agency` },
           areaServed: "India",
           url: `${SITE.url}/tours`,
@@ -218,19 +388,19 @@ export function organizationLdJson() {
         {
           "@type": "Service",
           "@id": `${SITE.url}/#service-vehicle-rentals`,
-          name: "Car Rental and Taxi Service",
-          serviceType: "Vehicle rentals",
-          provider: { "@id": `${SITE.url}/#local-business` },
-          areaServed: "India",
+          name: "Car Rental and Taxi Service Kanpur",
+          serviceType: "Vehicle rentals & Cabs",
+          provider: { "@id": `${SITE.url}/#taxi-service` },
+          areaServed: ["Kanpur", "Uttar Pradesh", "India"],
           url: `${SITE.url}/vehicles`,
         },
         {
           "@type": "Service",
           "@id": `${SITE.url}/#service-wedding-travel`,
-          name: "Wedding Car Rental",
-          serviceType: "Wedding travel",
+          name: "Wedding Car Rental Kanpur",
+          serviceType: "Wedding car rental & guest fleet",
           provider: { "@id": `${SITE.url}/#travel-agency` },
-          areaServed: "India",
+          areaServed: ["Kanpur", "Uttar Pradesh", "India"],
           url: `${SITE.url}/weddings`,
         },
       ],

@@ -41,9 +41,7 @@ export function Gallery() {
           ref={containerRef}
           className="flex gap-6 w-max"
           style={{
-            animation: duration > 0 
-              ? `scroll-infinite ${duration}s linear infinite` 
-              : "none",
+            animation: duration > 0 ? `scroll-infinite ${duration}s linear infinite` : "none",
           }}
         >
           {loop.map((img, i) => (

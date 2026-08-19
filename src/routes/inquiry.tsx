@@ -253,10 +253,10 @@ function InquiryPage() {
       });
 
       if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as
-          | { message?: string }
-          | null;
-        throw new Error(payload?.message ?? `Inquiry email request failed with status ${response.status}`);
+        const payload = (await response.json().catch(() => null)) as { message?: string } | null;
+        throw new Error(
+          payload?.message ?? `Inquiry email request failed with status ${response.status}`,
+        );
       }
 
       setFeedback({
@@ -330,7 +330,9 @@ function InquiryPage() {
                 }`}
               >
                 <div className="font-medium mb-1">
-                  {feedback.kind === "success" ? "✅ Inquiry Submitted Successfully." : "Something went wrong."}
+                  {feedback.kind === "success"
+                    ? "✅ Inquiry Submitted Successfully."
+                    : "Something went wrong."}
                 </div>
                 <div>{feedback.text}</div>
               </div>

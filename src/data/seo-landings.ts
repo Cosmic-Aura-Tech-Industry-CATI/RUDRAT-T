@@ -25,34 +25,140 @@ export type LandingPage = {
 const servicePages: LandingPage[] = [
   {
     kind: "service",
+    slug: "travel-agent-kanpur",
+    title: "Best Travel Agent in Kanpur | Rudra Tours & Travels",
+    description:
+      "Looking for the best travel agent in Kanpur? Rudra Tours & Travels offers custom tour packages, pilgrimage trips, outstation cabs & 24x7 local travel support.",
+    eyebrow: "Best Travel Agent in Kanpur",
+    heroTitle: "Best travel agent in Kanpur for tour packages, pilgrimage trips & cab booking.",
+    heroSubtitle:
+      "Serving 1 Lakh+ happy travellers since 2014 with transparent pricing, verified drivers, custom itineraries, and dedicated 24x7 on-trip assistance from Kanpur.",
+    introHeading: "Why Rudra Tours is trusted as Kanpur's best travel agent",
+    introBody:
+      "Whether you are planning a spiritual pilgrimage to Ayodhya, Varanasi, or Char Dham, a relaxing family holiday to Kashmir or Kerala, or need reliable chauffeur-driven vehicles for wedding and corporate travel, Rudra Tours & Travels delivers end-to-end planning with local Kanpur expertise.",
+    highlights: [
+      "1 Lakh+ Happy Travellers",
+      "Serving Since 2014",
+      "Custom Tour Planning",
+      "24x7 Kanpur Support",
+    ],
+    reasons: [
+      "Complete holiday & pilgrimage planning from Kanpur with dedicated trip coordinators.",
+      "Fleet of chauffeur-driven sedans, SUVs, Innova Crysta, Fortuner & tempo travellers.",
+      "Honest, transparent pricing with zero hidden surcharges and instant booking confirmation.",
+    ],
+    relatedPackages: [
+      "ayodhya-darshan",
+      "kashi-vishwanath",
+      "mathura-vrindavan",
+      "kashmir-paradise",
+    ],
+    relatedPages: [
+      "tour-packages",
+      "taxi-service-kanpur",
+      "car-rental-kanpur",
+      "pick-and-drop-service-kanpur",
+      "outstation-taxi",
+    ],
+    faqs: [
+      {
+        question: "Why is Rudra Tours considered the best travel agent in Kanpur?",
+        answer:
+          "With over a decade of local experience since 2014, 1 Lakh+ satisfied travellers, a 4.9/5 customer rating, and our own well-maintained fleet, we offer complete personalized travel solutions with 24x7 on-ground assistance.",
+      },
+      {
+        question: "What travel services do you provide from Kanpur?",
+        answer:
+          "We provide all-inclusive India tour packages, spiritual pilgrimage tours (Ayodhya, Kashi, Mathura, Char Dham), local city taxi hire, outstation cabs, luxury wedding cars, and tempo traveller group rentals.",
+      },
+      {
+        question: "Can I customize my tour itinerary from Kanpur?",
+        answer:
+          "Yes. Every tour package can be customized according to your preferred travel dates, pickup location in Kanpur, choice of vehicle, and hotel preferences.",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "pick-and-drop-service-kanpur",
+    title: "Pick & Drop Service in Kanpur | Airport, Railway & Local Transfers",
+    description:
+      "Book reliable pick and drop service in Kanpur. 24x7 on-time transfers for Lucknow Amausi Airport, Kanpur Central Railway Station, wedding guests & corporate staff.",
+    eyebrow: "Pick & Drop Service in Kanpur",
+    heroTitle: "Pick and drop service in Kanpur for airport, railway station & city transfers.",
+    heroSubtitle:
+      "On-time, door-to-door cab pickup and drop across all Kanpur localities, Kanpur Central Station, and Lucknow Amausi Airport with clean vehicles and polite chauffeurs.",
+    introHeading: "Complete pick & drop solutions across Kanpur",
+    introBody:
+      "Never miss a train or flight again. Our 24x7 pick and drop service in Kanpur connects Civil Lines, Swaroop Nagar, Kalyanpur, Kidwai Nagar, Govind Nagar, and all surrounding areas to Kanpur Central, Chakeri Airport, and Lucknow Chaudhary Charan Singh (Amausi) International Airport.",
+    highlights: [
+      "Airport Pick & Drop (Amausi/Chakeri)",
+      "Kanpur Central Station Pickup",
+      "Wedding Guest Convoy Transfers",
+      "24x7 Punctual Chauffeurs",
+    ],
+    reasons: [
+      "Guaranteed on-time pickup with flight and train delay tracking.",
+      "Fixed, transparent rates with luggage assistance and clean AC vehicles.",
+      "Available across sedans (Dzire), SUVs (Innova Crysta), and 12-26 seater tempo travellers.",
+    ],
+    relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
+    relatedPages: [
+      "taxi-service-kanpur",
+      "airport-transfer",
+      "car-rental-kanpur",
+      "kanpur-to-lucknow-cab",
+      "travel-agent-kanpur",
+    ],
+    faqs: [
+      {
+        question: "Do you provide pick and drop from Kanpur to Lucknow Airport?",
+        answer:
+          "Yes, we operate 24x7 direct airport taxi transfers between any Kanpur address and Lucknow Amausi International Airport with guaranteed on-time arrival.",
+      },
+      {
+        question: "Can I book a cab for Kanpur Central Railway Station pickup?",
+        answer:
+          "Yes, our drivers track train arrival times and provide punctual station pickup from Kanpur Central (Cantonment or City side) with luggage help.",
+      },
+      {
+        question: "Do you offer pick and drop for wedding guests in Kanpur?",
+        answer:
+          "Yes, we provide dedicated fleet coordination for wedding guests, including airport/station pickups, hotel shuttles, and venue transfers across Kanpur.",
+      },
+    ],
+  },
+  {
+    kind: "service",
     slug: "car-rental-kanpur",
-    title: "Car Rental Kanpur | Taxi, Cab Booking & Chauffeur Cars",
+    title: "Car Rental in Kanpur | Chauffeur-Driven Cars, SUVs & Tempo Travellers",
     description:
       "Book car rental in Kanpur for airport transfers, local sightseeing, weddings, business travel and outstation trips with Rudra Tours and Travels.",
     eyebrow: "Car Rental in Kanpur",
     heroTitle: "Car rental in Kanpur for city rides, airport drops and long-distance travel.",
     heroSubtitle:
       "Choose sedan, SUV, Innova Crysta, Fortuner, tempo traveller or bus rental with transparent pricing and local support from our Kanpur team.",
-    introHeading: "Why travellers book car rental in Kanpur",
+    introHeading: "Why travellers book car rental in Kanpur with Rudra Tours",
     introBody:
-      "This page is built for people searching for car rental Kanpur, taxi service Kanpur and cab booking Kanpur. It gives a clear starting point for local use, outstation routes, corporate movement and family trips without forcing the visitor to jump between unrelated pages.",
+      "Rudra Tours & Travels provides a comprehensive rental fleet in Kanpur for family vacations, corporate business travel, VIP guest transfers, and luxury wedding entries. Every vehicle is sanitized, GPS-enabled, and driven by an experienced chauffeur.",
     highlights: [
-      "Local city use",
-      "Airport pickup and drop",
-      "Outstation cab booking",
-      "Wedding and family travel",
+      "Sedans & SUVs (Dzire, Ertiga, Innova)",
+      "Luxury Wedding Cars (Audi, BMW, Fortuner)",
+      "12, 17 & 26 Seater Tempo Travellers",
+      "Local & Outstation Packages",
     ],
     reasons: [
-      "Transparent pricing with a direct enquiry path.",
-      "Useful for both one-way and round-trip travel.",
+      "Transparent pricing with a direct enquiry path and zero hidden charges.",
+      "Useful for both one-way and round-trip travel across Uttar Pradesh.",
       "Connects the service page to the exact vehicle and tour pages people need next.",
     ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
     relatedPages: [
       "taxi-service-kanpur",
+      "pick-and-drop-service-kanpur",
       "airport-transfer",
       "outstation-taxi",
-      "travel-agency-kanpur",
+      "travel-agent-kanpur",
     ],
     faqs: [
       {
@@ -70,24 +176,35 @@ const servicePages: LandingPage[] = [
   {
     kind: "service",
     slug: "taxi-service-kanpur",
-    title: "Taxi Service Kanpur | Reliable Cabs for Local and Outstation Travel",
+    title: "Taxi Service in Kanpur | Local & Outstation Cab Booking",
     description:
       "Hire a taxi service in Kanpur for daily commuting, business meetings, station transfers, outstation routes and family trips.",
-    eyebrow: "Taxi Service Kanpur",
+    eyebrow: "Taxi Service in Kanpur",
     heroTitle: "Taxi service in Kanpur for reliable daily travel and outstation trips.",
     heroSubtitle:
-      "Use this page when you need a local taxi, a one-way cab or a planned round trip with a driver who understands city traffic and long routes.",
+      "24x7 chauffeur-driven sedans, SUVs, Innova Crysta & tempo travellers for local city errands, Kanpur Central station transfers, and outstation trips across UP & India.",
     introHeading: "A practical taxi booking page for Kanpur travellers",
     introBody:
-      "People searching taxi service Kanpur usually want a fast booking flow, a fair price and a vehicle that arrives on time. This landing page keeps the intent focused on cab booking, short city rides and longer intercity routes.",
-    highlights: ["City cabs", "One-way taxi", "Round trip bookings", "Family-friendly travel"],
+      "When you book a taxi in Kanpur with Rudra Tours & Travels, you get clean, AC-equipped vehicles, verified drivers, transparent per-km billing, and instant WhatsApp/phone confirmation. Perfect for local full-day hire, airport runs, or long-distance outstation travel.",
+    highlights: [
+      "Local Full-Day & Half-Day Cabs",
+      "One-Way & Round-Trip Outstation",
+      "Airport & Railway Station Transfers",
+      "24x7 Instant Cab Booking",
+    ],
     reasons: [
-      "Matches local intent for taxi service and cab booking.",
-      "Supports both short errands and full-day bookings.",
+      "Matches local intent for taxi service and cab booking with instant confirmation.",
+      "Supports both short errands, airport drops and full-day outstation bookings.",
       "Links directly into enquiry and vehicle inventory pages.",
     ],
     relatedPackages: ["ayodhya-darshan", "mathura-vrindavan", "kashi-vishwanath"],
-    relatedPages: ["car-rental-kanpur", "outstation-taxi", "airport-transfer", "corporate-travel"],
+    relatedPages: [
+      "car-rental-kanpur",
+      "pick-and-drop-service-kanpur",
+      "outstation-taxi",
+      "airport-transfer",
+      "travel-agent-kanpur",
+    ],
     faqs: [
       {
         question: "Is this page for cab booking in Kanpur?",
@@ -97,7 +214,7 @@ const servicePages: LandingPage[] = [
       {
         question: "Do you also handle long-distance taxi service?",
         answer:
-          "Yes. We cover local, outstation and intercity travel from Kanpur to major destinations.",
+          "Yes. We cover local, outstation and intercity travel from Kanpur to major destinations across UP and India.",
       },
     ],
   },
@@ -980,34 +1097,56 @@ const locationPages: LandingPage[] = [
   {
     kind: "location",
     slug: "kanpur",
-    title: "Kanpur Travel Guide | Car Rental, Taxi Service & Tour Packages",
+    title: "Kanpur Travel Services | Travel Agency, Taxi, Car Rental & Tour Packages",
     description:
-      "Plan travel from Kanpur with local taxi service, car rental, airport transfer, wedding cars and tour packages across India.",
-    eyebrow: "Kanpur",
-    heroTitle: "Kanpur travel guide for city rides, airport transfers and tour departures.",
+      "Your complete Kanpur travel guide. Book local taxi service, car rental in Kanpur, pick & drop, wedding cars, and tour packages from Kanpur across India with Rudra Tours.",
+    eyebrow: "Kanpur Travel Hub",
+    heroTitle: "Kanpur travel services — your gateway to cabs, rentals & India tours.",
     heroSubtitle:
-      "This page helps local users and visitors compare the best services for Kanpur travel, family trips and outstation bookings.",
-    introHeading: "Why Kanpur is the starting point for many trips",
+      "The central hub connecting Kanpur travellers to 24x7 taxi services, car rentals, airport transfers, luxury wedding cars, and handpicked India tour packages.",
+    introHeading: "Rudra Tours & Travels — Kanpur's trusted travel partner since 2014",
     introBody:
-      "Kanpur is the home base of Rudra Tours and Travels, so the page combines local travel intent with the bigger tourism routes people search for after leaving the city. It is useful for anyone comparing taxi service Kanpur, car rental Kanpur and tour packages from Kanpur.",
-    highlights: ["Local cabs", "Airport transfer", "City business travel", "Trip departures"],
-    reasons: [
-      "Strong local search relevance.",
-      "Useful hub page for internal links.",
-      "Connects city travel with holiday planning.",
+      "Headquartered in Swarn Jayanti Vihar, Koyala Nagar, Kanpur, Rudra Tours & Travels has been serving Uttar Pradesh since 2014. As Kanpur's leading travel agency and taxi operator, we seamlessly connect local city transport with outstation pilgrimage routes and holiday destinations across India.",
+    highlights: [
+      "Best Travel Agent in Kanpur",
+      "Taxi Service & Cab Booking",
+      "Car Rental & Tempo Travellers",
+      "Pick & Drop Service Kanpur",
     ],
-    relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
-    relatedPages: ["car-rental-kanpur", "taxi-service-kanpur", "airport-transfer", "tour-packages"],
+    reasons: [
+      "Headquartered in Kanpur with 10+ years of local on-ground excellence.",
+      "Complete travel ecosystem: from 1-hour city cabs to 15-day Char Dham itineraries.",
+      "Verified chauffeurs, clean fleet, transparent rates and 24x7 instant support.",
+    ],
+    relatedPackages: [
+      "ayodhya-darshan",
+      "kashi-vishwanath",
+      "prayagraj-sangam",
+      "mathura-vrindavan",
+    ],
+    relatedPages: [
+      "travel-agent-kanpur",
+      "taxi-service-kanpur",
+      "car-rental-kanpur",
+      "pick-and-drop-service-kanpur",
+      "outstation-taxi",
+      "tour-packages",
+    ],
     faqs: [
       {
         question: "Is Kanpur the main service area for Rudra Tours and Travels?",
         answer:
-          "Yes. Kanpur is the home market and the main starting point for vehicle and tour bookings.",
+          "Yes. Kanpur is our headquarters and the central dispatch point for all local taxi, car rental, and outstation tour operations.",
       },
       {
-        question: "Can I book outstation travel from Kanpur?",
+        question: "What travel services can I book from Kanpur?",
         answer:
-          "Yes. Outstation taxi, tour packages and airport transfers are all available from Kanpur.",
+          "You can book local city cabs, airport pick & drop (Lucknow Amausi / Kanpur Chakeri), outstation taxis, wedding cars (Audi/BMW/Innova), tempo travellers, and custom holiday/pilgrimage packages.",
+      },
+      {
+        question: "Where is the Rudra Tours office located in Kanpur?",
+        answer:
+          "Our office is located at HIG-12, Swarn Jayanti Vihar, Main Road, Koyala Nagar, Daheli Sujanpur, Kanpur, Uttar Pradesh 208011.",
       },
     ],
   },

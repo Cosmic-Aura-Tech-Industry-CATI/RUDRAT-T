@@ -41,9 +41,9 @@ import { pageSeo } from "@/lib/seo";
 export const Route = createFileRoute("/vehicles")({
   head: () =>
     pageSeo({
-      title: "Car Rental in Kanpur | Best Cab Service, Taxi Hire & Tempo Traveller",
+      title: "Car Rental in Kanpur | Cab Hire & Tempo Traveller | Rudra",
       description:
-        "Book car rental in Kanpur with driver or self-drive. Hatchbacks, Dzire, Innova Crysta, Fortuner, 12/17/26 seater tempo travellers & luxury wedding cars.",
+        "Hire car rental in Kanpur with driver. Book Dzire, Innova Crysta, Fortuner & 12-26 seater tempo travellers at best rates with Rudra Tours & Travels.",
       path: "/vehicles",
       image: hero,
       breadcrumbs: [{ name: "Vehicle Rentals", path: "/vehicles" }],

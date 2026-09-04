@@ -10,33 +10,50 @@ const cols = [
     title: "Explore",
     links: [
       { label: "Tour Packages", to: "/tours", ariaLabel: "View Tour Packages" },
+      {
+        label: "Best Travel Agent Kanpur",
+        to: "/travel-agent-kanpur",
+        ariaLabel: "Best Travel Agent in Kanpur",
+      },
       { label: "Car Rentals", to: "/vehicles", ariaLabel: "View Car Rentals" },
       { label: "Wedding Travel", to: "/weddings", ariaLabel: "View Wedding Travel" },
-      { label: "Destinations", to: "/destinations", ariaLabel: "View Destinations" },
+      { label: "Kanpur Travel Hub", to: "/kanpur", ariaLabel: "Kanpur Travel Hub" },
       { label: "Plan Custom Trip", to: "/inquiry", ariaLabel: "Plan Custom Trip" },
     ],
   },
   {
     title: "Cab Services",
     links: [
-      { label: "Car Rental Kanpur", to: "/car-rental-kanpur", ariaLabel: "Car Rental in Kanpur" },
       {
-        label: "Taxi Service Kanpur",
+        label: "Taxi Service in Kanpur",
         to: "/taxi-service-kanpur",
         ariaLabel: "Taxi Service in Kanpur",
       },
       {
-        label: "Cab Booking Kanpur",
-        to: "/cab-booking-kanpur",
-        ariaLabel: "Cab Booking in Kanpur",
+        label: "Car Rental in Kanpur",
+        to: "/car-rental-kanpur",
+        ariaLabel: "Car Rental in Kanpur",
+      },
+      {
+        label: "Pick & Drop Service",
+        to: "/pick-and-drop-service-kanpur",
+        ariaLabel: "Pick and Drop Service in Kanpur",
+      },
+      {
+        label: "Outstation Taxi Service",
+        to: "/outstation-taxi",
+        ariaLabel: "Outstation Taxi Service",
       },
       {
         label: "Tempo Traveller Kanpur",
         to: "/tempo-traveller-kanpur",
         ariaLabel: "Tempo Traveller in Kanpur",
       },
-      { label: "Outstation Taxi", to: "/outstation-taxi", ariaLabel: "Outstation Taxi Service" },
-      { label: "Airport Transfer", to: "/airport-transfer", ariaLabel: "Airport Transfer Cabs" },
+      {
+        label: "Cab Booking Kanpur",
+        to: "/cab-booking-kanpur",
+        ariaLabel: "Cab Booking in Kanpur",
+      },
     ],
   },
   {

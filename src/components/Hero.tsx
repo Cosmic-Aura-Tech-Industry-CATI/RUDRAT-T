@@ -98,22 +98,24 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] max-w-5xl"
+          className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[1.08] max-w-5xl"
         >
-          India Tour Packages
+          Rudra Tours & Travels
           <br />
-          <span className="shine-text italic">Car Rentals & Wedding Travel.</span>
+          <span className="shine-text italic text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+            Travel Agency, Taxi Service & Car Rental in Kanpur
+          </span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="mt-8 max-w-2xl text-base md:text-lg text-luxury-gray leading-relaxed"
+          className="mt-6 md:mt-8 max-w-3xl text-base md:text-lg text-luxury-gray leading-relaxed"
         >
-          Handpicked tours, premium cars, and dreamy destination weddings — planned with love,
-          dispatched from Kanpur, delivered all across India. Chaliye, let's make your safar truly
-          yaadgaar.
+          Kanpur's trusted travel agency and cab booking service since 2014. Offering 24x7 local
+          taxi hire, outstation cabs to Lucknow, Ayodhya, Varanasi & Delhi, luxury wedding cars,
+          tempo travellers, and custom India tour packages.
         </motion.p>
 
         <motion.div

@@ -20,9 +20,9 @@ import { pageSeo } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: () =>
     pageSeo({
-      title: "Rudra Tours & Travels — Best Cab Service, Car Rental & Tour Packages in Kanpur",
+      title: "Rudra Tours & Travels | Travel Agency & Cabs in Kanpur",
       description:
-        "Book the best cab service & car rental in Kanpur with Rudra Tours & Travels. 24x7 taxi booking, Innova Crysta, tempo travellers, wedding luxury cars & UP tour packages.",
+        "Book 24x7 taxi service, car rental & tour packages in Kanpur with Rudra Tours & Travels. Chauffeur cabs, Innova, tempo travellers & outstation trips.",
       path: "/",
       image: heroSuv,
       breadcrumbs: [{ name: "Home", path: "/" }],

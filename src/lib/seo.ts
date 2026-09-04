@@ -422,56 +422,58 @@ export function organizationSchema() {
           {
             "@type": "SiteNavigationElement",
             position: 1,
-            name: "Car Rental in Kanpur",
-            description: "Book sedans, SUVs, Innova Crysta, Fortuner & tempo travellers in Kanpur.",
-            url: `${SITE.url}/vehicles`,
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 2,
-            name: "Taxi Service Kanpur",
-            description:
-              "24x7 local taxi, railway station pickup, airport drop & city cab booking.",
-            url: `${SITE.url}/taxi-service-kanpur`,
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 3,
-            name: "Cab Booking Kanpur",
-            description: "Instant cab hire for local city rides and outstation journeys across UP.",
-            url: `${SITE.url}/cab-booking-kanpur`,
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 4,
-            name: "Outstation Taxi Service",
-            description:
-              "One-way and round-trip outstation cabs from Kanpur to Lucknow, Ayodhya, Varanasi & Delhi.",
-            url: `${SITE.url}/outstation-taxi`,
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 5,
-            name: "Tempo Traveller Kanpur",
-            description:
-              "Hire 12, 17 and 26 seater tempo travellers & Force Urbania for group travel.",
-            url: `${SITE.url}/tempo-traveller-kanpur`,
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 6,
-            name: "India Tour Packages",
+            name: "Tour Packages",
             description:
               "Curated tour packages: Ayodhya Ram Mandir, Kashi Vishwanath, Mathura, Char Dham & Kashmir.",
             url: `${SITE.url}/tours`,
           },
           {
             "@type": "SiteNavigationElement",
-            position: 7,
-            name: "Wedding Car Rental",
+            position: 2,
+            name: "Taxi Service Kanpur",
             description:
-              "Luxury wedding cars in Kanpur: Audi, BMW, Mercedes, vintage cars & baraat buses.",
-            url: `${SITE.url}/weddings`,
+              "24x7 local taxi, railway station pickup, airport drop & outstation cab booking in Kanpur.",
+            url: `${SITE.url}/taxi-service-kanpur`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 3,
+            name: "Car Rental Kanpur",
+            description:
+              "Book sedans, SUVs, Innova Crysta, Fortuner, tempo travellers & luxury wedding cars in Kanpur.",
+            url: `${SITE.url}/car-rental-kanpur`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "Pick & Drop Service Kanpur",
+            description:
+              "24x7 airport pick and drop (Amausi/Chakeri), Kanpur Central railway station pickup & wedding shuttles.",
+            url: `${SITE.url}/pick-and-drop-service-kanpur`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 5,
+            name: "Best Travel Agent in Kanpur",
+            description:
+              "Kanpur's trusted travel agency since 2014 offering customized India tour packages and chauffeur cars.",
+            url: `${SITE.url}/travel-agent-kanpur`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 6,
+            name: "Contact Us",
+            description:
+              "Contact Rudra Tours & Travels for instant booking and customized travel itineraries.",
+            url: `${SITE.url}/contact`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 7,
+            name: "Kanpur Travel Hub",
+            description:
+              "Complete Kanpur local travel guide for cabs, rentals, outstation routes and tour packages.",
+            url: `${SITE.url}/kanpur`,
           },
           {
             "@type": "SiteNavigationElement",
@@ -484,10 +486,10 @@ export function organizationSchema() {
           {
             "@type": "SiteNavigationElement",
             position: 9,
-            name: "Contact Us",
+            name: "Wedding Car Rental",
             description:
-              "Get in touch with our Kanpur travel team for instant bookings and quotes.",
-            url: `${SITE.url}/contact`,
+              "Luxury wedding cars in Kanpur: Audi, BMW, Mercedes, vintage cars & baraat buses.",
+            url: `${SITE.url}/weddings`,
           },
         ],
       },

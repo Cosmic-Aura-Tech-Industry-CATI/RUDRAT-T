@@ -20,33 +20,38 @@ import { organizationSchema, pageSeo } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: () =>
     pageSeo({
-      title: "Travel Agency in Kanpur | Tour Packages & Cab Booking | Rudra Tours",
+      title: "Travel Agency in Kanpur | Best Cab Booking & Car Rental - Rudra Tours",
       description:
-        "Kanpur's trusted travel agency since 2014. Book 24x7 taxi service, car rental, tempo travellers, luxury wedding cars & customized India tour packages with Rudra Tours & Travels.",
+        "Rudra Tours & Travels is Kanpur's best travel agency since 2014. Book 24x7 taxi service, cab booking in Kanpur, car rental, outstation taxi, airport transfer & tempo traveller on rent.",
       path: "/",
       image: heroSuv,
       breadcrumbs: [{ name: "Home", path: "/" }],
       schema: organizationSchema(),
       faqs: [
         {
-          question: "Which is the best travel agency and cab service in Kanpur?",
+          question: "Which is the best travel agency in Kanpur?",
           answer:
-            "Rudra Tours & Travels is rated 4.9/5 and is one of Kanpur's most trusted travel agencies and cab providers since 2014, offering 24x7 chauffeur-driven sedans, SUVs, Innova Crysta, and tempo travellers with transparent pricing.",
+            "Rudra Tours & Travels is rated 4.9/5 and is recognized as the best travel agency in Kanpur since 2014, offering customized all-India tour packages, spiritual pilgrimage tours, and 24x7 local support.",
         },
         {
-          question: "Can I book outstation cabs from Kanpur to Lucknow, Ayodhya, Varanasi, or Delhi?",
+          question: "How can I book a taxi service or cab in Kanpur?",
           answer:
-            "Yes, we provide one-way and round-trip outstation cabs from Kanpur to Lucknow, Ayodhya, Prayagraj, Varanasi, Agra, Delhi NCR, and all major cities across Uttar Pradesh with on-time doorstep pickup.",
+            "You can call or WhatsApp our Kanpur booking desk 24x7 at +91 70145 47628 for instant cab booking in Kanpur with on-time doorstep pickup across all Kanpur localities.",
         },
         {
-          question: "What luxury cars are available for wedding rentals in Kanpur?",
+          question: "Do you offer outstation taxi and airport taxi from Kanpur?",
           answer:
-            "Our luxury wedding fleet in Kanpur includes Audi, BMW, Mercedes-Benz, Fortuner, Innova Crysta, and vintage cars, along with 12 to 26 seater tempo travellers for baraat and guest transport.",
+            "Yes, we offer one-way and round-trip outstation taxi service from Kanpur to Lucknow, Ayodhya, Prayagraj, Varanasi, Agra, Delhi NCR, and 24x7 airport taxi drops to Lucknow Amausi Airport (LKO).",
         },
         {
-          question: "How can I book a cab or custom tour package from Kanpur?",
+          question: "What vehicle options are available for car rental in Kanpur?",
           answer:
-            "You can call or WhatsApp us 24x7 at +91 70145 47628 / +91 93361 17414 or submit an inquiry through our website for instant quotes and confirmed booking.",
+            "Our car rental fleet in Kanpur includes Swift Dzire, Maruti Ertiga, Toyota Innova Crysta, Toyota Fortuner, luxury wedding cars (Audi, BMW, Mercedes), and 12, 17, and 26-seater Tempo Travellers.",
+        },
+        {
+          question: "Do you provide wedding car rental and tempo traveller in Kanpur?",
+          answer:
+            "Yes, we provide decorated luxury wedding car rental in Kanpur for bridal and groom entry, as well as 12 to 26-seater AC Tempo Travellers for wedding baraat and pilgrimage groups.",
         },
       ],
     }),

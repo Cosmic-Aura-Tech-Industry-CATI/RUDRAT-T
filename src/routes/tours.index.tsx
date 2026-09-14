@@ -12,7 +12,7 @@ import kashmir from "@/assets/dest-kashmir.jpg";
 import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours/")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { q?: string } => ({
     q: typeof search.q === "string" ? search.q : undefined,
   }),
   head: () =>

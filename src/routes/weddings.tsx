@@ -14,16 +14,15 @@ import chauffeurService from "@/assets/wedding/chauffeur-service.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/weddings")({
-  head: () => ({
-    ...pageSeo({
-      title: "Wedding Car Rental | Decorated Cars & Guest Transport",
+  head: () =>
+    pageSeo({
+      title: "Luxury Wedding Car Rental in Kanpur | Rudra Tours & Travels",
       description:
-        "Arrive in style with decorated wedding cars, luxury sedans, SUVs and guest transport planned across India.",
+        "Hire luxury wedding cars in Kanpur: Audi, BMW, Mercedes, Fortuner & decorated groom cars with chauffeur. Instant wedding fleet booking.",
       path: "/weddings",
       image: heroLuxuryCar,
+      breadcrumbs: [{ name: "Wedding Cars", path: "/weddings" }],
     }),
-    ...breadcrumbLdJson([{ name: "Wedding Cars", path: "/weddings" }]),
-  }),
   component: WeddingsPage,
 });
 

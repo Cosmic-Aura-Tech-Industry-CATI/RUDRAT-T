@@ -14,22 +14,21 @@ export const Route = createFileRoute("/destinations/$slug")({
     if (!destination) throw notFound();
     return { destination };
   },
-  head: ({ loaderData }) => ({
-    ...pageSeo({
+  head: ({ loaderData }) =>
+    pageSeo({
       title: `${loaderData.destination.name} Tour Guide | Rudra Tours and Travels`,
       description: `${loaderData.destination.name} travel guide with top highlights, best season advice and package options from Rudra Tours and Travels.`,
       path: `/destinations/${loaderData.destination.slug}`,
       image: loaderData.destination.image,
+      breadcrumbs: [
+        { name: "Destinations", path: "/destinations" },
+        {
+          name: loaderData.destination.name,
+          path: `/destinations/${loaderData.destination.slug}`,
+        },
+      ],
+      faqs: loaderData.destination.faqs,
     }),
-    ...breadcrumbLdJson([
-      { name: "Destinations", path: "/destinations" },
-      {
-        name: loaderData.destination.name,
-        path: `/destinations/${loaderData.destination.slug}`,
-      },
-    ]),
-    ...faqLdJson(loaderData.destination.faqs),
-  }),
   component: DestinationDetailPage,
 });
 

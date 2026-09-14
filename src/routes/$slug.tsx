@@ -22,6 +22,7 @@ import ayodhya from "@/assets/destinations/ayodhya.jpg";
 import mathura from "@/assets/destinations/mathura.jpg";
 import prayagraj from "@/assets/destinations/prayagraj.jpg";
 import varanasi from "@/assets/destinations/varanasi.jpg";
+import kainchiDham from "@/assets/destinations/kainchi-dham.jpg";
 
 const PAGE_IMAGE_BY_SLUG: Record<string, string> = {
   "car-rental-kanpur": heroSuv,
@@ -34,12 +35,22 @@ const PAGE_IMAGE_BY_SLUG: Record<string, string> = {
   "bus-rental": deluxeBus,
   "wedding-car-rental": weddingCar1,
   "airport-transfer": ctaIndia,
+  "pick-and-drop-service-kanpur": heroSuv,
   "outstation-taxi": heroSuv,
+  "travel-agent-kanpur": ctaIndia,
   "travel-agency-kanpur": ctaIndia,
   "corporate-travel": audiA6,
   "tour-packages": ctaIndia,
   "uttar-pradesh-tour-packages": ctaIndia,
   "holiday-packages": ctaIndia,
+  "kanpur-to-lucknow-cab": heroSuv,
+  "kanpur-to-ayodhya-taxi": ayodhya,
+  "kanpur-to-prayagraj-taxi": prayagraj,
+  "kanpur-to-varanasi-cab": varanasi,
+  "kanpur-to-delhi-cab": heroSuv,
+  "kanpur-to-agra-cab": ctaIndia,
+  "kanpur-to-mathura-vrindavan-cab": mathura,
+  "kanpur-to-kainchi-dham-taxi": kainchiDham,
   kanpur: ctaIndia,
   lucknow: ctaIndia,
   agra: ctaIndia,
@@ -60,16 +71,14 @@ export const Route = createFileRoute("/$slug")({
   },
   head: ({ loaderData }) => {
     const image = PAGE_IMAGE_BY_SLUG[loaderData.page.slug] ?? ctaIndia;
-    return {
-      ...pageSeo({
-        title: loaderData.page.title,
-        description: loaderData.page.description,
-        path: `/${loaderData.page.slug}`,
-        image,
-      }),
-      ...breadcrumbLdJson([{ name: loaderData.page.eyebrow, path: `/${loaderData.page.slug}` }]),
-      ...faqLdJson(loaderData.page.faqs),
-    };
+    return pageSeo({
+      title: loaderData.page.title,
+      description: loaderData.page.description,
+      path: `/${loaderData.page.slug}`,
+      image,
+      breadcrumbs: [{ name: loaderData.page.eyebrow, path: `/${loaderData.page.slug}` }],
+      faqs: loaderData.page.faqs,
+    });
   },
   component: LandingPageRoute,
 });

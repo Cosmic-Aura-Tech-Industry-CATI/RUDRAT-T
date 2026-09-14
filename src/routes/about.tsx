@@ -13,16 +13,47 @@ import rudraFounderPhoto from "@/assets/team/rudra-founder.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    ...pageSeo({
-      title: "About Rudra Tours & Travels | Trusted Kanpur Travel Brand",
+  head: () =>
+    pageSeo({
+      title: "About Founder Abhay Nigam | Rudra Tours & Travels Kanpur",
       description:
-        "Read the story of Rudra Tours and Travels, founded in Kanpur and built on trust, honesty and 1 lakh+ happy travellers.",
+        "Meet Mr. Abhay Nigam, Founder & Managing Director of Rudra Tours & Travels in Kanpur. Established in 2014, trusted by 1 Lakh+ happy travellers for cabs and tours.",
       path: "/about",
-      image: hero,
+      image: abhayNigamPhoto,
+      breadcrumbs: [{ name: "About", path: "/about" }],
+      schema: {
+        "@type": "AboutPage",
+        "@id": "https://www.toursbyrudra.com/about#webpage",
+        url: "https://www.toursbyrudra.com/about",
+        name: "About Rudra Tours & Travels & Founder Abhay Nigam",
+        description:
+          "Founded in 2014 by Mr. Abhay Nigam in Kanpur, Rudra Tours & Travels provides 24x7 cabs, luxury car rental, and tour packages across India.",
+        mainEntity: {
+          "@type": "Person",
+          "@id": "https://www.toursbyrudra.com/#founder-abhay-nigam",
+          name: "Abhay Nigam",
+          alternateName: ["Mr. Abhay Nigam", "Abhay Nigam Kanpur", "Abhay Nigam Rudra Tours"],
+          jobTitle: "Founder & Managing Director",
+          worksFor: {
+            "@type": "Organization",
+            name: "Rudra Tours & Travels",
+            url: "https://www.toursbyrudra.com",
+          },
+          image: "https://www.toursbyrudra.com" + abhayNigamPhoto,
+          description:
+            "Mr. Abhay Nigam is the Founder and Managing Director of Rudra Tours & Travels, established in 2014 in Kanpur, Uttar Pradesh.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "HIG-12, Swarn Jayanti Vihar, Main Road, Koyala Nagar, Daheli Sujanpur",
+            addressLocality: "Kanpur",
+            addressRegion: "Uttar Pradesh",
+            postalCode: "208011",
+            addressCountry: "IN",
+          },
+          url: "https://www.toursbyrudra.com/about",
+        },
+      },
     }),
-    ...breadcrumbLdJson([{ name: "About", path: "/about" }]),
-  }),
   component: AboutPage,
 });
 
@@ -64,9 +95,9 @@ const storySections = [
 const founderPhotos = [
   {
     src: abhayNigamPhoto,
-    alt: "Mr. Abhay Nigam, Founder of Rudra Tours & Travels",
+    alt: "Abhay Nigam - Founder & Managing Director of Rudra Tours & Travels Kanpur",
     caption: "Mr. Abhay Nigam",
-    role: "Founder",
+    role: "Founder & Managing Director",
   },
   {
     src: rudraFounderPhoto,

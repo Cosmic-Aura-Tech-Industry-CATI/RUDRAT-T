@@ -9,16 +9,15 @@ import cta from "@/assets/cta-india.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    ...pageSeo({
-      title: "Contact Rudra Tours & Travels | Kanpur Travel Team",
+  head: () =>
+    pageSeo({
+      title: "Contact Us | Rudra Tours & Travels Kanpur | 24x7 Cabs",
       description:
-        "Contact Rudra Tours and Travels by phone, WhatsApp or email for tours, vehicles and wedding travel from Kanpur.",
+        "Contact Rudra Tours & Travels in Kanpur. Call +91 70145 47628 or WhatsApp for 24x7 cab booking, car rentals & custom tour packages.",
       path: "/contact",
       image: cta,
+      breadcrumbs: [{ name: "Contact", path: "/contact" }],
     }),
-    ...breadcrumbLdJson([{ name: "Contact", path: "/contact" }]),
-  }),
   component: ContactPage,
 });
 
@@ -189,7 +188,6 @@ function ContactPage() {
           </motion.form>
         </div>
       </section>
-
     </PageLayout>
   );
 }

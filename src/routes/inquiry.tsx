@@ -32,16 +32,15 @@ export const Route = createFileRoute("/inquiry")({
     category: typeof s.category === "string" ? s.category : undefined,
     rental: typeof s.rental === "string" ? s.rental : undefined,
   }),
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "Plan My Trip | Travel Quote & Inquiry",
       description:
         "Submit and track travel requests for tours, cars and wedding travel with Rudra Tours and Travels.",
       path: "/inquiry",
       image: cta,
+      breadcrumbs: [{ name: "Inquiry", path: "/inquiry" }],
     }),
-    ...breadcrumbLdJson([{ name: "Inquiry", path: "/inquiry" }]),
-  }),
   component: InquiryPage,
 });
 
@@ -253,10 +252,10 @@ function InquiryPage() {
       });
 
       if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as
-          | { message?: string }
-          | null;
-        throw new Error(payload?.message ?? `Inquiry email request failed with status ${response.status}`);
+        const payload = (await response.json().catch(() => null)) as { message?: string } | null;
+        throw new Error(
+          payload?.message ?? `Inquiry email request failed with status ${response.status}`,
+        );
       }
 
       setFeedback({
@@ -330,7 +329,9 @@ function InquiryPage() {
                 }`}
               >
                 <div className="font-medium mb-1">
-                  {feedback.kind === "success" ? "✅ Inquiry Submitted Successfully." : "Something went wrong."}
+                  {feedback.kind === "success"
+                    ? "✅ Inquiry Submitted Successfully."
+                    : "Something went wrong."}
                 </div>
                 <div>{feedback.text}</div>
               </div>

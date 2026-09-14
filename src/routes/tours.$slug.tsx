@@ -96,10 +96,15 @@ export const Route = createFileRoute("/tours/$slug")({
     return {
       meta: seoMeta.meta,
       links: seoMeta.links,
-      "script:ld+json": {
-        "@context": "https://schema.org",
-        "@graph": graph,
-      },
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": graph,
+          }),
+        },
+      ],
     };
   },
   component: TourDetailPage,

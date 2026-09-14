@@ -9,19 +9,18 @@ import cta from "@/assets/cta-india.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 
 export const Route = createFileRoute("/tours/customize")({
-  head: () => ({
-    ...pageSeo({
+  head: () =>
+    pageSeo({
       title: "Custom Tour Package | Design Your Perfect Trip",
       description:
         "Design a trip made for you with a personalised package from Rudra Tours and Travels that fits your dates, budget and style.",
       path: "/tours/customize",
       image: cta,
+      breadcrumbs: [
+        { name: "Tour Packages", path: "/tours" },
+        { name: "Custom Package", path: "/tours/customize" },
+      ],
     }),
-    ...breadcrumbLdJson([
-      { name: "Tour Packages", path: "/tours" },
-      { name: "Custom Package", path: "/tours/customize" },
-    ]),
-  }),
   component: CustomizePage,
 });
 

@@ -25,34 +25,140 @@ export type LandingPage = {
 const servicePages: LandingPage[] = [
   {
     kind: "service",
+    slug: "travel-agent-kanpur",
+    title: "Best Travel Agent in Kanpur | Rudra Tours & Travels",
+    description:
+      "Looking for the best travel agent in Kanpur? Rudra Tours & Travels offers custom tour packages, pilgrimage trips, outstation cabs & 24x7 local travel support.",
+    eyebrow: "Best Travel Agent in Kanpur",
+    heroTitle: "Best travel agent in Kanpur for tour packages, pilgrimage trips & cab booking.",
+    heroSubtitle:
+      "Serving 1 Lakh+ happy travellers since 2014 with transparent pricing, verified drivers, custom itineraries, and dedicated 24x7 on-trip assistance from Kanpur.",
+    introHeading: "Why Rudra Tours is trusted as Kanpur's best travel agent",
+    introBody:
+      "Whether you are planning a spiritual pilgrimage to Ayodhya, Varanasi, or Char Dham, a relaxing family holiday to Kashmir or Kerala, or need reliable chauffeur-driven vehicles for wedding and corporate travel, Rudra Tours & Travels delivers end-to-end planning with local Kanpur expertise.",
+    highlights: [
+      "1 Lakh+ Happy Travellers",
+      "Serving Since 2014",
+      "Custom Tour Planning",
+      "24x7 Kanpur Support",
+    ],
+    reasons: [
+      "Complete holiday & pilgrimage planning from Kanpur with dedicated trip coordinators.",
+      "Fleet of chauffeur-driven sedans, SUVs, Innova Crysta, Fortuner & tempo travellers.",
+      "Honest, transparent pricing with zero hidden surcharges and instant booking confirmation.",
+    ],
+    relatedPackages: [
+      "ayodhya-darshan",
+      "kashi-vishwanath",
+      "mathura-vrindavan",
+      "kashmir-paradise",
+    ],
+    relatedPages: [
+      "tour-packages",
+      "taxi-service-kanpur",
+      "car-rental-kanpur",
+      "pick-and-drop-service-kanpur",
+      "outstation-taxi",
+    ],
+    faqs: [
+      {
+        question: "Why is Rudra Tours considered the best travel agent in Kanpur?",
+        answer:
+          "With over a decade of local experience since 2014, 1 Lakh+ satisfied travellers, a 4.9/5 customer rating, and our own well-maintained fleet, we offer complete personalized travel solutions with 24x7 on-ground assistance.",
+      },
+      {
+        question: "What travel services do you provide from Kanpur?",
+        answer:
+          "We provide all-inclusive India tour packages, spiritual pilgrimage tours (Ayodhya, Kashi, Mathura, Char Dham), local city taxi hire, outstation cabs, luxury wedding cars, and tempo traveller group rentals.",
+      },
+      {
+        question: "Can I customize my tour itinerary from Kanpur?",
+        answer:
+          "Yes. Every tour package can be customized according to your preferred travel dates, pickup location in Kanpur, choice of vehicle, and hotel preferences.",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "pick-and-drop-service-kanpur",
+    title: "Pick & Drop Service in Kanpur | Airport, Railway & Local Transfers",
+    description:
+      "Book reliable pick and drop service in Kanpur. 24x7 on-time transfers for Lucknow Amausi Airport, Kanpur Central Railway Station, wedding guests & corporate staff.",
+    eyebrow: "Pick & Drop Service in Kanpur",
+    heroTitle: "Pick and drop service in Kanpur for airport, railway station & city transfers.",
+    heroSubtitle:
+      "On-time, door-to-door cab pickup and drop across all Kanpur localities, Kanpur Central Station, and Lucknow Amausi Airport with clean vehicles and polite chauffeurs.",
+    introHeading: "Complete pick & drop solutions across Kanpur",
+    introBody:
+      "Never miss a train or flight again. Our 24x7 pick and drop service in Kanpur connects Civil Lines, Swaroop Nagar, Kalyanpur, Kidwai Nagar, Govind Nagar, and all surrounding areas to Kanpur Central, Chakeri Airport, and Lucknow Chaudhary Charan Singh (Amausi) International Airport.",
+    highlights: [
+      "Airport Pick & Drop (Amausi/Chakeri)",
+      "Kanpur Central Station Pickup",
+      "Wedding Guest Convoy Transfers",
+      "24x7 Punctual Chauffeurs",
+    ],
+    reasons: [
+      "Guaranteed on-time pickup with flight and train delay tracking.",
+      "Fixed, transparent rates with luggage assistance and clean AC vehicles.",
+      "Available across sedans (Dzire), SUVs (Innova Crysta), and 12-26 seater tempo travellers.",
+    ],
+    relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
+    relatedPages: [
+      "taxi-service-kanpur",
+      "airport-transfer",
+      "car-rental-kanpur",
+      "kanpur-to-lucknow-cab",
+      "travel-agent-kanpur",
+    ],
+    faqs: [
+      {
+        question: "Do you provide pick and drop from Kanpur to Lucknow Airport?",
+        answer:
+          "Yes, we operate 24x7 direct airport taxi transfers between any Kanpur address and Lucknow Amausi International Airport with guaranteed on-time arrival.",
+      },
+      {
+        question: "Can I book a cab for Kanpur Central Railway Station pickup?",
+        answer:
+          "Yes, our drivers track train arrival times and provide punctual station pickup from Kanpur Central (Cantonment or City side) with luggage help.",
+      },
+      {
+        question: "Do you offer pick and drop for wedding guests in Kanpur?",
+        answer:
+          "Yes, we provide dedicated fleet coordination for wedding guests, including airport/station pickups, hotel shuttles, and venue transfers across Kanpur.",
+      },
+    ],
+  },
+  {
+    kind: "service",
     slug: "car-rental-kanpur",
-    title: "Car Rental Kanpur | Taxi, Cab Booking & Chauffeur Cars",
+    title: "Car Rental in Kanpur | Chauffeur-Driven Cars, SUVs & Tempo Travellers",
     description:
       "Book car rental in Kanpur for airport transfers, local sightseeing, weddings, business travel and outstation trips with Rudra Tours and Travels.",
     eyebrow: "Car Rental in Kanpur",
     heroTitle: "Car rental in Kanpur for city rides, airport drops and long-distance travel.",
     heroSubtitle:
       "Choose sedan, SUV, Innova Crysta, Fortuner, tempo traveller or bus rental with transparent pricing and local support from our Kanpur team.",
-    introHeading: "Why travellers book car rental in Kanpur",
+    introHeading: "Why travellers book car rental in Kanpur with Rudra Tours",
     introBody:
-      "This page is built for people searching for car rental Kanpur, taxi service Kanpur and cab booking Kanpur. It gives a clear starting point for local use, outstation routes, corporate movement and family trips without forcing the visitor to jump between unrelated pages.",
+      "Rudra Tours & Travels provides a comprehensive rental fleet in Kanpur for family vacations, corporate business travel, VIP guest transfers, and luxury wedding entries. Every vehicle is sanitized, GPS-enabled, and driven by an experienced chauffeur.",
     highlights: [
-      "Local city use",
-      "Airport pickup and drop",
-      "Outstation cab booking",
-      "Wedding and family travel",
+      "Sedans & SUVs (Dzire, Ertiga, Innova)",
+      "Luxury Wedding Cars (Audi, BMW, Fortuner)",
+      "12, 17 & 26 Seater Tempo Travellers",
+      "Local & Outstation Packages",
     ],
     reasons: [
-      "Transparent pricing with a direct enquiry path.",
-      "Useful for both one-way and round-trip travel.",
+      "Transparent pricing with a direct enquiry path and zero hidden charges.",
+      "Useful for both one-way and round-trip travel across Uttar Pradesh.",
       "Connects the service page to the exact vehicle and tour pages people need next.",
     ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
     relatedPages: [
       "taxi-service-kanpur",
+      "pick-and-drop-service-kanpur",
       "airport-transfer",
       "outstation-taxi",
-      "travel-agency-kanpur",
+      "travel-agent-kanpur",
     ],
     faqs: [
       {
@@ -70,24 +176,35 @@ const servicePages: LandingPage[] = [
   {
     kind: "service",
     slug: "taxi-service-kanpur",
-    title: "Taxi Service Kanpur | Reliable Cabs for Local and Outstation Travel",
+    title: "Taxi Service in Kanpur | Local & Outstation Cab Booking",
     description:
       "Hire a taxi service in Kanpur for daily commuting, business meetings, station transfers, outstation routes and family trips.",
-    eyebrow: "Taxi Service Kanpur",
+    eyebrow: "Taxi Service in Kanpur",
     heroTitle: "Taxi service in Kanpur for reliable daily travel and outstation trips.",
     heroSubtitle:
-      "Use this page when you need a local taxi, a one-way cab or a planned round trip with a driver who understands city traffic and long routes.",
+      "24x7 chauffeur-driven sedans, SUVs, Innova Crysta & tempo travellers for local city errands, Kanpur Central station transfers, and outstation trips across UP & India.",
     introHeading: "A practical taxi booking page for Kanpur travellers",
     introBody:
-      "People searching taxi service Kanpur usually want a fast booking flow, a fair price and a vehicle that arrives on time. This landing page keeps the intent focused on cab booking, short city rides and longer intercity routes.",
-    highlights: ["City cabs", "One-way taxi", "Round trip bookings", "Family-friendly travel"],
+      "When you book a taxi in Kanpur with Rudra Tours & Travels, you get clean, AC-equipped vehicles, verified drivers, transparent per-km billing, and instant WhatsApp/phone confirmation. Perfect for local full-day hire, airport runs, or long-distance outstation travel.",
+    highlights: [
+      "Local Full-Day & Half-Day Cabs",
+      "One-Way & Round-Trip Outstation",
+      "Airport & Railway Station Transfers",
+      "24x7 Instant Cab Booking",
+    ],
     reasons: [
-      "Matches local intent for taxi service and cab booking.",
-      "Supports both short errands and full-day bookings.",
+      "Matches local intent for taxi service and cab booking with instant confirmation.",
+      "Supports both short errands, airport drops and full-day outstation bookings.",
       "Links directly into enquiry and vehicle inventory pages.",
     ],
     relatedPackages: ["ayodhya-darshan", "mathura-vrindavan", "kashi-vishwanath"],
-    relatedPages: ["car-rental-kanpur", "outstation-taxi", "airport-transfer", "corporate-travel"],
+    relatedPages: [
+      "car-rental-kanpur",
+      "pick-and-drop-service-kanpur",
+      "outstation-taxi",
+      "airport-transfer",
+      "travel-agent-kanpur",
+    ],
     faqs: [
       {
         question: "Is this page for cab booking in Kanpur?",
@@ -97,7 +214,7 @@ const servicePages: LandingPage[] = [
       {
         question: "Do you also handle long-distance taxi service?",
         answer:
-          "Yes. We cover local, outstation and intercity travel from Kanpur to major destinations.",
+          "Yes. We cover local, outstation and intercity travel from Kanpur to major destinations across UP and India.",
       },
     ],
   },
@@ -624,40 +741,412 @@ const servicePages: LandingPage[] = [
       },
     ],
   },
+  {
+    kind: "service",
+    slug: "kanpur-to-lucknow-cab",
+    title: "Kanpur to Lucknow Cab | Taxi Service & Airport Drop (₹1,499 Onwards)",
+    description:
+      "Book Kanpur to Lucknow cab service for one-way drops, round trips, Amausi Airport transfer & local sightseeing with 24x7 driver support.",
+    eyebrow: "Kanpur to Lucknow Cab",
+    heroTitle:
+      "Kanpur to Lucknow cab booking for airport drops, business trips and one-way travel.",
+    heroSubtitle:
+      "Travel comfortably between Kanpur and Lucknow (80 km, ~1.5 hrs) with clean sedans, Innova Crysta, and round-the-clock chauffeur assistance.",
+    introHeading: "Why travellers book Kanpur to Lucknow cabs with Rudra Tours",
+    introBody:
+      "The Kanpur to Lucknow corridor is one of Uttar Pradesh's busiest travel routes. Whether you need an early morning drop to Chaudhary Charan Singh (Amausi) Airport, a same-day corporate round trip, or a convenient one-way cab, Rudra Tours provides on-time pickup, polite drivers, and fixed transparent fares with zero hidden charges.",
+    highlights: [
+      "80 km · ~1.5 Hours",
+      "One-way & Round Trip",
+      "Amausi Airport Drops",
+      "Transparent Toll & Fare",
+    ],
+    reasons: [
+      "Direct Kanpur-Lucknow highway connectivity with zero surge pricing.",
+      "Doorstep pickup from anywhere in Kanpur to anywhere in Lucknow.",
+      "Flight-friendly timing with on-time airport drop guarantee.",
+    ],
+    relatedPackages: ["ayodhya-darshan", "mathura-vrindavan", "prayagraj-sangam"],
+    relatedPages: [
+      "taxi-service-kanpur",
+      "airport-transfer",
+      "outstation-taxi",
+      "car-rental-kanpur",
+    ],
+    faqs: [
+      {
+        question: "What is the cab fare from Kanpur to Lucknow?",
+        answer:
+          "One-way sedan cab fares start from ₹1,499, while SUVs and Innova Crysta range between ₹2,200 to ₹3,200 depending on vehicle class.",
+      },
+      {
+        question: "How long does it take to travel from Kanpur to Lucknow by taxi?",
+        answer:
+          "The travel time via NH27 is approximately 1.5 to 2 hours depending on city traffic and pickup location.",
+      },
+      {
+        question: "Do you provide airport drops to Lucknow Amausi Airport?",
+        answer:
+          "Yes, we provide 24x7 direct airport drops and pickups from Kanpur to Lucknow Chaudhary Charan Singh International Airport (LKO).",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-ayodhya-taxi",
+    title: "Kanpur to Ayodhya Taxi | Cab Booking for Ram Mandir Darshan",
+    description:
+      "Book Kanpur to Ayodhya taxi service for Ram Mandir Darshan, Hanuman Garhi, and Saryu Aarti with sanitized cabs and experienced drivers.",
+    eyebrow: "Kanpur to Ayodhya Taxi",
+    heroTitle: "Kanpur to Ayodhya cab service for divine Ram Mandir Darshan and family pilgrimage.",
+    heroSubtitle:
+      "Smooth 220 km (~4 hrs) pilgrimage journey from Kanpur to Ayodhya with same-day return and multi-day temple tour options.",
+    introHeading: "Spiritual pilgrimage from Kanpur to Ayodhya Dham",
+    introBody:
+      "With the grand inauguration of the Ram Mandir, Ayodhya has become India's foremost spiritual destination. Our Kanpur to Ayodhya taxi service is designed for devotees and families seeking a peaceful, unhurried pilgrimage. Our drivers know temple timings, parking spots, and the best ghats for Saryu evening aarti.",
+    highlights: [
+      "220 km · ~4 Hours",
+      "Ram Mandir & Saryu Aarti",
+      "Same Day Return Available",
+      "Innova & Tempo Travellers",
+    ],
+    reasons: [
+      "Expert drivers who know Ayodhya temple entry points and parking zones.",
+      "Flexible itinerary for Hanuman Garhi, Kanak Bhawan & Ram Ki Paidi.",
+      "Special family packages in Innova Crysta & 12/17 seater tempo travellers.",
+    ],
+    relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
+    relatedPages: [
+      "outstation-taxi",
+      "car-rental-kanpur",
+      "tempo-traveller-kanpur",
+      "tour-packages",
+    ],
+    faqs: [
+      {
+        question: "Can I complete a Kanpur to Ayodhya trip in one day?",
+        answer:
+          "Yes, our same-day Ayodhya Darshan cab allows early morning departure from Kanpur, full temple darshan, and comfortable return by evening.",
+      },
+      {
+        question: "Which vehicle is best for a family trip from Kanpur to Ayodhya?",
+        answer:
+          "Innova Crysta and Ertiga are best suited for 4-6 passengers, while 12 or 17-seater Tempo Travellers are ideal for larger groups.",
+      },
+      {
+        question: "What temples are covered in the Ayodhya tour?",
+        answer:
+          "We cover Shri Ram Janmabhoomi Temple, Hanuman Garhi, Kanak Bhawan, Dashrath Mahal, and Saryu River Ghats (Ram Ki Paidi).",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-prayagraj-taxi",
+    title: "Kanpur to Prayagraj Taxi | Cab Booking for Triveni Sangam & Kumbh",
+    description:
+      "Hire Kanpur to Prayagraj cab for Triveni Sangam snan, Bade Hanuman temple, and airport transfers. Best rates on sedans, SUVs & tempo travellers.",
+    eyebrow: "Kanpur to Prayagraj Taxi",
+    heroTitle: "Kanpur to Prayagraj cab service for holy Triveni Sangam snan and city travel.",
+    heroSubtitle:
+      "Reliable 200 km (~3.5 hrs) ride along NH19 connecting Kanpur and Prayagraj with flexible pickup and drop.",
+    introHeading: "Comfortable cab travel to the holy Sangam city",
+    introBody:
+      "Whether visiting for the holy Triveni Sangam snan, Anand Bhawan, Alopi Devi temple, or court and official work, our Kanpur to Prayagraj taxi service ensures a smooth highway cruise on the 6-lane NH19 corridor with complete passenger safety and comfort.",
+    highlights: [
+      "200 km · ~3.5 Hours",
+      "Triveni Sangam Snan",
+      "Bade Hanuman Ji Temple",
+      "One-way & Round Trip",
+    ],
+    reasons: [
+      "Smooth highway ride via NH19 6-lane expressway corridor.",
+      "Convenient boat point drop at Sangam with zero parking hassles.",
+      "Available for same-day darshan and Kumbh/Magh Mela visits.",
+    ],
+    relatedPackages: ["prayagraj-sangam", "kashi-vishwanath", "ayodhya-darshan"],
+    relatedPages: [
+      "outstation-taxi",
+      "taxi-service-kanpur",
+      "tempo-traveller-kanpur",
+      "car-rental-kanpur",
+    ],
+    faqs: [
+      {
+        question: "What is the distance and travel time from Kanpur to Prayagraj?",
+        answer:
+          "The distance is approximately 200 km via NH19, taking around 3.5 to 4 hours under normal traffic conditions.",
+      },
+      {
+        question: "Can the driver wait while we visit Triveni Sangam?",
+        answer:
+          "Yes, for round-trip bookings the driver stays with you throughout the day for boat rides, temple visits, and meals.",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-varanasi-cab",
+    title: "Kanpur to Varanasi Cab | Taxi Service for Kashi Vishwanath Darshan",
+    description:
+      "Book Kanpur to Varanasi taxi for Kashi Vishwanath Temple, Ganga Aarti, and Sarnath. Clean cabs, transparent per-km rates & expert drivers.",
+    eyebrow: "Kanpur to Varanasi Cab",
+    heroTitle: "Kanpur to Varanasi cab service for divine Kashi Vishwanath and Ganga Aarti.",
+    heroSubtitle:
+      "Comfortable 320 km (~5.5 hrs) highway journey from Kanpur to Varanasi with experienced highway chauffeurs.",
+    introHeading: "Your spiritual journey to the world's oldest living city",
+    introBody:
+      "Travelling from Kanpur to Kashi (Varanasi) is a journey into the spiritual heart of India. Rudra Tours offers dedicated outstation cabs, Innova Crysta, and Tempo Travellers for Kashi Vishwanath corridor darshan, Sankat Mochan temple, Sarnath, and the world-famous Dashashwamedh Ghat Ganga Aarti.",
+    highlights: [
+      "320 km · ~5.5 Hours",
+      "Kashi Vishwanath Corridor",
+      "Dashashwamedh Ghat Aarti",
+      "Multi-day Tour Options",
+    ],
+    reasons: [
+      "Chauffeurs experienced with Varanasi city traffic and temple drop zones.",
+      "Perfect vehicle options from Swift Dzire to Innova Hycross and Tempo Travellers.",
+      "Custom stops at Prayagraj or Vindhyachal along the route.",
+    ],
+    relatedPackages: ["kashi-vishwanath", "prayagraj-sangam", "ayodhya-darshan"],
+    relatedPages: [
+      "outstation-taxi",
+      "tour-packages",
+      "tempo-traveller-kanpur",
+      "innova-crysta-rental",
+    ],
+    faqs: [
+      {
+        question: "Can we include Prayagraj Sangam on the way to Varanasi from Kanpur?",
+        answer:
+          "Yes, our custom pilgrimage cab itineraries easily include a holy dip at Prayagraj Sangam en route to Varanasi.",
+      },
+      {
+        question: "What are the cab options available for Kanpur to Varanasi?",
+        answer:
+          "We offer sedans (Dzire/Amaze), SUVs (Ertiga/Innova Crysta/Fortuner), and 12-26 seater Tempo Travellers.",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-delhi-cab",
+    title: "Kanpur to Delhi Cab | Taxi Booking via Yamuna & Agra Expressway",
+    description:
+      "Book Kanpur to Delhi NCR cab service via Agra-Lucknow & Yamuna Expressways. Fast, safe, and comfortable one-way & round-trip taxi hire.",
+    eyebrow: "Kanpur to Delhi Cab",
+    heroTitle:
+      "Kanpur to Delhi cab service for expressway travel, airport drops and business trips.",
+    heroSubtitle:
+      "Seamless 490 km (~7 hrs) expressway cruise connecting Kanpur to Delhi, Noida, and Gurgaon with premium fleet and professional drivers.",
+    introHeading: "Fast & hassle-free travel to Delhi NCR via Expressways",
+    introBody:
+      "Avoid train waitlists and flight hassles with our premium Kanpur to Delhi taxi service. Cruising on the Agra-Lucknow and Yamuna Expressways, our chauffeur-driven sedans and luxury SUVs get you to Delhi, Noida, Greater Noida, or Gurgaon safely and comfortably.",
+    highlights: [
+      "490 km · ~7 Hours",
+      "Expressway Route (Fast & Smooth)",
+      "IGI Delhi Airport Drops",
+      "24x7 Availability",
+    ],
+    reasons: [
+      "Direct expressway connectivity via Agra-Lucknow & Yamuna Expressway.",
+      "Eliminates train waitlists and flight transit delays for door-to-door comfort.",
+      "Transparent toll, tax, and fuel pricing with zero hidden surcharges.",
+    ],
+    relatedPackages: ["jaipur-tour", "rajasthan-heritage", "amritsar-wagah"],
+    relatedPages: ["outstation-taxi", "corporate-travel", "luxury-car-rental", "car-rental-kanpur"],
+    faqs: [
+      {
+        question: "How long does a cab take from Kanpur to Delhi via Expressway?",
+        answer:
+          "Via the Agra-Lucknow and Yamuna Expressways, the 490 km journey typically takes around 6.5 to 7.5 hours.",
+      },
+      {
+        question: "Do you provide airport drops to Delhi IGI Airport from Kanpur?",
+        answer:
+          "Yes, we provide 24x7 direct airport drop and pickup services between Kanpur and Delhi IGI Airport (T1, T2, T3).",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-agra-cab",
+    title: "Kanpur to Agra Cab | Taxi Service for Taj Mahal & Fatehpur Sikri",
+    description:
+      "Book Kanpur to Agra taxi service for Taj Mahal sightseeing, Agra Fort & wedding events. Best per-km rates on sedans, SUVs & tempo travellers.",
+    eyebrow: "Kanpur to Agra Cab",
+    heroTitle:
+      "Kanpur to Agra cab service for Taj Mahal tours, weekend getaways and heritage travel.",
+    heroSubtitle:
+      "Convenient 280 km (~4 hrs) drive via Agra-Lucknow Expressway with comfortable stops and local Agra expertise.",
+    introHeading: "Explore the City of Taj with Rudra Tours",
+    introBody:
+      "Take a relaxing 4-hour drive from Kanpur to Agra on the world-class Agra-Lucknow Expressway. Whether you are planning a one-day Taj Mahal sightseeing trip or a weekend getaway with family, our experienced drivers ensure a delightful travel experience.",
+    highlights: [
+      "280 km · ~4 Hours",
+      "Agra-Lucknow Expressway",
+      "Taj Mahal & Agra Fort",
+      "Same Day & Weekend Tours",
+    ],
+    reasons: [
+      "Fast and relaxing ride on the smooth Agra-Lucknow Expressway.",
+      "Sightseeing flexibility for Taj Mahal, Agra Fort, and Fatehpur Sikri.",
+      "Affordable sedan and SUV packages for families and couples.",
+    ],
+    relatedPackages: ["mathura-vrindavan", "jaipur-tour", "rajasthan-heritage"],
+    relatedPages: ["outstation-taxi", "car-rental-kanpur", "tour-packages", "luxury-car-rental"],
+    faqs: [
+      {
+        question: "Can I do a same-day Taj Mahal trip from Kanpur by cab?",
+        answer:
+          "Yes, you can leave Kanpur early morning, reach Agra in 4 hours, explore Taj Mahal and Agra Fort, and return by night.",
+      },
+      {
+        question: "Can we combine Agra and Mathura-Vrindavan in one trip from Kanpur?",
+        answer:
+          "Yes, Mathura and Vrindavan are just 60 km from Agra and can easily be added to your itinerary.",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-mathura-vrindavan-cab",
+    title: "Kanpur to Mathura Vrindavan Cab | Taxi for Krishna Janmabhoomi & Prem Mandir",
+    description:
+      "Book Kanpur to Mathura Vrindavan taxi for Banke Bihari, Prem Mandir, and Krishna Janmabhoomi darshan. Reliable cabs and tempo travellers.",
+    eyebrow: "Kanpur to Mathura Vrindavan Cab",
+    heroTitle: "Kanpur to Mathura Vrindavan cab service for divine Braj darshan and pilgrimage.",
+    heroSubtitle:
+      "Comfortable 340 km (~5 hrs) expressway ride from Kanpur to Mathura, Vrindavan, and Govardhan with experienced family chauffeurs.",
+    introHeading: "Braj Bhoomi Darshan from Kanpur with ease",
+    introBody:
+      "Experience the divine aura of Shri Krishna Janmabhoomi, Banke Bihari Temple, Prem Mandir light show, and ISKCON Vrindavan. Our Kanpur to Mathura Vrindavan cab service provides comfortable transport for devotees, senior citizens, and family groups.",
+    highlights: [
+      "340 km · ~5 Hours",
+      "Banke Bihari & Prem Mandir",
+      "Expressway Highway Drive",
+      "Same Day & Weekend Trips",
+    ],
+    reasons: [
+      "Knowledgeable drivers familiar with temple timings and parking in Vrindavan.",
+      "Convenient multi-temple coverage including Mathura, Vrindavan, and Barsana.",
+      "Spacious Innova Crysta and tempo travellers for family groups and elders.",
+    ],
+    relatedPackages: ["mathura-vrindavan", "ayodhya-darshan", "khatu-shyam-ji"],
+    relatedPages: [
+      "outstation-taxi",
+      "tour-packages",
+      "tempo-traveller-kanpur",
+      "car-rental-kanpur",
+    ],
+    faqs: [
+      {
+        question: "What are the main temples covered in Mathura Vrindavan from Kanpur?",
+        answer:
+          "We cover Shri Krishna Janmabhoomi, Banke Bihari Temple, Prem Mandir, ISKCON Vrindavan, Nidhivan, and Raman Reti.",
+      },
+      {
+        question: "Is tempo traveller available from Kanpur to Mathura Vrindavan?",
+        answer:
+          "Yes, we provide 12, 17, and 26-seater AC Tempo Travellers for group pilgrimages from Kanpur to Mathura.",
+      },
+    ],
+  },
+  {
+    kind: "service",
+    slug: "kanpur-to-kainchi-dham-taxi",
+    title: "Kanpur to Kainchi Dham Taxi | Cab for Neem Karoli Baba Ashram & Nainital",
+    description:
+      "Book Kanpur to Kainchi Dham cab for Neem Karoli Baba Ashram, Nainital & Almora. Safe hill-driving chauffeurs & comfortable SUVs.",
+    eyebrow: "Kanpur to Kainchi Dham Taxi",
+    heroTitle: "Kanpur to Kainchi Dham taxi service for Neem Karoli Baba Ashram pilgrimage.",
+    heroSubtitle:
+      "Peaceful 420 km (~8 hrs) scenic drive from Kanpur to Kainchi Dham and Nainital with experienced mountain drivers.",
+    introHeading: "Divine pilgrimage to Neem Karoli Baba Ashram",
+    introBody:
+      "Kainchi Dham in Uttarakhand attracts devotees from all over the world seeking the blessings of Neem Karoli Baba. Our Kanpur to Kainchi Dham taxi service offers safe, reliable SUVs and tempo travellers with drivers experienced in mountain driving.",
+    highlights: [
+      "420 km · ~8 Hours",
+      "Neem Karoli Baba Ashram",
+      "Nainital Sightseeing Extension",
+      "Hill-Trained Chauffeurs",
+    ],
+    reasons: [
+      "Mountain-tested drivers experienced with Uttarakhand ghat roads and weather.",
+      "Reliable SUVs like Innova Crysta, Scorpio, and Fortuner for maximum hill safety.",
+      "Direct ashram drop with optional extension to Nainital, Bhimtal, and Mukteshwar.",
+    ],
+    relatedPackages: ["neem-karoli-kainchi-dham", "nainital-tour", "haridwar-rishikesh"],
+    relatedPages: ["outstation-taxi", "tour-packages", "innova-crysta-rental", "car-rental-kanpur"],
+    faqs: [
+      {
+        question: "How far is Kainchi Dham from Kanpur by road?",
+        answer:
+          "The road distance is approximately 420 km and takes around 8 to 9 hours via Bareilly and Haldwani.",
+      },
+      {
+        question: "Which car is recommended for a Kainchi Dham trip from Kanpur?",
+        answer:
+          "We recommend comfortable SUVs like Innova Crysta, Scorpio, or Ertiga for smooth hill climbing and ample luggage space.",
+      },
+    ],
+  },
 ];
 
 const locationPages: LandingPage[] = [
   {
     kind: "location",
     slug: "kanpur",
-    title: "Kanpur Travel Guide | Car Rental, Taxi Service & Tour Packages",
+    title: "Kanpur Travel Services | Travel Agency, Taxi, Car Rental & Tour Packages",
     description:
-      "Plan travel from Kanpur with local taxi service, car rental, airport transfer, wedding cars and tour packages across India.",
-    eyebrow: "Kanpur",
-    heroTitle: "Kanpur travel guide for city rides, airport transfers and tour departures.",
+      "Your complete Kanpur travel guide. Book local taxi service, car rental in Kanpur, pick & drop, wedding cars, and tour packages from Kanpur across India with Rudra Tours.",
+    eyebrow: "Kanpur Travel Hub",
+    heroTitle: "Kanpur travel services — your gateway to cabs, rentals & India tours.",
     heroSubtitle:
-      "This page helps local users and visitors compare the best services for Kanpur travel, family trips and outstation bookings.",
-    introHeading: "Why Kanpur is the starting point for many trips",
+      "The central hub connecting Kanpur travellers to 24x7 taxi services, car rentals, airport transfers, luxury wedding cars, and handpicked India tour packages.",
+    introHeading: "Rudra Tours & Travels — Kanpur's trusted travel partner since 2014",
     introBody:
-      "Kanpur is the home base of Rudra Tours and Travels, so the page combines local travel intent with the bigger tourism routes people search for after leaving the city. It is useful for anyone comparing taxi service Kanpur, car rental Kanpur and tour packages from Kanpur.",
-    highlights: ["Local cabs", "Airport transfer", "City business travel", "Trip departures"],
-    reasons: [
-      "Strong local search relevance.",
-      "Useful hub page for internal links.",
-      "Connects city travel with holiday planning.",
+      "Headquartered in Swarn Jayanti Vihar, Koyala Nagar, Kanpur, Rudra Tours & Travels has been serving Uttar Pradesh since 2014. As Kanpur's leading travel agency and taxi operator, we seamlessly connect local city transport with outstation pilgrimage routes and holiday destinations across India.",
+    highlights: [
+      "Best Travel Agent in Kanpur",
+      "Taxi Service & Cab Booking",
+      "Car Rental & Tempo Travellers",
+      "Pick & Drop Service Kanpur",
     ],
-    relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
-    relatedPages: ["car-rental-kanpur", "taxi-service-kanpur", "airport-transfer", "tour-packages"],
+    reasons: [
+      "Headquartered in Kanpur with 10+ years of local on-ground excellence.",
+      "Complete travel ecosystem: from 1-hour city cabs to 15-day Char Dham itineraries.",
+      "Verified chauffeurs, clean fleet, transparent rates and 24x7 instant support.",
+    ],
+    relatedPackages: [
+      "ayodhya-darshan",
+      "kashi-vishwanath",
+      "prayagraj-sangam",
+      "mathura-vrindavan",
+    ],
+    relatedPages: [
+      "travel-agent-kanpur",
+      "taxi-service-kanpur",
+      "car-rental-kanpur",
+      "pick-and-drop-service-kanpur",
+      "outstation-taxi",
+      "tour-packages",
+    ],
     faqs: [
       {
         question: "Is Kanpur the main service area for Rudra Tours and Travels?",
         answer:
-          "Yes. Kanpur is the home market and the main starting point for vehicle and tour bookings.",
+          "Yes. Kanpur is our headquarters and the central dispatch point for all local taxi, car rental, and outstation tour operations.",
       },
       {
-        question: "Can I book outstation travel from Kanpur?",
+        question: "What travel services can I book from Kanpur?",
         answer:
-          "Yes. Outstation taxi, tour packages and airport transfers are all available from Kanpur.",
+          "You can book local city cabs, airport pick & drop (Lucknow Amausi / Kanpur Chakeri), outstation taxis, wedding cars (Audi/BMW/Innova), tempo travellers, and custom holiday/pilgrimage packages.",
+      },
+      {
+        question: "Where is the Rudra Tours office located in Kanpur?",
+        answer:
+          "Our office is located at HIG-12, Swarn Jayanti Vihar, Main Road, Koyala Nagar, Daheli Sujanpur, Kanpur, Uttar Pradesh 208011.",
       },
     ],
   },

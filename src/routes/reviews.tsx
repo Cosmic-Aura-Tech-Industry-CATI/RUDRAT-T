@@ -1,19 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { createFileRoute } from '@tanstack/react-router'
+import { ExternalLink, Star } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { reviews } from "@/data/reviews";
 import hero from "@/assets/hero-suv.jpg";
-import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo";
+import { BRAND } from "@/lib/brand";
 
 export const Route = createFileRoute("/reviews")({
   head: () =>
     pageSeo({
-      title: "Guest Reviews | Real Traveller Feedback",
+      title: "Customer Reviews | Rudra Tours & Travels Kanpur (4.9/5 Rating)",
       description:
-        "Read real traveller reviews from Kashmir to Kerala, Ladakh to Goa, shared by guests of Rudra Tours and Travels.",
+        "Read verified customer reviews of Rudra Tours & Travels Kanpur. Over 1 Lakh+ happy travellers rate our cab services, tour packages & drivers 4.9/5.",
       path: "/reviews",
       image: hero,
       breadcrumbs: [{ name: "Reviews", path: "/reviews" }],
@@ -26,15 +26,39 @@ function ReviewsPage() {
     <PageLayout>
       <Breadcrumbs items={[{ label: "Reviews", to: "/reviews" }]} />
       <PageHero
-        eyebrow="Guest Stories"
+        eyebrow="Verified Guest Reviews"
         title={
           <>
-            Traveller reviews from <span className="shine-text italic">the road</span>.
+            Kanpur's top-rated travel experience,{" "}
+            <span className="shine-text italic">told by travellers</span>.
           </>
         }
-        subtitle="Every review below is from a real guest who travelled with us — unedited, unpaid, unfiltered."
+        subtitle="1,280+ happy journeys across Uttar Pradesh and India. Unedited feedback from families, pilgrims, and corporate guests."
         image={hero}
       />
+
+      <section className="px-6 -mt-6 mb-8 relative z-20">
+        <div className="mx-auto max-w-7xl glass-strong rounded-2xl p-5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex text-gold">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-gold" />
+              ))}
+            </div>
+            <div className="text-sm text-premium-white font-medium">
+              4.9 out of 5 · Google Business Profile Rating
+            </div>
+          </div>
+          <a
+            href={BRAND.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold px-5 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center gap-2"
+          >
+            Review Us on Google <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      </section>
       <section className="px-6 pb-12 md:pb-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

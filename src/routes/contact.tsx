@@ -6,17 +6,41 @@ import { PageHero } from "@/components/PageHero";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BRAND } from "@/lib/brand";
 import cta from "@/assets/cta-india.jpg";
-import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
+import { pageSeo, absoluteUrl, SITE } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageSeo({
-      title: "Contact Us | Rudra Tours & Travels Kanpur | 24x7 Cabs",
+      title: "Contact Rudra Tours & Travels Kanpur | Office Address & Phone",
       description:
-        "Contact Rudra Tours & Travels in Kanpur. Call +91 70145 47628 or WhatsApp for 24x7 cab booking, car rentals & custom tour packages.",
+        "Contact Rudra Tours & Travels in Kanpur. Call +91 70145 47628 / +91 93361 17414 or WhatsApp for 24x7 cab booking, car rentals, tempo travellers & tour packages.",
       path: "/contact",
       image: cta,
-      breadcrumbs: [{ name: "Contact", path: "/contact" }],
+      breadcrumbs: [{ name: "Contact Us", path: "/contact" }],
+      schema: {
+        "@type": "ContactPage",
+        "@id": `${SITE.url}/contact#webpage`,
+        url: `${SITE.url}/contact`,
+        name: "Contact Rudra Tours & Travels Kanpur",
+        description:
+          "24x7 contact information, head office address, phone numbers and Google Map location for Rudra Tours & Travels in Kanpur.",
+        mainEntity: {
+          "@type": "LocalBusiness",
+          name: BRAND.name,
+          telephone: BRAND.phone,
+          email: BRAND.email,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: BRAND.streetAddress,
+            addressLocality: BRAND.city,
+            addressRegion: BRAND.state,
+            postalCode: BRAND.postalCode,
+            addressCountry: BRAND.country,
+          },
+          hasMap: BRAND.mapsUrl,
+          openingHours: "Mo-Su 00:00-23:59",
+        },
+      },
     }),
   component: ContactPage,
 });

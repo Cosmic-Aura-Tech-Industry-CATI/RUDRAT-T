@@ -1,17 +1,28 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  PhoneCall,
+  MessageCircle,
+  MapPin,
+  ShieldCheck,
+  Clock,
+  Car,
+  Star,
+  Users,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "@/components/PageHero";
 import { PageLayout } from "@/components/PageLayout";
 import { packages } from "@/data/packages";
-import { LANDING_PAGES, getLandingPageBySlug, type LandingPage } from "@/data/seo-landings";
-import { breadcrumbLdJson, faqLdJson, pageSeo } from "@/lib/seo";
+import { LANDING_PAGES, getLandingPageBySlug } from "@/data/seo-landings";
+import { createLandingGraphSchema, pageSeo } from "@/lib/seo";
+import { BRAND } from "@/lib/brand";
 
 import heroSuv from "@/assets/hero-suv.jpg";
 import ctaIndia from "@/assets/cta-india.jpg";
 import weddingCar1 from "@/assets/wedding-car-1.jpg";
-import weddingCar2 from "@/assets/wedding-car-2.jpg";
 import audiA6 from "@/assets/vehicles/audi-a6.jpg";
 import crysta from "@/assets/vehicles/innova-crysta.jpg";
 import fortuner from "@/assets/vehicles/fortuner.jpg";
@@ -71,23 +82,44 @@ export const Route = createFileRoute("/$slug")({
   },
   head: ({ loaderData }) => {
     const image = PAGE_IMAGE_BY_SLUG[loaderData.page.slug] ?? ctaIndia;
+    const schema = createLandingGraphSchema({
+      slug: loaderData.page.slug,
+      title: loaderData.page.title,
+      description: loaderData.page.description,
+      kind: loaderData.page.kind,
+      faqs: loaderData.page.faqs,
+      breadcrumbs: [{ name: loaderData.page.eyebrow, path: `/${loaderData.page.slug}` }],
+    });
+
     return pageSeo({
       title: loaderData.page.title,
       description: loaderData.page.description,
       path: `/${loaderData.page.slug}`,
       image,
-      breadcrumbs: [{ name: loaderData.page.eyebrow, path: `/${loaderData.page.slug}` }],
-      faqs: loaderData.page.faqs,
+      schema,
     });
   },
   component: LandingPageRoute,
 });
+
+const QUICK_FLEET = [
+  { name: "Sedan (Dzire / Etios)", capacity: "4+1 Seater", ideal: "City & Outstation Cabs" },
+  { name: "Innova Crysta", capacity: "6/7 Seater", ideal: "Family & Executive Travel" },
+  { name: "Toyota Fortuner", capacity: "7 Seater VIP", ideal: "VIP & Wedding Convoy" },
+  { name: "Tempo Traveller", capacity: "12/17/26 Seater", ideal: "Group & Pilgrimage Tours" },
+];
 
 function LandingPageRoute() {
   const { page } = Route.useLoaderData();
   const image = PAGE_IMAGE_BY_SLUG[page.slug] ?? ctaIndia;
   const relatedPackages = packages.filter((item) => page.relatedPackages.includes(item.slug));
   const relatedPages = LANDING_PAGES.filter((item) => page.relatedPages.includes(item.slug));
+  const isRoute = page.slug.startsWith("kanpur-to-");
+
+  const whatsappMessage = encodeURIComponent(
+    `Hello Rudra Tours, I want to book / enquire about "${page.eyebrow}". Please share available vehicles, rates and booking details.`
+  );
+  const whatsappUrl = `https://wa.me/917014547628?text=${whatsappMessage}`;
 
   return (
     <PageLayout>
@@ -108,6 +140,45 @@ function LandingPageRoute() {
         imageAlt={page.title}
       />
 
+      {/* Quick Conversion Bar */}
+      <section className="px-6 -mt-6 mb-8 relative z-20">
+        <div className="mx-auto max-w-7xl glass-strong rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+          <div className="flex items-center gap-4 text-left">
+            <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 grid place-items-center text-gold shrink-0">
+              <Star className="w-6 h-6 fill-gold" />
+            </div>
+            <div>
+              <div className="text-sm font-medium text-premium-white flex items-center gap-2">
+                <span>Kanpur's #1 Rated Cab & Travel Service</span>
+                <span className="text-[11px] bg-gold/20 text-gold px-2 py-0.5 rounded-full border border-gold/30">
+                  4.9 / 5 (1280+ Reviews)
+                </span>
+              </div>
+              <p className="text-xs text-luxury-gray">
+                Verified drivers · Clean AC vehicles · On-time doorstep pickup across Kanpur
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 w-full md:w-auto">
+            <a
+              href={BRAND.phoneHref}
+              className="flex-1 md:flex-none btn-gold px-5 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2"
+            >
+              <PhoneCall className="w-4 h-4" /> Call Now
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 md:flex-none btn-ghost-luxe px-5 py-2.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"
+            >
+              <MessageCircle className="w-4 h-4" /> WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Details Grid */}
       <section className="px-6 pb-10 md:pb-12">
         <div className="mx-auto max-w-7xl grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div
@@ -119,13 +190,13 @@ function LandingPageRoute() {
           >
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
               {page.kind === "service"
-                ? "Why this service page matters"
-                : "Why this city guide matters"}
+                ? "Why this service matters"
+                : "Why this travel guide matters"}
             </div>
             <h2 className="font-display text-3xl md:text-4xl mb-4">{page.introHeading}</h2>
             <p className="text-luxury-gray leading-relaxed mb-6">{page.introBody}</p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
               {page.highlights.map((highlight) => (
                 <div
                   key={highlight}
@@ -137,11 +208,27 @@ function LandingPageRoute() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-2xl border border-white/5 bg-white/[0.03] p-5">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-luxury-gray mb-2">
-                Search Intent Fit
+            {/* Vehicle Fleet Selection Grid */}
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold mb-3">
+                Available Fleet Options
               </div>
-              <p className="text-premium-white leading-relaxed">{page.heroSubtitle}</p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {QUICK_FLEET.map((veh) => (
+                  <div
+                    key={veh.name}
+                    className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02] flex items-start gap-3"
+                  >
+                    <Car className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                    <div>
+                      <div className="text-sm font-medium text-premium-white">{veh.name}</div>
+                      <div className="text-xs text-luxury-gray">
+                        {veh.capacity} · {veh.ideal}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -150,16 +237,22 @@ function LandingPageRoute() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="glass-strong rounded-3xl p-7 md:p-10 h-fit"
+            className="glass-strong rounded-3xl p-7 md:p-10 h-fit space-y-6"
           >
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
-              Why people click this page
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+                Why choose Rudra Tours
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl mb-4">
+                Trusted Kanpur Travel Partner.
+              </h2>
+              <p className="text-sm text-luxury-gray leading-relaxed mb-6">
+                Operating since 2014 with 1 Lakh+ happy travellers, experienced chauffeurs, clean
+                vehicles and zero hidden charges.
+              </p>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl mb-6">
-              High-intent travel search support.
-            </h2>
 
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3">
               {page.reasons.map((reason, index) => (
                 <div
                   key={reason}
@@ -173,20 +266,58 @@ function LandingPageRoute() {
               ))}
             </div>
 
-            <Link
-              to="/inquiry"
-              search={{
-                type: page.kind === "service" ? "Service Inquiry" : "Destination Inquiry",
-                package: page.eyebrow,
-              }}
-              className="btn-gold w-full px-5 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2"
-            >
-              Enquire Now <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* Direct Booking CTAs */}
+            <div className="pt-2 space-y-3">
+              <Link
+                to="/inquiry"
+                search={{
+                  type: page.kind === "service" ? "Service Inquiry" : "Destination Inquiry",
+                  package: page.eyebrow,
+                }}
+                className="btn-gold w-full px-5 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2"
+              >
+                Get Instant Quote <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost-luxe w-full px-5 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center justify-center gap-2 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10"
+              >
+                <MessageCircle className="w-4 h-4" /> Book via WhatsApp
+              </a>
+            </div>
           </motion.aside>
         </div>
       </section>
 
+      {/* Kanpur Local Coverage Section */}
+      <section className="px-6 pb-10 md:pb-12">
+        <div className="mx-auto max-w-7xl glass-strong rounded-3xl p-7 md:p-10 border border-white/5">
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
+            <MapPin className="w-3.5 h-3.5" /> 100% Kanpur Locality Coverage
+          </div>
+          <h2 className="font-display text-2xl md:text-3xl mb-4">
+            Doorstep Pickups & Drops Across All Kanpur Areas
+          </h2>
+          <p className="text-sm text-luxury-gray max-w-4xl leading-relaxed mb-6">
+            We provide 24x7 punctual cab pickups from your home, hotel, railway station or office
+            across Kanpur:
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {BRAND.topLocalities.map((loc) => (
+              <span
+                key={loc}
+                className="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-xs text-luxury-gray"
+              >
+                {loc}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Packages */}
       {relatedPackages.length > 0 && (
         <section className="px-6 pb-10 md:pb-12">
           <div className="mx-auto max-w-7xl">
@@ -218,6 +349,7 @@ function LandingPageRoute() {
         </section>
       )}
 
+      {/* Internal Links Hub */}
       {relatedPages.length > 0 && (
         <section className="px-6 pb-10 md:pb-12">
           <div className="mx-auto max-w-7xl">
@@ -247,6 +379,7 @@ function LandingPageRoute() {
         </section>
       )}
 
+      {/* FAQs */}
       <section className="px-6 pb-14 md:pb-16">
         <div className="mx-auto max-w-5xl glass-strong rounded-3xl p-7 md:p-10">
           <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">FAQs</div>
@@ -261,7 +394,7 @@ function LandingPageRoute() {
               >
                 <summary className="cursor-pointer list-none font-medium text-premium-white flex items-center justify-between gap-4">
                   <span>{faq.question}</span>
-                  <span className="text-gold text-lg">+</span>
+                  <span className="text-gold text-lg transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <p className="mt-3 text-sm leading-relaxed text-luxury-gray">{faq.answer}</p>
               </details>
@@ -272,3 +405,4 @@ function LandingPageRoute() {
     </PageLayout>
   );
 }
+

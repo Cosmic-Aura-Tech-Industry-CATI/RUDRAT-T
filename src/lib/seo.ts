@@ -204,11 +204,11 @@ export function combineSeoHead(
 export function organizationSchema() {
   const address = {
     "@type": "PostalAddress",
-    streetAddress: "3/46 LIG Swarn Jayanti Vihar, Koyala Nagar, Mall Road",
-    addressLocality: "Kanpur",
-    addressRegion: "Uttar Pradesh",
-    postalCode: "208001",
-    addressCountry: "IN",
+    streetAddress: BRAND.streetAddress,
+    addressLocality: BRAND.city,
+    addressRegion: BRAND.state,
+    postalCode: BRAND.postalCode,
+    addressCountry: BRAND.country,
   };
 
   const geoCoordinates = {
@@ -260,13 +260,14 @@ export function organizationSchema() {
           "Kashmir Tour Package",
           "Kanpur to Lucknow Cab",
           "Kanpur to Ayodhya Taxi",
+          ...BRAND.topLocalities.map((loc) => `Cab Service in ${loc} Kanpur`),
         ],
         email: BRAND.email,
         telephone: BRAND.phone,
-        foundingDate: "2014",
+        foundingDate: BRAND.establishedYear,
         founder: {
           "@type": "Person",
-          name: "Mr. Abhay Nigam",
+          name: BRAND.founder,
         },
         sameAs: [
           BRAND.mapsUrl,
@@ -524,6 +525,89 @@ export function organizationSchema() {
   };
 }
 
+export function createLandingGraphSchema(page: {
+  slug: string;
+  title: string;
+  description: string;
+  kind: "service" | "location";
+  faqs?: Array<{ question: string; answer: string }>;
+  breadcrumbs?: Array<{ name: string; path: string }>;
+}) {
+  const pageUrl = absoluteUrl(`/${page.slug}`);
+  const isRoute = page.slug.startsWith("kanpur-to-");
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: page.title,
+      description: page.description,
+      isPartOf: { "@id": `${SITE.url}/#website` },
+      publisher: { "@id": `${SITE.url}/#organization` },
+      inLanguage: "en-IN",
+    },
+  ];
+
+  if (page.breadcrumbs && page.breadcrumbs.length > 0) {
+    graph.push({
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumb`,
+      itemListElement: page.breadcrumbs.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: absoluteUrl(item.path),
+      })),
+    });
+  }
+
+  if (page.faqs && page.faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: page.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    });
+  }
+
+  if (isRoute) {
+    graph.push({
+      "@type": "TaxiService",
+      "@id": `${pageUrl}#taxi-service`,
+      name: page.title,
+      url: pageUrl,
+      provider: { "@id": `${SITE.url}/#organization` },
+      serviceType: "Outstation Taxi, One-Way Cab & Round Trip Cab",
+      areaServed: ["Kanpur", "Uttar Pradesh", "India"],
+      telephone: BRAND.phone,
+      priceRange: "₹₹",
+    });
+  } else if (page.kind === "service") {
+    graph.push({
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: page.title,
+      url: pageUrl,
+      description: page.description,
+      provider: { "@id": `${SITE.url}/#organization` },
+      areaServed: ["Kanpur", "Uttar Pradesh", "India"],
+      telephone: BRAND.phone,
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
+}
+
 export function organizationLdJson() {
   const schema = organizationSchema();
   return {
@@ -536,3 +620,4 @@ export function organizationLdJson() {
     ],
   };
 }
+

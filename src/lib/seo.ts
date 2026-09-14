@@ -217,14 +217,6 @@ export function organizationSchema() {
     longitude: 80.3581066,
   };
 
-  const aggregateRating = {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "1280",
-    bestRating: "5",
-    worstRating: "1",
-  };
-
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -481,7 +473,7 @@ export function organizationSchema() {
             position: 8,
             name: "About Us",
             description:
-              "Learn about Rudra Tours and Travels, trusted by 1 Lakh+ happy travellers since 2014.",
+              "Learn about Rudra Tours and Travels, Kanpur's trusted travel agency and cab operator since 2014.",
             url: `${SITE.url}/about`,
           },
           {

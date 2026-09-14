@@ -28,6 +28,7 @@ export const Route = createFileRoute("/tours/$slug")({
     };
   },
   head: ({ loaderData }) => {
+    if (!loaderData?.pkg) return {};
     const seoMeta = pageSeo({
       title: `${loaderData.pkg.name} | India Tour Package`,
       description:

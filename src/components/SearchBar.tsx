@@ -167,7 +167,7 @@ export function SearchBar() {
     if (target) {
       navigate({ to: target.route, params: { slug: target.slug }, search });
     } else {
-      navigate({ to: "/tours", search });
+      navigate({ to: "/tours", search: q ? { q } : {} });
     }
   };
 

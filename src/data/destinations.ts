@@ -23,7 +23,7 @@ export const DESTINATIONS: DestinationGuide[] = [
     name: "Kashmir",
     image: kashmir,
     overview:
-      "Shikara rides, snow valleys and cedar-lined escapes make Kashmir one of India's most searched tour destinations.",
+      "Shikara rides on Dal Lake, snow valleys, and cedar-lined escapes make Kashmir one of India's most breathtaking holiday destinations.",
     highlights: ["Dal Lake", "Gulmarg Gondola", "Pahalgam", "Sonmarg"],
     bestTime: "March to June for greenery and December to February for snow.",
     faqs: [
@@ -115,7 +115,7 @@ export const DESTINATIONS: DestinationGuide[] = [
     name: "Rajasthan",
     image: rajasthan,
     overview:
-      "Palaces, desert forts and heritage cities give Rajasthan a strong cultural search intent across India.",
+      "Grand palaces, majestic desert forts, and timeless royal heritage make Rajasthan a premier cultural holiday destination across India.",
     highlights: ["Jaipur", "Jodhpur", "Udaipur", "Jaisalmer"],
     bestTime: "October to March for cool, comfortable sightseeing.",
     faqs: [

@@ -1,4 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router';
+import { motion } from "framer-motion";
 import { ExternalLink, Star } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/reviews")({
     pageSeo({
       title: "Customer Reviews | Rudra Tours & Travels Kanpur (4.9/5 Rating)",
       description:
-        "Read verified customer reviews of Rudra Tours & Travels Kanpur. Over 1 Lakh+ happy travellers rate our cab services, tour packages & drivers 4.9/5.",
+        "Read verified customer reviews of Rudra Tours & Travels Kanpur. Travellers rate our cab services, tour packages & drivers 4.9/5.",
       path: "/reviews",
       image: hero,
       breadcrumbs: [{ name: "Reviews", path: "/reviews" }],
@@ -29,11 +30,11 @@ function ReviewsPage() {
         eyebrow="Verified Guest Reviews"
         title={
           <>
-            Kanpur's top-rated travel experience,{" "}
+            Kanpur's trusted travel experience,{" "}
             <span className="shine-text italic">told by travellers</span>.
           </>
         }
-        subtitle="1,280+ happy journeys across Uttar Pradesh and India. Unedited feedback from families, pilgrims, and corporate guests."
+        subtitle="Genuine feedback from families, pilgrims, and corporate guests across Uttar Pradesh and India."
         image={hero}
       />
 
@@ -46,7 +47,7 @@ function ReviewsPage() {
               ))}
             </div>
             <div className="text-sm text-premium-white font-medium">
-              4.9 out of 5 · Google Business Profile Rating
+              4.9 out of 5 · Average Rating Across Verified Platforms
             </div>
           </div>
           <a

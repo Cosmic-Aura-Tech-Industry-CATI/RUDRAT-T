@@ -34,6 +34,9 @@ import mathura from "@/assets/destinations/mathura.jpg";
 import prayagraj from "@/assets/destinations/prayagraj.jpg";
 import varanasi from "@/assets/destinations/varanasi.jpg";
 import kainchiDham from "@/assets/destinations/kainchi-dham.jpg";
+import chitrakoot from "@/assets/destinations/chitrakoot.jpg";
+import haridwar from "@/assets/destinations/haridwar.jpg";
+import jaipur1 from "@/assets/packages/jaipur-1.jpg";
 
 const PAGE_IMAGE_BY_SLUG: Record<string, string> = {
   "car-rental-kanpur": heroSuv,
@@ -62,6 +65,9 @@ const PAGE_IMAGE_BY_SLUG: Record<string, string> = {
   "kanpur-to-agra-cab": ctaIndia,
   "kanpur-to-mathura-vrindavan-cab": mathura,
   "kanpur-to-kainchi-dham-taxi": kainchiDham,
+  "kanpur-to-chitrakoot-taxi": chitrakoot,
+  "kanpur-to-haridwar-taxi": haridwar,
+  "kanpur-to-jaipur-taxi": jaipur1,
   kanpur: ctaIndia,
   lucknow: ctaIndia,
   agra: ctaIndia,
@@ -81,6 +87,7 @@ export const Route = createFileRoute("/$slug")({
     return { page };
   },
   head: ({ loaderData }) => {
+    if (!loaderData?.page) return {};
     const image = PAGE_IMAGE_BY_SLUG[loaderData.page.slug] ?? ctaIndia;
     const schema = createLandingGraphSchema({
       slug: loaderData.page.slug,
@@ -126,15 +133,7 @@ function LandingPageRoute() {
       <Breadcrumbs items={[{ label: page.eyebrow, to: `/${page.slug}` }]} />
       <PageHero
         eyebrow={page.eyebrow}
-        title={
-          <>
-            {page.heroTitle.split("|")[0]?.trim() ?? page.heroTitle}
-            <span className="shine-text italic">
-              {page.kind === "service" ? " service" : " guide"}
-            </span>
-            .
-          </>
-        }
+        title={page.heroTitle}
         subtitle={page.heroSubtitle}
         image={image}
         imageAlt={page.title}
@@ -149,9 +148,9 @@ function LandingPageRoute() {
             </div>
             <div>
               <div className="text-sm font-medium text-premium-white flex items-center gap-2">
-                <span>Kanpur's #1 Rated Cab & Travel Service</span>
+                <span>Trusted Cab & Travel Partner in Kanpur</span>
                 <span className="text-[11px] bg-gold/20 text-gold px-2 py-0.5 rounded-full border border-gold/30">
-                  4.9 / 5 (1280+ Reviews)
+                  4.9 / 5 · Verified Guest Rating
                 </span>
               </div>
               <p className="text-xs text-luxury-gray">
@@ -247,7 +246,7 @@ function LandingPageRoute() {
                 Trusted Kanpur Travel Partner.
               </h2>
               <p className="text-sm text-luxury-gray leading-relaxed mb-6">
-                Operating since 2014 with 1 Lakh+ happy travellers, experienced chauffeurs, clean
+                Operating since 2014 with thousands of happy travellers, experienced chauffeurs, clean
                 vehicles and zero hidden charges.
               </p>
             </div>
@@ -291,11 +290,104 @@ function LandingPageRoute() {
         </div>
       </section>
 
+      {/* Route-Specific Fare & Inclusions Matrix */}
+      {isRoute && (
+        <section className="px-6 pb-10 md:pb-12">
+          <div className="mx-auto max-w-7xl glass-strong rounded-3xl p-7 md:p-10 border border-white/5 space-y-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
+                  Route Pricing & Inclusions
+                </div>
+                <h2 className="font-display text-2xl md:text-3xl">
+                  Clear, Upfront Pricing for {page.eyebrow}
+                </h2>
+              </div>
+              <p className="text-xs text-luxury-gray max-w-md">
+                All outstation bookings are transparently calculated. No surprise surge charges or hidden fuel extras.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="rounded-2xl border border-emerald-500/20 bg-emerald-950/10 p-6 space-y-4">
+                <div className="flex items-center gap-2 text-sm font-medium text-emerald-400">
+                  <CheckCircle2 className="w-5 h-5 shrink-0" />
+                  <span>What's Included in Your Fare</span>
+                </div>
+                <ul className="space-y-2.5 text-xs text-luxury-gray">
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold">•</span>
+                    <span>Dedicated sanitized AC commercial vehicle (Sedan / SUV / Tempo)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold">•</span>
+                    <span>Professional, verified highway chauffeur with hill/expressway experience</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold">•</span>
+                    <span>Driver night charges and daily driver allowance (bhatta) included</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold">•</span>
+                    <span>Doorstep pickup from anywhere in Kanpur & scheduled drop at destination</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold">•</span>
+                    <span>24x7 route monitoring and customer trip support</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border border-amber-500/20 bg-amber-950/10 p-6 space-y-4">
+                <div className="flex items-center gap-2 text-sm font-medium text-amber-400">
+                  <ShieldCheck className="w-5 h-5 shrink-0" />
+                  <span>Transparent Extra Charges (At Actuals)</span>
+                </div>
+                <ul className="space-y-2.5 text-xs text-luxury-gray">
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-400 font-bold">•</span>
+                    <span>Expressway / National Highway tolls (paid directly via FASTag or included in fixed package)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-400 font-bold">•</span>
+                    <span>State border entry taxes (if crossing UP border into MP, Rajasthan, or Uttarakhand)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-400 font-bold">•</span>
+                    <span>Municipal parking fees at temples, monuments, or airports against actual receipts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-400 font-bold">•</span>
+                    <span>Temple VIP entry tickets and personal boat ride expenses</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-xs text-luxury-gray">
+                Need a customized multi-day itinerary with hotels and darshan assistance?
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold px-5 py-2 rounded-full text-[11px] uppercase tracking-[0.2em] font-medium inline-flex items-center gap-2"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" /> Request Custom Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Kanpur Local Coverage Section */}
       <section className="px-6 pb-10 md:pb-12">
         <div className="mx-auto max-w-7xl glass-strong rounded-3xl p-7 md:p-10 border border-white/5">
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
-            <MapPin className="w-3.5 h-3.5" /> 100% Kanpur Locality Coverage
+            <MapPin className="w-3.5 h-3.5" /> Comprehensive Kanpur Locality Coverage
           </div>
           <h2 className="font-display text-2xl md:text-3xl mb-4">
             Doorstep Pickups & Drops Across All Kanpur Areas

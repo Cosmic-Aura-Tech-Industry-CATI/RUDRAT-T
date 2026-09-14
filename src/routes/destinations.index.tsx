@@ -9,9 +9,9 @@ import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
 export const Route = createFileRoute("/destinations/")({
   head: () =>
     pageSeo({
-      title: "India Tour Destinations | Kashmir, Goa, Kerala & More",
+      title: "Best Travel Destinations from Kanpur | Tour Guides | Rudra Tours",
       description:
-        "Discover Kashmir, Ladakh, Goa, Kerala, Rajasthan, Himachal and Uttarakhand with Rudra Tours and Travels.",
+        "Discover popular travel destinations from Kanpur: Kashmir, Ladakh, Goa, Kerala, Rajasthan, Himachal and Uttarakhand with customized itinerary guides by Rudra Tours.",
       path: "/destinations",
       image: places[1].image,
       breadcrumbs: [{ name: "Destinations", path: "/destinations" }],

@@ -17,9 +17,9 @@ export const Route = createFileRoute("/tours/")({
   }),
   head: () =>
     pageSeo({
-      title: "India Tour Packages & Pilgrimages from Kanpur | Rudra Tours",
+      title: "Tour Packages from Kanpur | Holiday & Pilgrimage Trips | Rudra Tours",
       description:
-        "Book curated India tour packages from Kanpur: Ayodhya, Kashi Vishwanath, Mathura, Char Dham & Kashmir with custom itineraries and chauffeur cabs.",
+        "Book curated India tour packages from Kanpur: Ayodhya, Kashi Vishwanath, Mathura, Char Dham & Kashmir with custom itineraries, hotels and chauffeur cabs.",
       path: "/tours",
       image: kashmir,
       breadcrumbs: [{ name: "Tour Packages", path: "/tours" }],

@@ -15,27 +15,28 @@ import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 import heroSuv from "@/assets/hero-suv.jpg";
-import { pageSeo } from "@/lib/seo";
+import { organizationSchema, pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () =>
     pageSeo({
-      title: "Rudra Tours & Travels | Travel Agency & Cabs in Kanpur",
+      title: "Travel Agency in Kanpur | Tour Packages & Cab Booking | Rudra Tours",
       description:
-        "Book 24x7 taxi service, car rental & tour packages in Kanpur with Rudra Tours & Travels. Chauffeur cabs, Innova, tempo travellers & outstation trips.",
+        "Kanpur's trusted travel agency since 2014. Book 24x7 taxi service, car rental, tempo travellers, luxury wedding cars & customized India tour packages with Rudra Tours & Travels.",
       path: "/",
       image: heroSuv,
       breadcrumbs: [{ name: "Home", path: "/" }],
+      schema: organizationSchema(),
       faqs: [
         {
-          question: "Which is the best cab service in Kanpur for local and outstation travel?",
+          question: "Which is the best travel agency and cab service in Kanpur?",
           answer:
-            "Rudra Tours & Travels is rated 4.9/5 and is one of Kanpur's most trusted cab services, offering 24x7 chauffeur-driven sedans, SUVs, Innova Crysta, and tempo travellers with transparent pricing.",
+            "Rudra Tours & Travels is rated 4.9/5 and is one of Kanpur's most trusted travel agencies and cab providers since 2014, offering 24x7 chauffeur-driven sedans, SUVs, Innova Crysta, and tempo travellers with transparent pricing.",
         },
         {
-          question: "Can I book a cab from Kanpur to Lucknow, Ayodhya, Varanasi, or Delhi?",
+          question: "Can I book outstation cabs from Kanpur to Lucknow, Ayodhya, Varanasi, or Delhi?",
           answer:
-            "Yes, we provide one-way and round-trip outstation cabs from Kanpur to Lucknow, Ayodhya, Prayagraj, Varanasi, Agra, Delhi NCR, and all major cities across Uttar Pradesh.",
+            "Yes, we provide one-way and round-trip outstation cabs from Kanpur to Lucknow, Ayodhya, Prayagraj, Varanasi, Agra, Delhi NCR, and all major cities across Uttar Pradesh with on-time doorstep pickup.",
         },
         {
           question: "What luxury cars are available for wedding rentals in Kanpur?",

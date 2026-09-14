@@ -11,13 +11,14 @@ import hero from "@/assets/hero-suv.jpg";
 import abhayNigamPhoto from "@/assets/team/abhay-nigam.jpg";
 import rudraFounderPhoto from "@/assets/team/rudra-founder.jpg";
 import { pageSeo, breadcrumbLdJson } from "@/lib/seo";
+import { BRAND } from "@/lib/brand";
 
 export const Route = createFileRoute("/about")({
   head: () =>
     pageSeo({
       title: "About Founder Abhay Nigam | Rudra Tours & Travels Kanpur",
       description:
-        "Meet Mr. Abhay Nigam, Founder & Managing Director of Rudra Tours & Travels in Kanpur. Established in 2014, trusted by 1 Lakh+ happy travellers for cabs and tours.",
+        "Meet Mr. Abhay Nigam, Founder & Managing Director of Rudra Tours & Travels in Kanpur. Established in 2014, trusted by thousands of happy travellers for cabs and tours.",
       path: "/about",
       image: abhayNigamPhoto,
       breadcrumbs: [{ name: "About", path: "/about" }],
@@ -44,11 +45,11 @@ export const Route = createFileRoute("/about")({
             "Mr. Abhay Nigam is the Founder and Managing Director of Rudra Tours & Travels, established in 2014 in Kanpur, Uttar Pradesh.",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "HIG-12, Swarn Jayanti Vihar, Main Road, Koyala Nagar, Daheli Sujanpur",
-            addressLocality: "Kanpur",
-            addressRegion: "Uttar Pradesh",
-            postalCode: "208011",
-            addressCountry: "IN",
+            streetAddress: BRAND.streetAddress,
+            addressLocality: BRAND.city,
+            addressRegion: BRAND.state,
+            postalCode: BRAND.postalCode,
+            addressCountry: BRAND.country,
           },
           url: "https://www.toursbyrudra.com/about",
         },
@@ -77,7 +78,7 @@ const storySections = [
     eyebrow: "The Growth",
     title: "A name you can trust",
     paragraphs: [
-      "What started as a small travel agency has grown into a trusted name in the travel industry. Today, Rudra Tour and Travels has proudly served over 1 lakh happy travellers — helping families, groups and businesses create yaadgaar journeys across India and beyond.",
+      "What started as a small travel agency has grown into a trusted name in the travel industry. Today, Rudra Tour and Travels has proudly served thousands of happy travellers — helping families, groups and businesses create yaadgaar journeys across India and beyond.",
       "We believe every traveller is different, so we offer a wide range of services for every need — from carefully planned tour packages and customised itineraries to comfortable car and vehicle rentals. Family vacation ho, pilgrimage ho, honeymoon ho, corporate trip ho ya weekend getaway — our goal is simple: safe, smooth and enjoyable travel every time.",
     ],
   },

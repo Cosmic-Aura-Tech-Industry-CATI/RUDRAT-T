@@ -14,8 +14,9 @@ export const Route = createFileRoute("/destinations/$slug")({
     if (!destination) throw notFound();
     return { destination };
   },
-  head: ({ loaderData }) =>
-    pageSeo({
+  head: ({ loaderData }) => {
+    if (!loaderData?.destination) return {};
+    return pageSeo({
       title: `${loaderData.destination.name} Tour Guide | Rudra Tours and Travels`,
       description: `${loaderData.destination.name} travel guide with top highlights, best season advice and package options from Rudra Tours and Travels.`,
       path: `/destinations/${loaderData.destination.slug}`,
@@ -28,7 +29,8 @@ export const Route = createFileRoute("/destinations/$slug")({
         },
       ],
       faqs: loaderData.destination.faqs,
-    }),
+    });
+  },
   component: DestinationDetailPage,
 });
 

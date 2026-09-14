@@ -85,6 +85,21 @@ const cols = [
         ariaLabel: "Kanpur to Delhi Cab",
       },
       { label: "Kanpur to Agra Cab", to: "/kanpur-to-agra-cab", ariaLabel: "Kanpur to Agra Cab" },
+      {
+        label: "Kanpur to Chitrakoot Taxi",
+        to: "/kanpur-to-chitrakoot-taxi",
+        ariaLabel: "Kanpur to Chitrakoot Taxi",
+      },
+      {
+        label: "Kanpur to Haridwar Taxi",
+        to: "/kanpur-to-haridwar-taxi",
+        ariaLabel: "Kanpur to Haridwar Taxi",
+      },
+      {
+        label: "Kanpur to Jaipur Taxi",
+        to: "/kanpur-to-jaipur-taxi",
+        ariaLabel: "Kanpur to Jaipur Taxi",
+      },
     ],
   },
   {
@@ -100,18 +115,20 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="relative pt-16 pb-8 px-6 border-t border-white/10">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/10">
-          <div>
-            <div className="mb-5">
-              <img
-                src={logoAsset}
-                alt="Rudra Tours & Travels"
-                className="w-40 h-20 object-contain opacity-95 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            <p className="text-luxury-gray text-sm leading-relaxed max-w-sm">
+    <footer className="border-t border-white/5 bg-deep-dark/80 relative z-10">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-white/5">
+          {/* Brand Col */}
+          <div className="md:col-span-2">
+            <Link to="/" className="inline-block mb-4">
+              <span className="font-display text-2xl tracking-[0.25em] font-light text-gradient-gold">
+                RUDRA
+              </span>
+              <span className="block text-[9px] uppercase tracking-[0.35em] text-luxury-gray">
+                Tours & Travels · Kanpur
+              </span>
+            </Link>
+            <p className="text-sm text-luxury-gray max-w-sm leading-relaxed">
               India's friendly travel partner. Handpicked trips, comfortable cars and yaadgaar
               journeys — planned with warmth.
             </p>
@@ -131,8 +148,9 @@ export function Footer() {
               >
                 <Mail className="w-4 h-4 text-gold" /> {BRAND.email}
               </a>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-gold" /> Kanpur - Uttar Pradesh
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <span className="text-xs leading-relaxed">{BRAND.address}</span>
               </div>
             </div>
           </div>

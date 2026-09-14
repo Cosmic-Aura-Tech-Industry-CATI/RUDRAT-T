@@ -113,6 +113,10 @@ export function pageSeo({
       { name: "description", content: description },
       { name: "robots", content: robots },
       { name: "theme-color", content: "#0f1620" },
+      { name: "geo.region", content: "IN-UP" },
+      { name: "geo.placename", content: "Kanpur" },
+      { name: "geo.position", content: "26.389934;80.358107" },
+      { name: "ICBM", content: "26.389934, 80.358107" },
       { property: "og:site_name", content: SITE.name },
       { property: "og:locale", content: SITE.locale },
       { property: "og:title", content: title },
@@ -215,14 +219,6 @@ export function organizationSchema() {
     "@type": "GeoCoordinates",
     latitude: 26.3899338,
     longitude: 80.3581066,
-  };
-
-  const aggregateRating = {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "1280",
-    bestRating: "5",
-    worstRating: "1",
   };
 
   return {
@@ -481,7 +477,7 @@ export function organizationSchema() {
             position: 8,
             name: "About Us",
             description:
-              "Learn about Rudra Tours and Travels, trusted by 1 Lakh+ happy travellers since 2014.",
+              "Learn about Rudra Tours and Travels, Kanpur's trusted travel agency and cab operator since 2014.",
             url: `${SITE.url}/about`,
           },
           {

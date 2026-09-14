@@ -49,7 +49,7 @@ function DestinationsPage() {
             >
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden glass-strong">
                 <img
-                  src={p.img}
+                  src={p.image}
                   alt={p.name}
                   className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                 />

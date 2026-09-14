@@ -2,10 +2,10 @@ import { motion, useInView, useMotionValue, useTransform, animate } from "framer
 import { useEffect, useRef } from "react";
 
 const stats = [
-  { value: 14, suffix: "+", label: "Years on the Road" },
-  { value: 100000, suffix: "+", label: "Happy Travellers" },
-  { value: 50, suffix: "+", label: "Tour Packages" },
+  { value: 10, suffix: "+", label: "Years of Service" },
+  { value: 50, suffix: "+", label: "Curated Tour Packages" },
   { value: 30, suffix: "+", label: "Destinations Covered" },
+  { value: 24, suffix: "/7", label: "Chauffeur & Trip Support" },
 ];
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {

@@ -26,16 +26,16 @@ const servicePages: LandingPage[] = [
   {
     kind: "service",
     slug: "travel-agent-kanpur",
-    title: "Best Travel Agent in Kanpur | Rudra Tours & Travels",
+    title: "Best Travel Agency in Kanpur | Top Travel Agent - Rudra Tours & Travels",
     description:
-      "Looking for the best travel agent in Kanpur? Rudra Tours & Travels offers custom tour packages, pilgrimage trips, outstation cabs & 24x7 local travel support.",
-    eyebrow: "Best Travel Agent in Kanpur",
-    heroTitle: "Best travel agent in Kanpur for tour packages, pilgrimage trips & cab booking.",
+      "Looking for the best travel agency in Kanpur? Rudra Tours & Travels is a trusted travel agent in Kanpur offering custom tour packages, outstation cabs & 24x7 local support.",
+    eyebrow: "Best Travel Agency in Kanpur",
+    heroTitle: "Best travel agency and travel agent in Kanpur for tour packages & cab booking.",
     heroSubtitle:
       "Serving travellers with genuine care since 2014 with transparent pricing, verified drivers, custom itineraries, and dedicated 24x7 on-trip assistance from Kanpur.",
-    introHeading: "Why Rudra Tours is trusted as Kanpur's best travel agent",
+    introHeading: "Why Rudra Tours is trusted as Kanpur's best travel agency",
     introBody:
-      "Whether you are planning a spiritual pilgrimage to Ayodhya, Varanasi, or Char Dham, a relaxing family holiday to Kashmir or Kerala, or need reliable chauffeur-driven vehicles for wedding and corporate travel, Rudra Tours & Travels delivers end-to-end planning with local Kanpur expertise.",
+      "Whether you are planning a spiritual pilgrimage to Ayodhya, Varanasi, or Char Dham, a relaxing family holiday to Kashmir or Kerala, or need reliable chauffeur-driven vehicles for wedding and corporate travel, Rudra Tours & Travels delivers end-to-end planning with local Kanpur expertise. As the best travel agency in Kanpur, we take care of hotels, vehicles, routes, and round-the-clock on-ground assistance.",
     highlights: [
       "Thousands of Happy Travellers",
       "Serving Since 2014",
@@ -62,9 +62,14 @@ const servicePages: LandingPage[] = [
     ],
     faqs: [
       {
-        question: "Why is Rudra Tours considered the best travel agent in Kanpur?",
+        question: "Why is Rudra Tours considered the best travel agency in Kanpur?",
         answer:
-          "With over a decade of local experience since 2014, verified positive guest reviews, and our own well-maintained fleet, we offer complete personalized travel solutions with 24x7 on-ground assistance.",
+          "With over a decade of local experience since 2014, verified positive guest reviews, and our own well-maintained fleet, Rudra Tours & Travels is recognized as the best travel agency in Kanpur for honest pricing and 24x7 on-ground assistance.",
+      },
+      {
+        question: "How do I book a tour with a travel agent in Kanpur?",
+        answer:
+          "You can call or WhatsApp our Kanpur office directly at +91 70145 47628. Our travel agents will customize your itinerary, car type, and hotel preferences instantly.",
       },
       {
         question: "What travel services do you provide from Kanpur?",
@@ -131,16 +136,16 @@ const servicePages: LandingPage[] = [
   {
     kind: "service",
     slug: "car-rental-kanpur",
-    title: "Car Rental in Kanpur | Chauffeur-Driven Cars, SUVs & Tempo Travellers",
+    title: "Car Rental in Kanpur | Affordable Chauffeur Driven Cars & SUVs - Rudra Tours",
     description:
-      "Book car rental in Kanpur for airport transfers, local sightseeing, weddings, business travel and outstation trips with Rudra Tours and Travels.",
+      "Book car rental in Kanpur with driver. Choose from Swift Dzire, Innova Crysta, Fortuner, Tempo Traveller & luxury cars for local, wedding and outstation trips.",
     eyebrow: "Car Rental in Kanpur",
-    heroTitle: "Car rental in Kanpur for city rides, airport drops and long-distance travel.",
+    heroTitle: "Car rental in Kanpur for local city rides, airport drops & outstation journeys.",
     heroSubtitle:
       "Choose sedan, SUV, Innova Crysta, Fortuner, tempo traveller or bus rental with transparent pricing and local support from our Kanpur team.",
     introHeading: "Why travellers book car rental in Kanpur with Rudra Tours",
     introBody:
-      "Rudra Tours & Travels provides a comprehensive rental fleet in Kanpur for family vacations, corporate business travel, VIP guest transfers, and luxury wedding entries. Every vehicle is sanitized, GPS-enabled, and driven by an experienced chauffeur.",
+      "Rudra Tours & Travels provides a comprehensive car rental fleet in Kanpur for family vacations, corporate business travel, VIP guest transfers, and luxury wedding entries. Every vehicle is sanitized, GPS-enabled, and driven by an experienced chauffeur with deep knowledge of Kanpur and Uttar Pradesh routes.",
     highlights: [
       "Sedans & SUVs (Dzire, Ertiga, Innova)",
       "Luxury Wedding Cars (Audi, BMW, Fortuner)",
@@ -149,8 +154,8 @@ const servicePages: LandingPage[] = [
     ],
     reasons: [
       "Transparent pricing with a direct enquiry path and zero hidden charges.",
-      "Useful for both one-way and round-trip travel across Uttar Pradesh.",
-      "Connects the service page to the exact vehicle and tour pages people need next.",
+      "Doorstep pickup across all Kanpur localities including Civil Lines, Kalyanpur, Kakadeo & Barra.",
+      "Well-maintained, fully commercial licensed vehicles with verified courteous chauffeurs.",
     ],
     relatedPackages: ["ayodhya-darshan", "kashi-vishwanath", "prayagraj-sangam"],
     relatedPages: [
@@ -164,28 +169,33 @@ const servicePages: LandingPage[] = [
       {
         question: "Do you provide car rental in Kanpur with driver?",
         answer:
-          "Yes. We offer chauffeur-driven cabs, SUVs and premium vehicles for local, outstation and wedding travel.",
+          "Yes. We offer chauffeur-driven sedans, SUVs, Innova Crysta, and luxury vehicles for local Kanpur hire, airport drops, and outstation tours.",
+      },
+      {
+        question: "What are the car rental rates in Kanpur?",
+        answer:
+          "Car rental packages in Kanpur start from ₹1,499 for city half-day packages, with transparent per-km rates for outstation trips and zero hidden surcharges.",
       },
       {
         question: "Can I book a car for airport pickup or station pickup?",
         answer:
-          "Yes. Airport transfer, railway pickup and city transfer bookings are all handled from this page.",
+          "Yes. Airport transfers to Lucknow Amausi Airport and Kanpur Central railway station pickup bookings are available 24x7.",
       },
     ],
   },
   {
     kind: "service",
     slug: "taxi-service-kanpur",
-    title: "Taxi Service in Kanpur | Local & Outstation Cab Booking",
+    title: "Taxi Service in Kanpur | 24x7 Local & Outstation Cab Booking - Rudra Tours",
     description:
-      "Hire a taxi service in Kanpur for daily commuting, business meetings, station transfers, outstation routes and family trips.",
+      "Hire reliable taxi service in Kanpur with Rudra Tours. Clean AC cabs, transparent per-km rates, 24x7 airport drops & doorstep pickup across Kanpur.",
     eyebrow: "Taxi Service in Kanpur",
-    heroTitle: "Taxi service in Kanpur for reliable daily travel and outstation trips.",
+    heroTitle: "Taxi service in Kanpur for reliable daily travel, airport transfer and outstation trips.",
     heroSubtitle:
       "24x7 chauffeur-driven sedans, SUVs, Innova Crysta & tempo travellers for local city errands, Kanpur Central station transfers, and outstation trips across UP & India.",
-    introHeading: "A practical taxi booking page for Kanpur travellers",
+    introHeading: "Reliable 24x7 taxi service across Kanpur",
     introBody:
-      "When you book a taxi in Kanpur with Rudra Tours & Travels, you get clean, AC-equipped vehicles, verified drivers, transparent per-km billing, and instant WhatsApp/phone confirmation. Perfect for local full-day hire, airport runs, or long-distance outstation travel.",
+      "When you book a taxi service in Kanpur with Rudra Tours & Travels, you get clean, AC-equipped vehicles, verified drivers, transparent per-km billing, and instant WhatsApp/phone confirmation. Perfect for local full-day hire, railway station drops, Lucknow airport runs, or long-distance outstation travel.",
     highlights: [
       "Local Full-Day & Half-Day Cabs",
       "One-Way & Round-Trip Outstation",
@@ -207,25 +217,30 @@ const servicePages: LandingPage[] = [
     ],
     faqs: [
       {
-        question: "How do I book a taxi in Kanpur with Rudra Tours?",
+        question: "How do I book a 24x7 taxi service in Kanpur with Rudra Tours?",
         answer:
-          "You can call us directly or message us on WhatsApp with your pickup location, destination, travel time, and preferred car type for instant confirmation.",
+          "You can call or WhatsApp us at +91 70145 47628 with your pickup address, destination, travel date, and preferred car type for instant confirmation.",
       },
       {
-        question: "Do you also handle long-distance taxi service?",
+        question: "Do you also handle outstation taxi service from Kanpur?",
         answer:
-          "Yes. We cover local, outstation and intercity travel from Kanpur to major destinations across UP and India.",
+          "Yes. We cover local city travel, airport drops, and outstation trips from Kanpur to Lucknow, Ayodhya, Prayagraj, Varanasi, Agra, Delhi NCR, and across India.",
+      },
+      {
+        question: "Which areas in Kanpur do you cover for taxi pickup?",
+        answer:
+          "We offer 100% doorstep coverage across all Kanpur localities, including Civil Lines, Swaroop Nagar, Kalyanpur, Kakadeo, Kidwai Nagar, Govind Nagar, Barra, and Naubasta.",
       },
     ],
   },
   {
     kind: "service",
     slug: "cab-booking-kanpur",
-    title: "Cab Booking Kanpur | Instant Cab Hire for Local and Outstation Trips",
+    title: "Cab Booking in Kanpur | 24x7 Online Taxi Hire & Cabs - Rudra Tours",
     description:
-      "Book a cab in Kanpur for airport drops, station pickup, office travel, family outings and outstation journeys with quick enquiry support.",
-    eyebrow: "Cab Booking Kanpur",
-    heroTitle: "Fast, reliable cab booking in Kanpur for city travel and outstation journeys.",
+      "Fast & reliable cab booking in Kanpur. Book one-way outstation cabs, airport taxi & city cabs with verified drivers and transparent fares.",
+    eyebrow: "Cab Booking in Kanpur",
+    heroTitle: "Cab booking in Kanpur for fast city travel, airport drops & outstation journeys.",
     heroSubtitle:
       "Book clean, chauffeur-driven cabs in Kanpur for airport transfers, railway station pickups, corporate travel, and family outings with transparent rates.",
     introHeading: "Hassle-free cab booking across Kanpur",
@@ -251,25 +266,30 @@ const servicePages: LandingPage[] = [
     ],
     faqs: [
       {
-        question: "Can I book a cab for a same-day trip?",
+        question: "How can I do instant cab booking in Kanpur?",
         answer:
-          "Yes. Same-day city and outstation cab booking is supported through the inquiry flow.",
+          "You can call or WhatsApp our Kanpur booking desk at +91 70145 47628 or submit an online inquiry on our website for instant cab assignment.",
       },
       {
-        question: "Is this useful for airport taxi searches?",
+        question: "Can I book a cab in Kanpur for a same-day return trip?",
         answer:
-          "Yes. Airport taxi and station pickup queries are routed here as part of the Kanpur cab booking cluster.",
+          "Yes. Same-day city hire and outstation return trips (e.g. to Lucknow, Ayodhya, or Prayagraj) are available with dedicated drivers.",
+      },
+      {
+        question: "Are toll taxes and driver allowances included in Kanpur cab booking?",
+        answer:
+          "We offer fully transparent billing with upfront estimates detailing fuel, driver allowances, and toll taxes.",
       },
     ],
   },
   {
     kind: "service",
     slug: "tempo-traveller-kanpur",
-    title: "Tempo Traveller Kanpur | 12, 17, 26 Seater Group Travel",
+    title: "Tempo Traveller in Kanpur | 12, 17, 26 Seater on Rent - Rudra Tours",
     description:
-      "Book tempo traveller in Kanpur for pilgrimages, family tours, school trips, corporate outings and wedding groups with driver support.",
-    eyebrow: "Tempo Traveller Kanpur",
-    heroTitle: "Tempo traveller on rent in Kanpur for family trips, pilgrimages & group travel.",
+      "Rent luxury tempo traveller in Kanpur for family tours, wedding baraat, and pilgrimages to Ayodhya, Kashi & Char Dham. Pushback AC seats & expert drivers.",
+    eyebrow: "Tempo Traveller in Kanpur",
+    heroTitle: "Tempo traveller in Kanpur for family trips, pilgrimages & group travel.",
     heroSubtitle:
       "Comfortable 12, 17, and 26-seater AC Tempo Travellers with pushback recliner seats, ample luggage space, and experienced highway drivers.",
     introHeading: "Spacious group travel from Kanpur across India",
@@ -454,50 +474,55 @@ const servicePages: LandingPage[] = [
   {
     kind: "service",
     slug: "wedding-car-rental",
-    title: "Wedding Car Rental | Bridal Cars, Baraat Cars & Decorated Vehicles",
+    title: "Wedding Car Rental Kanpur | Luxury Bridal, Groom & Doli Cars - Rudra Tours",
     description:
-      "Book wedding car rental for bridal entry, groom arrival, decorated cars, luxury SUVs and guest movement in Kanpur.",
-    eyebrow: "Wedding Car Rental",
-    heroTitle: "Luxury wedding car rental in Kanpur for bridal arrival & groom entry.",
+      "Best wedding car rental in Kanpur. Hire decorated Audi, BMW, Mercedes-Benz, Fortuner & vintage cars for groom arrival, bridal doli & guest transport.",
+    eyebrow: "Wedding Car Rental Kanpur",
+    heroTitle: "Wedding car rental in Kanpur for bridal arrival, groom entry & guest fleet.",
     heroSubtitle:
       "Make your wedding day truly grand with chauffeur-driven luxury cars including Audi, BMW, Mercedes-Benz, Fortuner, and decorated vintage cars.",
-    introHeading: "Royal wedding transport planned to perfection",
+    introHeading: "Royal wedding transport planned to perfection in Kanpur",
     introBody:
-      "Your wedding day deserves immaculate transportation. From beautifully decorated groom cars and grand bridal entries to seamless luxury shuttles for family elders and VIP guests, Rudra Tours handles all wedding fleet logistics in Kanpur with precision.",
+      "Your wedding day deserves immaculate transportation. From beautifully decorated groom cars and grand bridal entries to seamless luxury shuttles for family elders and VIP guests, Rudra Tours handles all wedding car rental logistics in Kanpur with utmost precision.",
     highlights: ["Luxury Groom Entry Cars", "Bridal Arrival Fleet", "Fresh Floral Decoration Options", "Complete Baraat Fleet Management"],
     reasons: [
-      "Immaculate fleet condition guaranteed on time at your doorstep or venue.",
+      "Immaculate fleet condition guaranteed on time at your doorstep or venue across Kanpur.",
       "Special wedding packages covering ceremony, reception, and vidai schedules.",
-      "Dedicated transport coordinator for multi-vehicle wedding fleets.",
+      "Dedicated transport coordinator for multi-vehicle wedding fleets and guest movements.",
     ],
     relatedPackages: ["jaipur-tour", "rajasthan-heritage", "goa-tour"],
     relatedPages: ["luxury-car-rental", "fortuner-rental", "bus-rental", "corporate-travel"],
     faqs: [
+      {
+        question: "What cars are available for wedding car rental in Kanpur?",
+        answer:
+          "We offer luxury sedans (Mercedes, Audi, BMW), premium SUVs (Toyota Fortuner, Innova Crysta), decorated vintage doli cars, and 12-26 seater Tempo Travellers for guest logistics in Kanpur.",
+      },
       {
         question: "Can I book a decorated car for the wedding day?",
         answer:
           "Yes, we provide luxury cars with elegant fresh flower decorations customized to your wedding theme.",
       },
       {
-        question: "Do you provide vehicles for wedding guest transfers?",
+        question: "Do you provide vehicles for wedding guest transfers in Kanpur?",
         answer:
-          "Yes, we provide Innova Crystas, Tempo Travellers, and deluxe buses to transport outstation wedding guests between hotels and venues.",
+          "Yes, we provide Innova Crystas, Tempo Travellers, and deluxe buses to transport outstation wedding guests between hotels, railway station, airport, and wedding venues.",
       },
     ],
   },
   {
     kind: "service",
     slug: "airport-transfer",
-    title: "Airport Taxi & Transfer | Pickup and Drop from Kanpur",
+    title: "Airport Taxi Kanpur | Cab Service to Lucknow & Kanpur Airport - Rudra Tours",
     description:
-      "Book airport transfer for Lucknow airport, Kanpur city pickup, station transfer and executive drop services with timely driver support.",
-    eyebrow: "Airport Transfer",
-    heroTitle: "24x7 airport taxi & transfer between Kanpur and Lucknow Amausi Airport.",
+      "Book airport taxi in Kanpur for Lucknow Amausi Airport (LKO) and Kanpur Chakeri Airport. 24x7 guaranteed on-time pickup, flight tracking & fixed fares.",
+    eyebrow: "Airport Taxi Kanpur",
+    heroTitle: "Airport taxi in Kanpur for 24x7 transfers to Lucknow Amausi and Chakeri Airport.",
     heroSubtitle:
       "Punctual, doorstep airport cab pickup and drop with real-time flight tracking, polite chauffeurs, and clean AC sedans and SUVs.",
-    introHeading: "Never miss a flight with guaranteed on-time airport transfers",
+    introHeading: "Never miss a flight with guaranteed on-time airport taxi in Kanpur",
     introBody:
-      "Catching a flight from Lucknow Chaudhary Charan Singh (Amausi) International Airport or Kanpur Chakeri Airport requires absolute punctuality. Our 24x7 airport taxi service guarantees on-time doorstep pickup across Kanpur with flight tracking and transparent fixed fares.",
+      "Catching a flight from Lucknow Chaudhary Charan Singh (Amausi) International Airport or Kanpur Chakeri Airport requires absolute punctuality. Our 24x7 airport taxi service in Kanpur guarantees on-time doorstep pickup across all Kanpur localities with flight tracking and transparent fixed fares.",
     highlights: ["Amausi Airport (LKO) 24x7 Drops", "Kanpur Central Station Transfers", "Flight Delay Monitoring", "Fixed Transparent Rates"],
     reasons: [
       "Guaranteed punctual arrival so you never have to rush for flight check-in.",
@@ -513,6 +538,11 @@ const servicePages: LandingPage[] = [
     ],
     faqs: [
       {
+        question: "What is the airport taxi fare from Kanpur to Lucknow Airport?",
+        answer:
+          "Kanpur to Lucknow Chaudhary Charan Singh Airport (Amausi) taxi fares start from ₹1,499 for dedicated AC sedans (Dzire) and ₹2,499 for Innova Crysta with transparent toll inclusions.",
+      },
+      {
         question: "How much time before flight departure should I book my Kanpur to Lucknow airport cab?",
         answer:
           "We recommend scheduling pickup at least 3.5 to 4 hours prior to domestic flight departure to account for highway travel (1.5–2 hours) and security check-in.",
@@ -527,16 +557,16 @@ const servicePages: LandingPage[] = [
   {
     kind: "service",
     slug: "outstation-taxi",
-    title: "Outstation Taxi | One-Way and Round-Trip Cab Booking",
+    title: "Outstation Taxi Kanpur | One-Way & Round Trip Outstation Cabs - Rudra Tours",
     description:
-      "Book outstation taxi from Kanpur for one-way drops, round trips, family travel and long-distance intercity journeys.",
-    eyebrow: "Outstation Taxi",
-    heroTitle: "Outstation taxi service from Kanpur for one-way and round-trip journeys.",
+      "Book outstation taxi in Kanpur for one-way drops and round-trip journeys across UP, Delhi NCR, and India. Experienced highway chauffeurs & zero hidden charges.",
+    eyebrow: "Outstation Taxi Kanpur",
+    heroTitle: "Outstation taxi in Kanpur for one-way drops, family vacations and round trips.",
     heroSubtitle:
       "Reliable outstation cab booking from Kanpur to Lucknow, Ayodhya, Varanasi, Prayagraj, Delhi NCR, and across India with experienced highway drivers.",
-    introHeading: "Comfortable, safe, and transparent outstation cab travel",
+    introHeading: "Comfortable, safe, and transparent outstation taxi travel from Kanpur",
     introBody:
-      "Whether embarking on a weekend pilgrimage, an intercity business trip, or a family holiday, our outstation taxi service gives you the freedom of door-to-door travel without train waitlists or crowded buses. Enjoy clean AC vehicles, flexible stops, and transparent per-km billing.",
+      "Whether embarking on a weekend pilgrimage, an intercity business trip, or a family holiday, our outstation taxi service in Kanpur gives you the freedom of door-to-door travel without train waitlists or crowded buses. Enjoy clean AC vehicles, flexible stops, and transparent per-km billing.",
     highlights: ["One-Way Drop Availability", "Round-Trip Holiday Cabs", "All-India Tourist Permit", "Zero Hidden Surcharges"],
     reasons: [
       "Experienced highway chauffeurs who know optimal routes, toll gates, and clean rest stops.",
@@ -549,7 +579,12 @@ const servicePages: LandingPage[] = [
       {
         question: "Do you offer one-way outstation cabs from Kanpur?",
         answer:
-          "Yes, we offer economical one-way drops on popular routes including Kanpur to Lucknow, Ayodhya, Prayagraj, and Delhi NCR so you only pay for one direction.",
+          "Yes, we offer economical one-way drops on popular routes including Kanpur to Lucknow, Ayodhya, Prayagraj, Varanasi, and Delhi NCR so you only pay for one direction.",
+      },
+      {
+        question: "How is the outstation taxi fare calculated from Kanpur?",
+        answer:
+          "Outstation taxi fares are calculated either on a transparent per-kilometer basis with a standard daily minimum (250 km) or through all-inclusive fixed packages covering fuel, driver allowance, and tolls.",
       },
       {
         question: "Are toll charges and state taxes included in outstation fares?",
